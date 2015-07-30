@@ -9,7 +9,7 @@
     </head>
 
     <body>
-        <a href="hello.html">hellodfdfsd</a>
+        <a href="hello.html">hello</a>
         <a href="view.html">view</a>
     </body>
 </html>
