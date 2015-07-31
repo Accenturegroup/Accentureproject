@@ -33,6 +33,7 @@
         <property name="mappingResources">
             <list>
                 <value>Learners.hbm.xml</value>
+                <value>groups.hbm.xml</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -50,7 +51,10 @@
     <bean class="com.Accenture.DAO.learnerDao" id="d">
         <property name="template" ref="template"/>
     </bean>
-    
+        
+        <bean class="com.Accenture.DAO.groupDao" id="g">
+        <property name="template" ref="template"/>
+    </bean>
     
 </beans>
 

@@ -6,6 +6,7 @@ package com.Accenture.Java;
  * and open the template in the editor.
  */
 
+import com.Accenture.Model.grouppojo;
 import com.Accenture.Model.learnerspojo;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -74,17 +75,17 @@ public class Viewlearner extends HttpServlet {
             SessionFactory sessionfactory= new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
             session=sessionfactory.openSession();
             session.beginTransaction();
-            String hgl= "from learnerspojo learner";
+            String hgl= "from grouppojo groups";
             org.hibernate.Query query= session.createQuery(hgl);
             //query.setParameter(hgl, out);
             System.out.println("Reading values");
             for(Iterator it=query.iterate(); it.hasNext();){
-                learnerspojo model=(learnerspojo)it.next();
+                grouppojo model=(grouppojo)it.next();
                 
                  out.println("Reading the location table");
-                out.println("<h2>"+ model.getLID()+"</h2>");
-                out.println("<h2>"+ model.getLName()+"</h2>");
-                 out.println("<h2>"+ model.getLSurname()+"</h2>");
+                out.println("<h2>"+ model.getGroupid()+"</h2>");
+                out.println("<h2>"+ model.getGname()+"</h2>");
+                 out.println("<h2>"+ model.getStart()+"</h2>");
                 out.println("</br>");
             }
             session.getTransaction().commit();

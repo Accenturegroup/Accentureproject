@@ -11,5 +11,7 @@
     <body>
         <a href="hello.html">helloooooo</a>
         <a href="view.html">view</a>
+        <a href="view1.html">view1</a>
+        <a href="add.html">form</a>
     </body>
 </html>

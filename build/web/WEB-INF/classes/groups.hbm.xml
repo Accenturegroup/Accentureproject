@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.Accenture.Model.grouppojo" table="groups">
+      <id column="gid" name="Groupid" type="integer">
+            <generator class="native"></generator>
+        </id>
+        <property name="Gname">
+            <column name="gname"></column>
+        </property>
+        <property name="duration">
+            <column name="duration"></column>
+        </property>
+                <property name="Finish">
+            <column name="finish"></column>
+        </property>
+                <property name="Location">
+            <column name="location"></column>
+        </property>
+                <property name="Start">
+            <column name="start"></column>
+        </property>
+                <property name="Trainerid">
+            <column name="tid"></column>
+        </property>
+    </class>
+</hibernate-mapping>
+
