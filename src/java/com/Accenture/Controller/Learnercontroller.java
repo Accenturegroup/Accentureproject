@@ -10,9 +10,13 @@ import com.Accenture.DAO.learnerDao;
 import com.Accenture.Model.grouppojo;
 import com.Accenture.Model.learnerspojo;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Iterator;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -79,6 +83,45 @@ public class Learnercontroller {
          grouppojo ppojo=daog.getById(id);
          ModelAndView model=new ModelAndView("edit");
          model.addObject("edit", ppojo);
+         return model;
+     }
+     @RequestMapping("/delete")
+     public ModelAndView delete(HttpServletRequest request,HttpServletResponse res){
+         int id=Integer.parseInt(request.getParameter("id"));
+         
+            Session session;
+   
+            SessionFactory sessionfactory= new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
+            session=sessionfactory.openSession();
+            session.beginTransaction();
+            String hgl= "delete from grouppojo where gid = :id";
+            org.hibernate.Query query= session.createQuery(hgl);
+            query.setParameter("id", id);
+            int count=query.executeUpdate();
+
+         ModelAndView model=new ModelAndView("view1");
+//         model.addObject("view1", ppojo);
+         return model;
+     }
+     @RequestMapping("/update")
+     public ModelAndView update(HttpServletRequest request,HttpServletResponse res){
+         int id=Integer.parseInt(request.getParameter("groupid"));
+         String name=request.getParameter("gname");
+         String duration=request.getParameter("duration");
+            Session session;
+   
+            SessionFactory sessionfactory= new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
+            session=sessionfactory.openSession();
+            session.beginTransaction();
+            String hgl= "update grouppojo groups set gname = :gname,duration =:duration where gid = :id";
+            org.hibernate.Query query= session.createQuery(hgl);
+            query.setParameter("id", id);
+            query.setParameter("gname", name);
+            query.setParameter("duration", duration);
+            int count=query.executeUpdate();
+
+         ModelAndView model=new ModelAndView("view1");
+//         model.addObject("view1", ppojo);
          return model;
      }
 }

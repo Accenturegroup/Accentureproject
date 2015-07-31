@@ -23,8 +23,9 @@
         <th>Start</th>
         <th>Finish</th>
         <th>Location</th>
-        <th>Train<th>
-        
+        <th>Train</th>
+        <th>Edit</th>
+        <th>Delete</th>
         <c:forEach var="group" items="${msg}">
             
                 
@@ -34,8 +35,9 @@
                 <td>${group.getFinish()}</td>
                 <td>${group.getLocation()}</td>
                 <td>${group.getTrainerid()}</td>
-                <td><a href="edit.html?id=${group.getGroupid()}">edit</a></td></tr>
-
+                <td><a href="edit.html?id=${group.getGroupid()}">edit</a></td>
+            
+                <td><a href="delete.html?id=${group.getGroupid()}">delete</a></td></tr>
         </c:forEach>
 
     </table>
