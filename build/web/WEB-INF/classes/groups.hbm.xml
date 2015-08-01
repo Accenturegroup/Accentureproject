@@ -20,9 +20,7 @@
                 <property name="Start">
             <column name="start"></column>
         </property>
-                <property name="Trainerid">
-            <column name="tid"></column>
-        </property>
+
     </class>
 </hibernate-mapping>
 

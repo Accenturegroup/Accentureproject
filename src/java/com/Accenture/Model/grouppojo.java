@@ -16,7 +16,7 @@ public class grouppojo {
     private String start;
     private String finish;
     private String location;
-    private int trainerid;
+    
 
     /**
      * @return the gname
@@ -86,20 +86,6 @@ public class grouppojo {
      */
     public void setLocation(String location) {
         this.location = location;
-    }
-
-    /**
-     * @return the trainerid
-     */
-    public int getTrainerid() {
-        return trainerid;
-    }
-
-    /**
-     * @param trainerid the trainerid to set
-     */
-    public void setTrainerid(int trainerid) {
-        this.trainerid = trainerid;
     }
 
     /**

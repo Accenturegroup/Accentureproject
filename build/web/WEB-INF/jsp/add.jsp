@@ -10,20 +10,26 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        
+         <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <body>
-        <div align="center">
-        <form method="post" action="addnew.html" >
-            Enter Name :<input type="text" name="name"><br/>
-            Enter duration :<input type="text" name="duration"><br/>
-            Enter start :<input type="text" name="start"><br/>
-            Enter finish :<input type="text" name="finish"><br/>
-            Enter loc :<input type="text" name="location"><br/>
-            Enter tid :<input type="text" name="tid"><br/>
-                     <input type="submit" value="add">
-        </form>
+                <div id="show">
+
+        <div class="container">
+        
+        <form class="form-signin" method="post" action="addnew.html" >
+            <h2 class="form-signin-heading">Add Group</h2>
+            <table>
+                <tr><td>Group </td><td><input type="text" class="input-block-level" name="name"><br/></td></tr>
+            <tr><td> Duration </td><td><input type="text" class="input-block-level" name="duration"><br/></td></tr>
+            <tr><td>Start Date </td><td><input type="text" class="input-block-level" name="start"><br/></td></tr>
+            <tr><td>End Date </td><td><input type="text" class="input-block-level" name="finish"><br/></td></tr>
+            <tr><td>Location </td><td><input type="text" class="input-block-level" name="location"><br/></td></tr>
+            <tr><td></td></tr>
+            <tr><td> <input class="btn btn-large btn-primary" type="submit" value="Create"></td></tr>
+       </table>
+       </form>
+        </div>          
         </div>
     </body>
 </html>

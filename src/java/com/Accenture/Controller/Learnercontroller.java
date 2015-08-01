@@ -73,7 +73,6 @@ public class Learnercontroller {
         pojo.setFinish(finish);
         pojo.setStart(start);
         pojo.setLocation(location);
-        pojo.setTrainerid(Integer.parseInt(tid));
         daog.savegroup(pojo);
         return new ModelAndView("add", "message", message);  
     }
@@ -122,6 +121,21 @@ public class Learnercontroller {
 
          ModelAndView model=new ModelAndView("view1");
 //         model.addObject("view1", ppojo);
+         return model;
+     }
+    @RequestMapping("/search")
+    public ModelAndView search(ModelAndView model){
+        grouppojo obj=new grouppojo();
+        model.addObject("search", obj);
+        model.setViewName("search");
+        return model;
+    }
+    @RequestMapping("/search1")
+     public ModelAndView search1(HttpServletRequest request,HttpServletResponse res){
+         int id=Integer.parseInt(request.getParameter("name"));
+         grouppojo ppojo=daog.getById(id);
+         ModelAndView model=new ModelAndView("view");
+         model.addObject("view", ppojo);
          return model;
      }
 }

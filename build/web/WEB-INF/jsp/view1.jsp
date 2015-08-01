@@ -16,14 +16,15 @@
     <body>
         <div align="center">
    <form:form>
-    <table border="1">
+       
+    <table class="table table-bordered">
          
         <th>Name</th>
         <th>Duration</th>
         <th>Start</th>
         <th>Finish</th>
         <th>Location</th>
-        <th>Train</th>
+      
         <th>Edit</th>
         <th>Delete</th>
         <c:forEach var="group" items="${msg}">
@@ -34,8 +35,8 @@
             <td>${group.getStart()}</td>
                 <td>${group.getFinish()}</td>
                 <td>${group.getLocation()}</td>
-                <td>${group.getTrainerid()}</td>
-                <td><a href="edit.html?id=${group.getGroupid()}">edit</a></td>
+           
+                <td><a href="#" onclick="editpage(${group.getGroupid()});">edit</a></td>
             
                 <td><a href="delete.html?id=${group.getGroupid()}">delete</a></td></tr>
         </c:forEach>
@@ -43,5 +44,6 @@
     </table>
     </form:form>
             </div>
+        
     </body>
 </html>
