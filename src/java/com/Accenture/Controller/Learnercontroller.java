@@ -34,6 +34,7 @@ public class Learnercontroller {
     ApplicationContext r = new ClassPathXmlApplicationContext("../../WEB-INF/applicationContext.xml");  
     learnerDao dao=(learnerDao)r.getBean("d");
     groupDao daog=(groupDao)r.getBean("g");
+    learnerspojo pojos=new learnerspojo();
     grouppojo pojo=new grouppojo();
     @RequestMapping("/hello")  
     public ModelAndView helloWorld() {  
@@ -74,7 +75,7 @@ public class Learnercontroller {
         pojo.setStart(start);
         pojo.setLocation(location);
         daog.savegroup(pojo);
-        return new ModelAndView("add", "message", message);  
+        return new ModelAndView("index", "message", message);  
     }
      @RequestMapping("/edit")
      public ModelAndView edit(HttpServletRequest request,HttpServletResponse res){
@@ -98,7 +99,7 @@ public class Learnercontroller {
             query.setParameter("id", id);
             int count=query.executeUpdate();
 
-         ModelAndView model=new ModelAndView("view1");
+         ModelAndView model=new ModelAndView("index");
 //         model.addObject("view1", ppojo);
          return model;
      }
@@ -119,7 +120,7 @@ public class Learnercontroller {
             query.setParameter("duration", duration);
             int count=query.executeUpdate();
 
-         ModelAndView model=new ModelAndView("view1");
+         ModelAndView model=new ModelAndView("index");
 //         model.addObject("view1", ppojo);
          return model;
      }
@@ -135,7 +136,58 @@ public class Learnercontroller {
          int id=Integer.parseInt(request.getParameter("name"));
          grouppojo ppojo=daog.getById(id);
          ModelAndView model=new ModelAndView("view");
-         model.addObject("view", ppojo);
+         model.addObject("edit", ppojo);
          return model;
      }
+    @RequestMapping("/addlearner")
+    public ModelAndView addlearners(ModelAndView model){
+        learnerspojo obj=new learnerspojo();
+        model.addObject("addlearner", obj);
+        model.setViewName("addlearner");
+        return model;
+    }
+    @RequestMapping("/addlearners")
+     public ModelAndView addlearners(HttpServletRequest request,HttpServletResponse res) {  
+        String message = "";
+      String title= request.getParameter("title");
+     
+      String surname= request.getParameter("surname");
+      String id=request.getParameter("id");
+      String number=request.getParameter("number");
+      String email=request.getParameter("email");
+      String gender=request.getParameter("gender");
+      String race=request.getParameter("race");
+      String group=request.getParameter("group");
+      String password= request.getParameter("pass");
+      String status=request.getParameter("status");
+      String name= request.getParameter("name");
+     
+      pojos.setLSurname(surname);
+      pojos.setTitle(title);
+      pojos.setId(id);
+      pojos.setNumber(number);
+      pojos.setEmail(email);
+      pojos.setGender(gender);
+      pojos.setRace(race);
+      pojos.setGroups(group);
+      pojos.setPassword(password);
+      pojos.setStatus(status);
+      pojos.setLName(name);
+      dao.saveLearner(pojos);
+        return new ModelAndView("index", "message", message);  
+    }
+    @RequestMapping("/login")
+     public ModelAndView login(HttpServletRequest request,HttpServletResponse res) {  
+     String message="";
+     ModelAndView model=null;
+     String email=request.getParameter("email");
+     String password=request.getParameter("password");
+     
+     if(email.equals("Accenture@gmail.com")||password.equals("Accenture@2")){
+          model=new ModelAndView("manu");
+     }else{
+          model=new ModelAndView("index");
+     }
+      return model; 
+    }
 }

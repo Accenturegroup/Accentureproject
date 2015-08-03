@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.Accenture.Model.learnerspojo" table="l">
+        <id column="lid" name="LID">
+            <generator class="native"></generator>
+        </id>
+       <property name="LName">
+            <column name="name"></column>
+        </property>
+        <property name="LSurname">
+            <column name="surname"></column>
+        </property>
+        <property name="Title">
+            <column name="title"></column>
+        </property>
+        <property name="Id">
+            <column name="id"></column>
+        </property>
+        <property name="Email">
+            <column name="email"></column>
+        </property>
+        <property name="Groups">
+            <column name="groups"></column>
+        </property>
+        <property name="Password">
+            <column name="password"></column>
+        </property>
+        <property name="Status">
+            <column name="status"></column>
+        </property>
+        <property name="Race">
+            <column name="race"></column>
+        </property>
+        <property name="Number">
+            <column name="number"></column>
+        </property>
+        <property name="Gender">
+            <column name="gender"></column>
+        </property>
+    </class>
+</hibernate-mapping>

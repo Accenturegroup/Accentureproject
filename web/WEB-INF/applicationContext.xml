@@ -32,7 +32,7 @@
         <property name="dataSource" ref="dataSource"/>
         <property name="mappingResources">
             <list>
-                <value>Learners.hbm.xml</value>
+                <value>learner.hbm.xml</value>
                 <value>groups.hbm.xml</value>
             </list>
         </property>

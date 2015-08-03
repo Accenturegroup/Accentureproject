@@ -61,35 +61,26 @@ public class NewServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-try (PrintWriter out = response.getWriter()) {
-    ApplicationContext r = new ClassPathXmlApplicationContext("../../WEB-INF/applicationContext.xml");    
-      
-    learnerDao dao=(learnerDao)r.getBean("d");  
-    out.println("<body id=\"load\" onload=\"infor();\">");
-    out.println("<div id=\"show\">");
-    out.println("<table border=1>");
-    out.println("<tr><td>Name</td><td>Address</td><td>Email</td><td>ID</td><td>PhoneNumber</td><td>Gender</td><td>Pin</td></tr>");
-    List<learnerspojo> listemp = dao.getLearners();
-     
-     for (learnerspojo cn : listemp){
-     
-     out.println("<tr><td>"+cn.getLID()+"</td>");
-     out.println("<td>"+cn.getLName()+"</td>");
-
-     }
-     out.println("</table>");
-     out.println("</div>");
-     
-     out.println("<div id=\"infor\">");
-     
-     out.println("</div>");
-     
-     out.println("</body>");
-  }
-     
-    catch(Exception e){
-        System.out.println(e.getMessage());
-    }
+        try (PrintWriter out = response.getWriter()) {
+            ApplicationContext r = new ClassPathXmlApplicationContext("../../WEB-INF/applicationContext.xml");            
+            learnerspojo obj = new learnerspojo();
+            learnerDao dao = (learnerDao) r.getBean("d");            
+            
+            obj.setNumber("sds");
+            obj.setEmail("sdsd");
+            obj.setGender("ds");
+            obj.setGroups("sdsd");
+            obj.setId("wdew");
+            obj.setLName("Nsizwa");
+            obj.setLSurname("df");
+            obj.setPassword("asda");
+            obj.setRace("ds");
+            obj.setTitle("sds");
+            obj.setStatus("sd");
+            dao.saveLearner(obj);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
         
     }
 

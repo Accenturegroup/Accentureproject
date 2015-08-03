@@ -6,7 +6,7 @@
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/Accenture?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
-    <mapping resource="/Learners.hbm.xml"/>
     <mapping resource="groups.hbm.xml"/>
+    <mapping resource="learner.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

@@ -11,6 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
          <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+
     </head>
     <body>
                 <div id="show">
@@ -23,7 +24,7 @@
                 <tr><td>Group </td><td><input type="text" class="input-block-level" name="name"><br/></td></tr>
             <tr><td> Duration </td><td><input type="text" class="input-block-level" name="duration"><br/></td></tr>
             <tr><td>Start Date </td><td><input type="text" class="input-block-level" name="start"><br/></td></tr>
-            <tr><td>End Date </td><td><input type="text" class="input-block-level" name="finish"><br/></td></tr>
+            <tr><td>End Date </td><td><input type="text"  class="input-block-level" name="finish"><br/></td></tr>
             <tr><td>Location </td><td><input type="text" class="input-block-level" name="location"><br/></td></tr>
             <tr><td></td></tr>
             <tr><td> <input class="btn btn-large btn-primary" type="submit" value="Create"></td></tr>
@@ -31,6 +32,7 @@
        </form>
         </div>          
         </div>
+        
     </body>
 </html>
 

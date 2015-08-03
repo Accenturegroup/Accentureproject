@@ -16,111 +16,181 @@ public class learnerspojo {
     private String LName;
     private String LSurname;
     private String Title;
-    private String IDNumber;
-    private String ContactNumber;
-    private String Email;
-    private String Gender;
-    private String Race;
-    private String Group;
-    private String Password;
-    private String Status;
+    private String id;
+    private String number;
+    private String email;
+    private String gender;
+    private String race;
+    private String groups;
+    private String password;
+    private String status;
 
+    /**
+     * @return the LID
+     */
     public int getLID() {
         return LID;
     }
 
+    /**
+     * @param LID the LID to set
+     */
     public void setLID(int LID) {
         this.LID = LID;
     }
 
+    /**
+     * @return the LName
+     */
     public String getLName() {
         return LName;
     }
 
+    /**
+     * @param LName the LName to set
+     */
     public void setLName(String LName) {
         this.LName = LName;
     }
 
+    /**
+     * @return the LSurname
+     */
     public String getLSurname() {
         return LSurname;
     }
 
+    /**
+     * @param LSurname the LSurname to set
+     */
     public void setLSurname(String LSurname) {
         this.LSurname = LSurname;
     }
 
+    /**
+     * @return the Title
+     */
     public String getTitle() {
         return Title;
     }
 
+    /**
+     * @param Title the Title to set
+     */
     public void setTitle(String Title) {
         this.Title = Title;
     }
 
-    public String getIDNumber() {
-        return IDNumber;
+    /**
+     * @return the id
+     */
+    public String getId() {
+        return id;
     }
 
-    public void setIDNumber(String IDNumber) {
-        this.IDNumber = IDNumber;
+    /**
+     * @param id the id to set
+     */
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getContactNumber() {
-        return ContactNumber;
+    /**
+     * @return the number
+     */
+    public String getNumber() {
+        return number;
     }
 
-    public void setContactNumber(String ContactNumber) {
-        this.ContactNumber = ContactNumber;
+    /**
+     * @param number the number to set
+     */
+    public void setNumber(String number) {
+        this.number = number;
     }
 
+    /**
+     * @return the email
+     */
     public String getEmail() {
-        return Email;
+        return email;
     }
 
-    public void setEmail(String Email) {
-        this.Email = Email;
+    /**
+     * @param email the email to set
+     */
+    public void setEmail(String email) {
+        this.email = email;
     }
 
+    /**
+     * @return the gender
+     */
     public String getGender() {
-        return Gender;
+        return gender;
     }
 
-    public void setGender(String Gender) {
-        this.Gender = Gender;
+    /**
+     * @param gender the gender to set
+     */
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
+    /**
+     * @return the race
+     */
     public String getRace() {
-        return Race;
+        return race;
     }
 
-    public void setRace(String Race) {
-        this.Race = Race;
+    /**
+     * @param race the race to set
+     */
+    public void setRace(String race) {
+        this.race = race;
     }
 
-    public String getGroup() {
-        return Group;
+    /**
+     * @return the groups
+     */
+    public String getGroups() {
+        return groups;
     }
 
-    public void setGroup(String Group) {
-        this.Group = Group;
+    /**
+     * @param groups the groups to set
+     */
+    public void setGroups(String groups) {
+        this.groups = groups;
     }
 
+    /**
+     * @return the password
+     */
     public String getPassword() {
-        return Password;
+        return password;
     }
 
-    public void setPassword(String Password) {
-        this.Password = Password;
+    /**
+     * @param password the password to set
+     */
+    public void setPassword(String password) {
+        this.password = password;
     }
 
+    /**
+     * @return the status
+     */
     public String getStatus() {
-        return Status;
+        return status;
     }
 
-    public void setStatus(String Status) {
-        this.Status = Status;
+    /**
+     * @param status the status to set
+     */
+    public void setStatus(String status) {
+        this.status = status;
     }
-    
-    
-    
+
 }
