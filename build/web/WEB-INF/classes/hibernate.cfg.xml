@@ -8,5 +8,6 @@
     <property name="hibernate.connection.username">root</property>
     <mapping resource="groups.hbm.xml"/>
     <mapping resource="learner.hbm.xml"/>
+    <mapping resource="Assessment.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

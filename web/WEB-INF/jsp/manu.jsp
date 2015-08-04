@@ -146,6 +146,25 @@
                  xmlhttp.open("GET","addlearner.html",true);
                  xmlhttp.send();
              }
+              function addassessment(){
+          if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                 xmlhttp=new XMLHttpRequest(); 
+                }
+                else
+                 {// code for IE6, IE5
+                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                 }
+                xmlhttp.onreadystatechange=function()
+                 {
+              if (xmlhttp.readyState===4 && xmlhttp.status===200)
+                 {
+               document.getElementById("show").innerHTML=xmlhttp.responseText;
+                }
+                 }
+                 xmlhttp.open("GET","Assessment.html",true);
+                 xmlhttp.send();
+             }
              function drop(){
                  
                  if (window.XMLHttpRequest)
@@ -195,6 +214,12 @@
                 </li>
                 <li>
                     <a href="#" onclick="addlearner();">Add learner</a>
+                </li>
+                <li>
+                    <a href="#" onclick="addassessment();">Add Assessment</a>
+                </li>
+                    <li>
+                    <a href="#" onclick="viewssessment();">View Assessment</a>
                 </li>
                 <li>
                     <a href="#" onclick="drop();">Add learner</a>
