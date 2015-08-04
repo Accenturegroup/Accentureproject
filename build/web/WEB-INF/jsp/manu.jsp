@@ -165,6 +165,46 @@
                  xmlhttp.open("GET","Assessment.html",true);
                  xmlhttp.send();
              }
+             function viewassessment(){
+               
+                 if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                 xmlhttp=new XMLHttpRequest(); 
+                }
+                else
+                 {// code for IE6, IE5
+                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                 }
+                xmlhttp.onreadystatechange=function()
+                 {
+              if (xmlhttp.readyState===4 && xmlhttp.status===200)
+                 {
+               document.getElementById("show").innerHTML=xmlhttp.responseText;
+                }
+                 }
+                 xmlhttp.open("GET","ViewAssess.html",true);
+                 xmlhttp.send();
+             }
+             function editassess(id){
+              
+                 if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                 xmlhttp=new XMLHttpRequest(); 
+                }
+                else
+                 {// code for IE6, IE5
+                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                 }
+                xmlhttp.onreadystatechange=function()
+                 {
+              if (xmlhttp.readyState===4 && xmlhttp.status===200)
+                 {
+               document.getElementById("show").innerHTML=xmlhttp.responseText;
+                }
+                 }
+                 xmlhttp.open("GET","editassess.html?id="+id,true);
+                 xmlhttp.send();
+             }
              function drop(){
                  
                  if (window.XMLHttpRequest)
@@ -219,7 +259,7 @@
                     <a href="#" onclick="addassessment();">Add Assessment</a>
                 </li>
                     <li>
-                    <a href="#" onclick="viewssessment();">View Assessment</a>
+                    <a href="#" onclick="viewassessment();">View Assessment</a>
                 </li>
                 <li>
                     <a href="#" onclick="drop();">Add learner</a>

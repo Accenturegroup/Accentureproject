@@ -5,12 +5,15 @@
  */
 package com.Accenture.Controller;
 
+import com.Accenture.DAO.AssessmentDAO;
 import com.Accenture.DAO.groupDao;
 import com.Accenture.DAO.learnerDao;
+import com.Accenture.Model.AssessmentPojo;
 import com.Accenture.Model.grouppojo;
 import com.Accenture.Model.learnerspojo;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -34,7 +37,8 @@ public class Learnercontroller {
     ApplicationContext r = new ClassPathXmlApplicationContext("../../WEB-INF/applicationContext.xml");  
     learnerDao dao=(learnerDao)r.getBean("d");
     groupDao daog=(groupDao)r.getBean("g");
-    learnerspojo pojos=new learnerspojo();
+      AssessmentDAO d=(AssessmentDAO)r.getBean("a");
+     learnerspojo pojos=new learnerspojo();
     grouppojo pojo=new grouppojo();
     @RequestMapping("/hello")  
     public ModelAndView helloWorld() {  
@@ -75,7 +79,7 @@ public class Learnercontroller {
         pojo.setStart(start);
         pojo.setLocation(location);
         daog.savegroup(pojo);
-        return new ModelAndView("index", "message", message);  
+        return new ModelAndView("manu", "message", message);  
     }
      @RequestMapping("/edit")
      public ModelAndView edit(HttpServletRequest request,HttpServletResponse res){
@@ -120,7 +124,7 @@ public class Learnercontroller {
             query.setParameter("duration", duration);
             int count=query.executeUpdate();
 
-         ModelAndView model=new ModelAndView("index");
+         ModelAndView model=new ModelAndView("manu");
 //         model.addObject("view1", ppojo);
          return model;
      }
@@ -190,4 +194,79 @@ public class Learnercontroller {
      }
       return model; 
     }
+     
+     @RequestMapping("/Assessment")
+    public ModelAndView Assessment(ModelAndView model){
+        AssessmentPojo obj=new AssessmentPojo();
+        model.addObject("Assessment", obj);
+        model.setViewName("Assessment");
+        return model;
+    }
+     @RequestMapping("/addnewAssess")
+     public ModelAndView addnewAss(HttpServletRequest request,HttpServletResponse res) {  
+        AssessmentPojo ap=new AssessmentPojo();
+        String message = "";
+        String name=request.getParameter("name");
+        String date=request.getParameter("date");
+        Date now = new Date();
+        
+       ap.setassessName(name);
+        ap.setassessDate(date);
+        ap.setdate(now);
+     
+      d.saveAssessment(ap);
+     return new ModelAndView("manu", "message", message);  
+    }
+        @RequestMapping("/ViewAssess")
+    public ModelAndView viewass(ModelAndView model) throws IOException{ 
+      List<AssessmentPojo> view=d.getAssessments();
+     model.addObject("msg",view);
+      return model;
+    }
+       @RequestMapping("/deleteAsse")
+     public ModelAndView deleteasse(HttpServletRequest request,HttpServletResponse res){
+         int id=Integer.parseInt(request.getParameter("id"));
+         
+            Session session;
+   
+            SessionFactory sessionfactory= new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
+            session=sessionfactory.openSession();
+            session.beginTransaction();
+            String hgl= "delete from AssessmentPojo where assessID = :id";
+            org.hibernate.Query query= session.createQuery(hgl);
+            query.setParameter("id", id);
+            query.executeUpdate();
+
+         ModelAndView model=new ModelAndView("manu");
+         return model;
+     }
+       @RequestMapping("/editassess")
+     public ModelAndView editassess(HttpServletRequest request,HttpServletResponse res){
+         int id=Integer.parseInt(request.getParameter("id"));
+         AssessmentPojo p=d.getById(id);
+         ModelAndView model=new ModelAndView("editassess");
+         model.addObject("editassess", p);
+         return model;
+     }
+      @RequestMapping("/updateassess")
+     public ModelAndView updateassess(HttpServletRequest request,HttpServletResponse res){
+         int id=Integer.parseInt(request.getParameter("assessID"));
+         String name=request.getParameter("assessName");
+         String duration=request.getParameter("assessDate");
+            Session session;
+   
+            SessionFactory sessionfactory= new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
+            session=sessionfactory.openSession();
+            session.beginTransaction();
+            String hgl= "update AssessmentPojo assessment set assessName = :name,assessDate =:date where assessID = :id";
+            org.hibernate.Query query= session.createQuery(hgl);
+            query.setParameter("id", id);
+            query.setParameter("name", name);
+            query.setParameter("date", duration);
+            query.executeUpdate();
+
+         ModelAndView model=new ModelAndView("manu");
+         return model;
+     }
+
 }

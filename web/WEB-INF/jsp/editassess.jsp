@@ -14,23 +14,17 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <div align="center">
-        <h1>Edit</h1>
-            <c:url var="editassess" value="addnewAssess.html"/>
-            <form:form id="editform" modelAttribute="editassess" method="post" action="updateassess.html">
+     <div class="container">
+        <c:url var="editassess" value="addnewAssess.html"/>
+            <form:form class="form-signin" id="editform" modelAttribute="editassess" method="post" action="updateassess.html">
+               <h2 class="form-signin-heading">Update Assessment</h2>
                 <table> 
-                    <tr>
-                        <td><form:label path="assessID">Id</form:label></td>
-                        <td><form:input name="assessID" path="assessID" value="${assessID}"/> </td></tr><tr><br/><tr>
-                        <td><form:label path="assessName">Name</form:label></td>
-                        <td><form:input name="assessName" path="assessName" value="${assessName}"/> </td></tr><tr><br/><tr>
-                        <td><form:label path="assessDate">AssessmentDate</form:label></td>
-                        <td><form:input name="assessDate" path="assessDate" value="${assessDate}"/> </td></tr><br/><tr>
-                        <td><form:label path="date">Today'sDate</form:label></td>
-                        <td><form:input name="date" path="date" value="${date}"/> </td></td></tr><br/><tr>
-                         <td></td>
-                        <td><input type="submit" value="Update" /> </td>
-                    </tr>
+                    <tr> <td><form:label path="assessID">Id</form:label></td><td><form:input class="input-block-level" name="assessID" path="assessID" value="${assessID}"/> </td></tr><tr><tr>
+                       <tr> <td><form:label path="assessName">Name</form:label></td><td><form:input class="input-block-level" name="assessName" path="assessName" value="${assessName}"/> </td></tr><tr><tr>
+                       <tr> <td><form:label path="assessDate">Date</form:label></td><td><form:input class="input-block-level" name="assessDate" path="assessDate" value="${assessDate}"/> </td></tr><tr>
+                       <tr> <td><form:label path="date">Today'sDate</form:label></td><td><form:input class="input-block-level" name="date" path="date" value="${date}"/> </td></td></tr><tr>
+                       <tr>  <td></td></tr>
+                       <tr> <td><input class="btn btn-large btn-primary" type="submit" value="Update" /> </td></tr>
                 </table>
             </form:form>
     </div>
