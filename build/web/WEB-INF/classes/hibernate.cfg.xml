@@ -9,5 +9,6 @@
     <mapping resource="groups.hbm.xml"/>
     <mapping resource="learner.hbm.xml"/>
     <mapping resource="Assessment.hbm.xml"/>
+    <mapping resource="trainer.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

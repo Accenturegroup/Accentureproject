@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.Accenture.Model.trainerpojo" table="trainer">
+      <id name="TId" column="trainerID">
+          <generator class="native"></generator>
+      </id>
+      
+      <property name="Name">
+          <column name="tname"></column>
+      </property>
+      
+      <property name="Surname">
+          <column name="tsurname"></column>
+      </property>
+      
+      <property name="IdNumber">
+          <column name="tidNumber"></column>
+      </property>
+      
+      <property name="Gender">
+          <column name="gender"></column>
+      </property>
+      
+      <property name="Qualification">
+          <column name="qualification"></column>
+      </property>
+      
+      <property name="Password">
+          <column name="Password"></column>
+      </property>
+      
+      <property name="Group">
+          <column name="groupID"></column>
+      </property>
+  </class>
+</hibernate-mapping>

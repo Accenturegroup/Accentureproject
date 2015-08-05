@@ -43,7 +43,7 @@
                  }
                  xmlhttp.open("GET","add.html",true);
                  xmlhttp.send();
-             }
+             } 
              function viewgroup(){
                
                  if (window.XMLHttpRequest)
@@ -62,6 +62,27 @@
                 }
                  }
                  xmlhttp.open("GET","view1.html",true);
+                 xmlhttp.send();
+             }
+             
+             function viewtrainer(){
+               
+                 if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                 xmlhttp=new XMLHttpRequest(); 
+                }
+                else
+                 {// code for IE6, IE5
+                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                 }
+                xmlhttp.onreadystatechange=function()
+                 {
+              if (xmlhttp.readyState===4 && xmlhttp.status===200)
+                 {
+               document.getElementById("show").innerHTML=xmlhttp.responseText;
+                }
+                 }
+                 xmlhttp.open("GET","view2.html",true);
                  xmlhttp.send();
              }
              
@@ -126,7 +147,7 @@
                  }
                  xmlhttp.open("GET","search1.html?name="+name,true);
                  xmlhttp.send();
-             }
+             } 
             function addlearner(){
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -144,6 +165,26 @@
                 }
                  }
                  xmlhttp.open("GET","addlearner.html",true);
+                 xmlhttp.send();
+             }
+             
+              function addtrainer(){
+                 if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                 xmlhttp=new XMLHttpRequest(); 
+                }
+                else
+                 {// code for IE6, IE5
+                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                 }
+                xmlhttp.onreadystatechange=function()
+                 {
+              if (xmlhttp.readyState===4 && xmlhttp.status===200)
+                 {
+               document.getElementById("show").innerHTML=xmlhttp.responseText;
+                }
+                 }
+                 xmlhttp.open("GET","addtrainer.html",true);
                  xmlhttp.send();
              }
               function addassessment(){
@@ -205,6 +246,28 @@
                  xmlhttp.open("GET","editassess.html?id="+id,true);
                  xmlhttp.send();
              }
+             
+              function edittrainer(id){
+              
+                 if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                 xmlhttp=new XMLHttpRequest(); 
+                }
+                else
+                 {// code for IE6, IE5
+                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                 }
+                xmlhttp.onreadystatechange=function()
+                 {
+              if (xmlhttp.readyState===4 && xmlhttp.status===200)
+                 {
+               document.getElementById("show").innerHTML=xmlhttp.responseText;
+                }
+                 }
+                 xmlhttp.open("GET","edittrainers.html?id="+id,true);
+                 xmlhttp.send();
+             }
+             
              function drop(){
                  
                  if (window.XMLHttpRequest)
@@ -254,6 +317,12 @@
                 </li>
                 <li>
                     <a href="#" onclick="addlearner();">Add learner</a>
+                </li>
+                <li>
+                    <a href="#" onclick="addtrainer();">Add Trainer</a>
+                </li>
+                  <li>
+                    <a href="#" onclick="viewtrainer();">View Trainer</a>
                 </li>
                 <li>
                     <a href="#" onclick="addassessment();">Add Assessment</a>

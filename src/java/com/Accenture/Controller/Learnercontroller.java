@@ -8,9 +8,11 @@ package com.Accenture.Controller;
 import com.Accenture.DAO.AssessmentDAO;
 import com.Accenture.DAO.groupDao;
 import com.Accenture.DAO.learnerDao;
+import com.Accenture.DAO.trainerDao;
 import com.Accenture.Model.AssessmentPojo;
 import com.Accenture.Model.grouppojo;
 import com.Accenture.Model.learnerspojo;
+import com.Accenture.Model.trainerpojo;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
@@ -37,9 +39,11 @@ public class Learnercontroller {
     ApplicationContext r = new ClassPathXmlApplicationContext("../../WEB-INF/applicationContext.xml");  
     learnerDao dao=(learnerDao)r.getBean("d");
     groupDao daog=(groupDao)r.getBean("g");
+    trainerDao daoe= (trainerDao)r.getBean("e");
       AssessmentDAO d=(AssessmentDAO)r.getBean("a");
      learnerspojo pojos=new learnerspojo();
     grouppojo pojo=new grouppojo();
+    trainerpojo pojoe= new trainerpojo();
     @RequestMapping("/hello")  
     public ModelAndView helloWorld() {  
         String message = "HELLO SPRING NSIZWA ";  
@@ -55,6 +59,14 @@ public class Learnercontroller {
     public ModelAndView view1(ModelAndView model) throws IOException{ 
       List<grouppojo> view1=daog.getgroup();
      model.addObject("msg",view1);
+      return model;
+    }
+    
+    @RequestMapping("/view2")
+    public ModelAndView view2(ModelAndView model) throws IOException{ 
+      List<trainerpojo> view2=daoe.getTrainers();
+     model.addObject("msg",view2);
+     
       return model;
     }
     @RequestMapping("/add")
@@ -88,7 +100,7 @@ public class Learnercontroller {
          ModelAndView model=new ModelAndView("edit");
          model.addObject("edit", ppojo);
          return model;
-     }
+     } 
      @RequestMapping("/delete")
      public ModelAndView delete(HttpServletRequest request,HttpServletResponse res){
          int id=Integer.parseInt(request.getParameter("id"));
@@ -107,6 +119,9 @@ public class Learnercontroller {
 //         model.addObject("view1", ppojo);
          return model;
      }
+     
+     
+     
      @RequestMapping("/update")
      public ModelAndView update(HttpServletRequest request,HttpServletResponse res){
          int id=Integer.parseInt(request.getParameter("groupid"));
@@ -150,6 +165,7 @@ public class Learnercontroller {
         model.setViewName("addlearner");
         return model;
     }
+    
     @RequestMapping("/addlearners")
      public ModelAndView addlearners(HttpServletRequest request,HttpServletResponse res) {  
         String message = "";
@@ -178,8 +194,106 @@ public class Learnercontroller {
       pojos.setStatus(status);
       pojos.setLName(name);
       dao.saveLearner(pojos);
-        return new ModelAndView("index", "message", message);  
+        return new ModelAndView("manu", "message", message);  
     }
+     
+    @RequestMapping("/addtrainer")
+    public ModelAndView addtrainer(ModelAndView model){
+          List<grouppojo> view1=daog.getgroup();
+     model.addObject("msg",view1);
+        trainerpojo obj=new trainerpojo();
+        model.addObject("addtrainer", obj);
+        model.setViewName("addtrainer");
+        return model;
+    }
+     
+      @RequestMapping("/addtrainers")
+     public ModelAndView addtrainers(HttpServletRequest request,HttpServletResponse res) {  
+        String message = "";
+      String name= request.getParameter("name");
+      String surname= request.getParameter("surname");
+      String id=request.getParameter("id");
+      String gender=request.getParameter("gender");
+      String qualification=request.getParameter("qual");
+      String password= request.getParameter("pass");
+      String group=request.getParameter("group");
+      
+     
+      pojoe.setName(name);
+      pojoe.setSurname(surname);
+      pojoe.setIdNumber(id);
+      pojoe.setGender(gender);
+      pojoe.setQualification(qualification);
+      pojoe.setPassword(password);
+      pojoe.setGroup(group);
+      daoe.saveTrainer(pojoe);
+        return new ModelAndView("manu", "message", message);  
+    }
+     
+     @RequestMapping("/deletetrainer")
+     public ModelAndView deletetrainer(HttpServletRequest request,HttpServletResponse res){
+         int id=Integer.parseInt(request.getParameter("id"));
+         
+            Session session;
+   
+            SessionFactory sessionfactory= new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
+            session=sessionfactory.openSession();
+            session.beginTransaction();
+            String hgl= "delete from trainerpojo where trainerID = :id";
+            org.hibernate.Query query= session.createQuery(hgl);
+            query.setParameter("id", id);
+           query.executeUpdate();
+
+         ModelAndView model=new ModelAndView("manu");
+
+         return model;
+     }
+     
+      @RequestMapping("/edittrainers")
+     public ModelAndView edittrainers(HttpServletRequest request,HttpServletResponse res){
+         
+          List<grouppojo> view1=daog.getgroup();
+     
+         int id=Integer.parseInt(request.getParameter("id"));
+         trainerpojo a=daoe.getById(id);
+         ModelAndView model=new ModelAndView("edittrainers");
+         model.addObject("edittrainers", a);
+         model.addObject("msg",view1);
+         return model;
+     }
+     
+    @RequestMapping("/updatetrainer")
+     public ModelAndView updatetrainer(HttpServletRequest request,HttpServletResponse res){
+         
+         int trainerid=Integer.parseInt(request.getParameter("trainerid"));
+         String name=request.getParameter("name");
+         String surname=request.getParameter("surname");
+         String id=request.getParameter("id");
+         String gender=request.getParameter("gender");
+         String qualification=request.getParameter("qual");
+         String group=request.getParameter("group");
+         String pass=request.getParameter("pass");
+            Session session;
+   
+            SessionFactory sessionfactory= new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
+            session=sessionfactory.openSession();
+            session.beginTransaction();
+            String hgl= "update trainerpojo trainer set  tname = :name,tsurname =:surname,tidNumber =:id,gender =:gender,qualification =:qualification,password =:pass,groupID =:group where trainerID = :id2";
+            org.hibernate.Query query= session.createQuery(hgl);
+            query.setParameter("id2", trainerid);
+            query.setParameter("name", name);
+            query.setParameter("surname", surname);
+             query.setParameter("id", id);
+            query.setParameter("gender", gender);
+            query.setParameter("qualification", qualification);
+            query.setParameter("pass", pass);
+            query.setParameter("group", group);
+            query.executeUpdate();
+
+         ModelAndView model=new ModelAndView("manu");
+         return model;
+     }         
+             
     @RequestMapping("/login")
      public ModelAndView login(HttpServletRequest request,HttpServletResponse res) {  
      String message="";
