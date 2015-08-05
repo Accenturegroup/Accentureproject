@@ -148,6 +148,97 @@
                  xmlhttp.open("GET","search1.html?name="+name,true);
                  xmlhttp.send();
              } 
+             
+             
+             function searchgroup(){
+               
+                 if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                 xmlhttp=new XMLHttpRequest(); 
+                }
+                else
+                 {// code for IE6, IE5
+                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                 }
+                xmlhttp.onreadystatechange=function()
+                 {
+              if (xmlhttp.readyState===4 && xmlhttp.status===200)
+                 {
+               document.getElementById("show").innerHTML=xmlhttp.responseText;
+                }
+                 }
+                 xmlhttp.open("GET","search.html",true);
+                 xmlhttp.send();
+             }
+             function search(){
+               
+               var name=document.getElementById("name").value;
+               alert(name);
+                 if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                 xmlhttp=new XMLHttpRequest(); 
+                }
+                else
+                 {// code for IE6, IE5
+                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                 }
+                xmlhttp.onreadystatechange=function()
+                 {
+              if (xmlhttp.readyState===4 && xmlhttp.status===200)
+                 {
+               document.getElementById("show").innerHTML=xmlhttp.responseText;
+                }
+                 }
+                 xmlhttp.open("GET","search1.html?name="+name,true);
+                 xmlhttp.send();
+             } 
+             
+             
+              function searchTrainer(){
+               
+                 if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                 xmlhttp=new XMLHttpRequest(); 
+                }
+                else
+                 {// code for IE6, IE5
+                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                 }
+                xmlhttp.onreadystatechange=function()
+                 {
+              if (xmlhttp.readyState===4 && xmlhttp.status===200)
+                 {
+               document.getElementById("show").innerHTML=xmlhttp.responseText;
+                }
+                 }
+                 xmlhttp.open("GET","searchTrainer.html",true);
+                 xmlhttp.send();
+             }
+             
+             
+              function tsearchResults(){
+               
+               var name=document.getElementById("name").value;
+               alert(name);
+                 if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                 xmlhttp=new XMLHttpRequest(); 
+                }
+                else
+                 {// code for IE6, IE5
+                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                 }
+                xmlhttp.onreadystatechange=function()
+                 {
+              if (xmlhttp.readyState===4 && xmlhttp.status===200)
+                 {
+               document.getElementById("show").innerHTML=xmlhttp.responseText;
+                }
+                 }
+                 xmlhttp.open("GET","tsearchResults.html?name="+name,true);
+                 xmlhttp.send();
+             }
+             
             function addlearner(){
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -314,6 +405,12 @@
                 </li>
                 <li>
                     <a href="#" onclick="searchgroup();">Search group</a>
+                </li>
+                <li>
+                <a href="#" onclick="searchlearner();">Search Learner</a>
+                </li>
+                <li>
+                <a href="#" onclick="searchTrainer();">Search Trainer</a>
                 </li>
                 <li>
                     <a href="#" onclick="addlearner();">Add learner</a>

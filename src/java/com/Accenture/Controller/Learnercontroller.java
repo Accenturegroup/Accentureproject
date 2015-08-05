@@ -158,6 +158,41 @@ public class Learnercontroller {
          model.addObject("edit", ppojo);
          return model;
      }
+     
+      @RequestMapping("/searchTrainer")
+    public ModelAndView searchTrainer(ModelAndView model){
+        grouppojo obj=new grouppojo();
+        model.addObject("searchTrainer", obj);
+        model.setViewName("searchTrainer");
+        return model;
+    }
+    
+    @RequestMapping("/tsearchResults")
+     public ModelAndView searchTrainerResults(HttpServletRequest request,HttpServletResponse res){
+         int id=Integer.parseInt(request.getParameter("name"));
+         grouppojo ppojo=daog.getById(id);
+         ModelAndView model=new ModelAndView("tsearchResults");
+         model.addObject("tsearchResults", ppojo);
+         return model;
+     }
+     
+      @RequestMapping("/searchlearner")
+    public ModelAndView searchlearner(ModelAndView model){
+        grouppojo obj=new grouppojo();
+        model.addObject("searchlearner", obj);
+        model.setViewName("searchlearner");
+        return model;
+    }
+     
+     @RequestMapping("/lsearchResults")
+     public ModelAndView lsearchResults(HttpServletRequest request,HttpServletResponse res){
+         int id=Integer.parseInt(request.getParameter("name"));
+         grouppojo ppojo=daog.getById(id);
+         ModelAndView model=new ModelAndView("lsearchResults");
+         model.addObject("lsearchResults", ppojo);
+         return model;
+     }
+     
     @RequestMapping("/addlearner")
     public ModelAndView addlearners(ModelAndView model){
         learnerspojo obj=new learnerspojo();
