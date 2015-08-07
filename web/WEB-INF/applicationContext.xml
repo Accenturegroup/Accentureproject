@@ -37,6 +37,7 @@
                  <value>Assessment.hbm.xml</value>
                  <value>trainer.hbm.xml</value>
                  <value>markregister.hbm.xml</value>
+                 <value>LearnerAssessment.hbm.xml</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -66,6 +67,9 @@
         <property name="template" ref="template"/>
     </bean>
           <bean class="com.Accenture.DAO.markregisterDao" id="m">
+        <property name="template" ref="template"/>
+    </bean>
+    <bean class="com.Accenture.DAO.LearnerAssessmentDAO" id="las">
         <property name="template" ref="template"/>
     </bean>
 

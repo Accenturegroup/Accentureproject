@@ -399,6 +399,65 @@
                  xmlhttp.open("GET","drop.html",true);
                  xmlhttp.send();
              }
+             function addLearnerAssessment(){
+                 if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                 xmlhttp=new XMLHttpRequest(); 
+                }
+                else
+                 {// code for IE6, IE5
+                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                 }
+                xmlhttp.onreadystatechange=function()
+                 {
+              if (xmlhttp.readyState===4 && xmlhttp.status===200)
+                 {
+               document.getElementById("show").innerHTML=xmlhttp.responseText;
+                }
+                 }
+                 xmlhttp.open("GET","LearnerAssessmentAddView.html",true);
+                 xmlhttp.send();
+             }
+             function viewLearnerAssess(){
+               
+                 if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                 xmlhttp=new XMLHttpRequest(); 
+                }
+                else
+                 {// code for IE6, IE5
+                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                 }
+                xmlhttp.onreadystatechange=function()
+                 {
+              if (xmlhttp.readyState===4 && xmlhttp.status===200)
+                 {
+               document.getElementById("show").innerHTML=xmlhttp.responseText;
+                }
+                 }
+                 xmlhttp.open("GET","LearnerAssessmentView.html",true);
+                 xmlhttp.send();
+             }
+             function editLearnerAssess(id){
+            //  alert(id);
+                 if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                 xmlhttp=new XMLHttpRequest(); 
+                }
+                else
+                 {// code for IE6, IE5
+                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                 }
+                xmlhttp.onreadystatechange=function()
+                 {
+              if (xmlhttp.readyState===4 && xmlhttp.status===200)
+                 {
+               document.getElementById("show").innerHTML=xmlhttp.responseText;
+                }
+                 }
+                 xmlhttp.open("GET","editLA.html?id="+id,true);
+                 xmlhttp.send();
+             }
         </script>
     </head>
     <body>
@@ -456,7 +515,13 @@
                     <a href="#" onclick="viewassessment();">View Assessment</a>
                 </li>
                 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-
+                <li>
+                    <a href="#" onclick="addLearnerAssessment()">Add learner assessment</a>
+                </li>
+                <li>
+                    <a href="#" onclick="viewLearnerAssess()">View learner assessment</a>
+                </li>
+                <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
                 <li>
                     <a href="#">Contact</a>
                 </li>
