@@ -114,18 +114,11 @@ public class Learnercontroller {
      public ModelAndView delete(HttpServletRequest request,HttpServletResponse res){
          int id=Integer.parseInt(request.getParameter("id"));
          
-            Session session;
-   
-            SessionFactory sessionfactory= new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
-            session=sessionfactory.openSession();
-            session.beginTransaction();
-            String hgl= "delete from grouppojo where gid = :id";
-            org.hibernate.Query query= session.createQuery(hgl);
-            query.setParameter("id", id);
-            int count=query.executeUpdate();
+         pojo.setGroupid(id);
+         daog.deleteforceg(pojo);
 
-         ModelAndView model=new ModelAndView("index");
-//         model.addObject("view1", ppojo);
+         ModelAndView model=new ModelAndView("manu");
+
          return model;
      }
      
@@ -133,24 +126,22 @@ public class Learnercontroller {
      
      @RequestMapping("/update")
      public ModelAndView update(HttpServletRequest request,HttpServletResponse res){
-         int id=Integer.parseInt(request.getParameter("groupid"));
-         String name=request.getParameter("gname");
-         String duration=request.getParameter("duration");
-            Session session;
-   
-            SessionFactory sessionfactory= new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
-            session=sessionfactory.openSession();
-            session.beginTransaction();
-            String hgl= "update grouppojo groups set gname = :gname,duration =:duration where gid = :id";
-            org.hibernate.Query query= session.createQuery(hgl);
-            query.setParameter("id", id);
-            query.setParameter("gname", name);
-            query.setParameter("duration", duration);
-            int count=query.executeUpdate();
-
-         ModelAndView model=new ModelAndView("manu");
-//         model.addObject("view1", ppojo);
-         return model;
+        String message = "";
+        int id=Integer.parseInt(request.getParameter("groupid"));
+        String name=request.getParameter("gname");
+        String duration=request.getParameter("duration");
+        String start=request.getParameter("start");
+        String finish=request.getParameter("finish");
+        String location=request.getParameter("location");
+        String tid=request.getParameter("tid");
+        pojo.setGroupid(id);
+        pojo.setGname(name);
+        pojo.setDuration(duration);
+        pojo.setFinish(finish);
+        pojo.setStart(start);
+        pojo.setLocation(location);
+        daog.updateforceg(pojo);
+        return new ModelAndView("manu", "message", message); 
      }
     @RequestMapping("/search")
     public ModelAndView search(ModelAndView model){
@@ -263,7 +254,6 @@ public class Learnercontroller {
       String password= request.getParameter("pass");
       String group=request.getParameter("group");
       
-     
       pojoe.setName(name);
       pojoe.setSurname(surname);
       pojoe.setIdNumber(id);

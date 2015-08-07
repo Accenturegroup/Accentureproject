@@ -5,9 +5,12 @@
  */
 package com.Accenture.DAO;
 
+import com.Accenture.Model.AssessmentPojo;
 import com.Accenture.Model.grouppojo;
 import java.util.ArrayList;
 import java.util.List;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 
 /**
@@ -24,11 +27,35 @@ public void setTemplate(HibernateTemplate template) {
 public void savegroup(grouppojo e){  
     template.save(e);  
 }  
-//method to update employee  
+//method to update assessment 
+public void updateforceg (grouppojo e){
+  Session session= null; 
+   SessionFactory sessionFactory = new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
+   session =sessionFactory.openSession();
+   session.beginTransaction(); 
+
+        session.update(e);
+        session.getTransaction().commit();
+         session.flush();
+    session.close();
+}
+//method to update assessment  
 public void updategroup(grouppojo e){  
     template.update(e);  
 }  
-//method to delete employee  
+//method to update assessment 
+public void deleteforceg (grouppojo e){
+  Session session= null; 
+   SessionFactory sessionFactory = new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
+   session =sessionFactory.openSession();
+   session.beginTransaction(); 
+
+        session.delete(e);
+        session.getTransaction().commit();
+         session.flush();
+    session.close();
+}
+//method to update assessment  
 public void deletegroup(grouppojo e){  
     template.delete(e);  
 }  
