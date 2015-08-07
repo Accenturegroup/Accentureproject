@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.Accenture.Model.markregister" table="markregister">
+        <id name="Mrid" column="mrid" type="integer">
+            <generator class="native"></generator>
+        </id>
+        <property name="Fname">
+            <column name="fname"></column>
+        </property>
+                <property name="Lname">
+            <column name="lname"></column>
+        </property>
+                <property name="Date">
+            <column name="date"></column>
+        </property>
+                <property name="Status">
+            <column name="status"></column>
+        </property>
+    </class>
+</hibernate-mapping>

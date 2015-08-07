@@ -8,10 +8,12 @@ package com.Accenture.Controller;
 import com.Accenture.DAO.AssessmentDAO;
 import com.Accenture.DAO.groupDao;
 import com.Accenture.DAO.learnerDao;
+import com.Accenture.DAO.markregisterDao;
 import com.Accenture.DAO.trainerDao;
 import com.Accenture.Model.AssessmentPojo;
 import com.Accenture.Model.grouppojo;
 import com.Accenture.Model.learnerspojo;
+import com.Accenture.Model.markregister;
 import com.Accenture.Model.trainerpojo;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -44,6 +46,11 @@ public class Learnercontroller {
      learnerspojo pojos=new learnerspojo();
     grouppojo pojo=new grouppojo();
     trainerpojo pojoe= new trainerpojo();
+    markregisterDao mdao=(markregisterDao)r.getBean("m");
+
+    markregister mpojos=new markregister();
+
+    
     @RequestMapping("/hello")  
     public ModelAndView helloWorld() {  
         String message = "HELLO SPRING NSIZWA ";  
@@ -192,15 +199,16 @@ public class Learnercontroller {
          model.addObject("lsearchResults", ppojo);
          return model;
      }
-     
     @RequestMapping("/addlearner")
     public ModelAndView addlearners(ModelAndView model){
         learnerspojo obj=new learnerspojo();
+              List<grouppojo> view1=daog.getgroup();
+        model.addObject("msg",view1);
         model.addObject("addlearner", obj);
         model.setViewName("addlearner");
         return model;
     }
-    
+
     @RequestMapping("/addlearners")
      public ModelAndView addlearners(HttpServletRequest request,HttpServletResponse res) {  
         String message = "";
@@ -417,5 +425,30 @@ public class Learnercontroller {
          ModelAndView model=new ModelAndView("manu");
          return model;
      }
+      @RequestMapping("/markregister")
+    public ModelAndView view3(ModelAndView model) throws IOException{ 
+      List<learnerspojo> view=dao.getLearners();
+      model.addObject("msg",view);
+//      model.setViewName("markregister");
+      return model;
+    }
+
+    @RequestMapping("/register")
+     public ModelAndView markregister1(HttpServletRequest request,HttpServletResponse res) {  
+        String message = "";
+        String [] name=request.getParameterValues("name");
+        String [] date=request.getParameterValues("date");
+        String [] status=request.getParameterValues("status");
+
+        for (int i=0;i<name.length;i++){
+         mpojos.setLname(name[i]);
+         mpojos.setDate(date[i]);
+         mpojos.setStatus(status[i]);
+         mpojos.setFname("dfasd");
+         
+         mdao.saveMarkRegister(mpojos);
+        }
+        return new ModelAndView("manu", "message", message);  
+    }
 
 }
