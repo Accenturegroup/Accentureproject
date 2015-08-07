@@ -417,6 +417,7 @@
                 <li>
                     <a href="#">Dashboard</a>
                 </li>
+            <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
                 <li>
                     <a href="#" onclick="viewgroup();">View group</a>
                 </li>
@@ -426,30 +427,36 @@
                 <li>
                     <a href="#" onclick="searchgroup();">Search group</a>
                 </li>
-                <li>
-                <a href="#" onclick="searchlearner();">Search Learner</a>
-                </li>
-                <li>
-                <a href="#" onclick="searchTrainer();">Search Trainer</a>
-                </li>
+                <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
                 <li>
                     <a href="#" onclick="addlearner();">Add learner</a>
                 </li>
+                <li>
+                    <a href="#" onclick="registerform();">Mark Register</a>
+                </li>
+                <li>
+                <a href="#" onclick="searchlearner();">Search Learner</a>
+                </li>
+                <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+                <li>
+                <a href="#" onclick="searchTrainer();">Search Trainer</a>
+                </li>
+
                 <li>
                     <a href="#" onclick="addtrainer();">Add Trainer</a>
                 </li>
                   <li>
                     <a href="#" onclick="viewtrainer();">View Trainer</a>
                 </li>
+                <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
                 <li>
                     <a href="#" onclick="addassessment();">Add Assessment</a>
                 </li>
                     <li>
                     <a href="#" onclick="viewassessment();">View Assessment</a>
                 </li>
-                <li>
-                    <a href="#" onclick="registerform();">Mark Register</a>
-                </li>
+                <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
                 <li>
                     <a href="#">Contact</a>
                 </li>
@@ -462,7 +469,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                               
-                     <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+                     <a href="#menu-toggle" class="btn btn-large btn-primary" id="menu-toggle">Toggle Menu</a>
                     </div>
                 </div>
             </div>

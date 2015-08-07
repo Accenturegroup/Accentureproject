@@ -20,7 +20,7 @@
     <body>
        
         <div id="d"  class="input-append" >
-        <input class="span2" id="name" type="text">
+        <input  class="input-block-level" id="name" type="text">
         <input class="btn" type="button" value="Go!" onclick="search();">
         </div>
       
