@@ -22,7 +22,7 @@
                     <tr> <td><form:label path="assessID">Id</form:label></td><td><form:input class="input-block-level" name="assessID" path="assessID" value="${assessID}"/> </td></tr><tr><tr>
                        <tr> <td><form:label path="assessName">Name</form:label></td><td><form:input class="input-block-level" name="assessName" path="assessName" value="${assessName}"/> </td></tr><tr>
                        <tr> <td><form:label path="assessDate">Date</form:label></td><td><form:input class="input-block-level" name="assessDate" path="assessDate" value="${assessDate}"/> </td></tr><tr>
-                       <tr> <td><form:label path="date">Today'sDate</form:label></td><td><form:input class="input-block-level" name="date" path="date" value="${date}"/> </td></td></tr><tr>
+                       <tr> <td><form:label path="date">Today'sDate</form:label></td><td><form:input class="input-block-level" name="date" path="date" value="${date}" readonly="true"/> </td></td></tr>
                        <tr>  <td></td></tr>
                        <tr> <td><input class="btn btn-large btn-primary" type="submit" value="Update" /> </td></tr>
                 </table>

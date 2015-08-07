@@ -17,6 +17,8 @@ import com.Accenture.Model.markregister;
 import com.Accenture.Model.trainerpojo;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -365,11 +367,13 @@ public class Learnercontroller {
         String message = "";
         String name=request.getParameter("name");
         String date=request.getParameter("date");
+        SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd");
         Date now = new Date();
+        String today= df.format(now);
         
-       ap.setassessName(name);
+        ap.setassessName(name);
         ap.setassessDate(date);
-        ap.setdate(now);
+        ap.setdate(today);
      
       d.saveAssessment(ap);
      return new ModelAndView("manu", "message", message);  
@@ -406,25 +410,20 @@ public class Learnercontroller {
          return model;
      }
       @RequestMapping("/updateassess")
-     public ModelAndView updateassess(HttpServletRequest request,HttpServletResponse res){
+     public ModelAndView updateassess(HttpServletRequest request,HttpServletResponse res) throws ParseException{
          int id=Integer.parseInt(request.getParameter("assessID"));
          String name=request.getParameter("assessName");
-         String duration=request.getParameter("assessDate");
-            Session session;
-   
-            SessionFactory sessionfactory= new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
-            session=sessionfactory.openSession();
-            session.beginTransaction();
-            String hgl= "update AssessmentPojo assessment set assessName = :name,assessDate =:date where assessID = :id";
-            org.hibernate.Query query= session.createQuery(hgl);
-            query.setParameter("id", id);
-            query.setParameter("name", name);
-            query.setParameter("date", duration);
-            query.executeUpdate();
-
+         String date=request.getParameter("assessDate");
+        String now = request.getParameter("date");
+         AssessmentPojo ap=new AssessmentPojo();
+         ap.setassessID(id);
+         ap.setassessName(name);
+         ap.setassessDate(date);
+         ap.setdate(now);
+         d.updateforceA(ap);
          ModelAndView model=new ModelAndView("manu");
          return model;
-     }
+     }               
       @RequestMapping("/markregister")
     public ModelAndView view3(ModelAndView model) throws IOException{ 
       List<learnerspojo> view=dao.getLearners();

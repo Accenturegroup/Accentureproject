@@ -13,10 +13,10 @@ import java.util.Date;
  */
 public class AssessmentPojo {
     
-    private int assessID;
+     private int assessID;
     private String assessName;
     private String assessDate;
-    private Date date;
+    private String date;
     
     public void setassessID(int id)
     {
@@ -45,11 +45,11 @@ public class AssessmentPojo {
     {
         return assessDate;
     }
-      public void setdate( Date date)
+      public void setdate( String date)
     {
         this.date= date;
     }
-    public Date getdate()
+    public String getdate()
     {
         return date;
     }
