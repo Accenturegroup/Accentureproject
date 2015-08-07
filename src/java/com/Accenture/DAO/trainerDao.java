@@ -8,6 +8,8 @@ package com.Accenture.DAO;
 import com.Accenture.Model.trainerpojo;
 import java.util.ArrayList;
 import java.util.List;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 
 /**
@@ -32,6 +34,31 @@ public void updateTrainer(trainerpojo e){
 public void deleteTrainer(trainerpojo e){  
     template.delete(e);  
 }  
+
+public void updateforce (trainerpojo l){
+  Session session= null; 
+   SessionFactory sessionFactory = new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
+   session =sessionFactory.openSession();
+  session.beginTransaction(); 
+
+        session.update(l);
+        session.getTransaction().commit();
+         session.flush();
+    session.close();
+}
+public void deleteforce (trainerpojo l){
+  Session session= null; 
+   SessionFactory sessionFactory = new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
+   session =sessionFactory.openSession();
+  session.beginTransaction(); 
+
+        session.delete(l);
+        session.getTransaction().commit();
+        session.flush();
+    session.close();
+}
+
+
 //method to return one Trainer of given id  
 public trainerpojo getById(int id){  
     trainerpojo e=(trainerpojo)template.get(trainerpojo.class,id);  

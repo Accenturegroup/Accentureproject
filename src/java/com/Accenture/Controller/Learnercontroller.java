@@ -269,20 +269,17 @@ public class Learnercontroller {
      public ModelAndView deletetrainer(HttpServletRequest request,HttpServletResponse res){
          int id=Integer.parseInt(request.getParameter("id"));
          
-            Session session;
-   
-            SessionFactory sessionfactory= new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
-            session=sessionfactory.openSession();
-            session.beginTransaction();
-            String hgl= "delete from trainerpojo where trainerID = :id";
-            org.hibernate.Query query= session.createQuery(hgl);
-            query.setParameter("id", id);
-           query.executeUpdate();
-
+             pojoe=daoe.getById(id);
+//            String hgl= "delete from trainerpojo where trainerID = :id";
+//            org.hibernate.Query query= session.createQuery(hgl);
+//            query.setParameter("id", id);
+//           query.executeUpdate();
+             daoe.deleteforce(pojoe);
          ModelAndView model=new ModelAndView("manu");
 
          return model;
      }
+
      
       @RequestMapping("/edittrainers")
      public ModelAndView edittrainers(HttpServletRequest request,HttpServletResponse res){
@@ -300,34 +297,40 @@ public class Learnercontroller {
     @RequestMapping("/updatetrainer")
      public ModelAndView updatetrainer(HttpServletRequest request,HttpServletResponse res){
          
-         int trainerid=Integer.parseInt(request.getParameter("trainerid"));
-         String name=request.getParameter("name");
-         String surname=request.getParameter("surname");
-         String id=request.getParameter("id");
-         String gender=request.getParameter("gender");
-         String qualification=request.getParameter("qual");
-         String group=request.getParameter("group");
-         String pass=request.getParameter("pass");
-            Session session;
-   
-            SessionFactory sessionfactory= new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
-            session=sessionfactory.openSession();
-            session.beginTransaction();
-            String hgl= "update trainerpojo trainer set  tname = :name,tsurname =:surname,tidNumber =:id,gender =:gender,qualification =:qualification,password =:pass,groupID =:group where trainerID = :id2";
-            org.hibernate.Query query= session.createQuery(hgl);
-            query.setParameter("id2", trainerid);
-            query.setParameter("name", name);
-            query.setParameter("surname", surname);
-             query.setParameter("id", id);
-            query.setParameter("gender", gender);
-            query.setParameter("qualification", qualification);
-            query.setParameter("pass", pass);
-            query.setParameter("group", group);
-            query.executeUpdate();
+         int id=Integer.parseInt(request.getParameter("TId"));
+         String name=request.getParameter("Name");
+         String surname=request.getParameter("Surname");
+         String number=request.getParameter("IdNumber");
+         String gender=request.getParameter("Gender");
+         String qualification=request.getParameter("Qualification");
+         String group=request.getParameter("Group");
+         
+         pojoe=daoe.getById(id);
+         pojoe.setName(name);
+         pojoe.setSurname(surname);
+         pojoe.setIdNumber(number);
+         pojoe.setGender(gender);
+         pojoe.setQualification(qualification);
+         pojoe.setGroup(group);
+           
+//            String hgl= "update trainerpojo trainer set  tname = :name, tsurname =:surname, tidNumber =:id, gender =:gender,qualification =:qualification,password =:pass, groupID =:group where trainerID = :id2";
+//            org.hibernate.Query query= session.createQuery(hgl);
+//            query.setParameter("id2", trainerid);
+//            query.setParameter("name", name);
+//            query.setParameter("surname", surname);
+//             query.setParameter("id", id);
+//            query.setParameter("gender", gender);
+//            query.setParameter("qualification", qualification);
+//            query.setParameter("pass", pass);
+//            query.setParameter("group", group);
+//            query.executeUpdate();
+         
+         daoe.updateforce(pojoe);
 
          ModelAndView model=new ModelAndView("manu");
          return model;
-     }         
+     } 
+        
              
     @RequestMapping("/login")
      public ModelAndView login(HttpServletRequest request,HttpServletResponse res) {  
