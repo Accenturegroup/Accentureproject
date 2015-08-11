@@ -14,7 +14,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        
+        <center> <h3><u><i><b>All Leaner's</b></i></u></h3></center>
         <div align="center">
         <form:form>
     <table class="table table-hover">

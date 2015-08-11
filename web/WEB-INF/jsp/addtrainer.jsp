@@ -20,6 +20,7 @@
             <tr><td>Name:</td><td><input class="input-block-level" type="text" name="name" id="name" value=""/></td></tr>
             <tr><td>Surname:</td><td><input class="input-block-level" type="text" name="surname" id="surname" value=""/></td></tr>
             <tr><td>ID Number:</td><td><input class="input-block-level" type="text" name="id" id="id" value=""/></td></tr>
+             <tr><td>Email:</td><td><input class="input-block-level" type="text" name="email" id="email" value=""/></td></tr>
             <tr><td>Gender:</td><td><select class="input-block-level" name="gender" id="gender">
                         <option>Male</option>
                         <option>Female</option>

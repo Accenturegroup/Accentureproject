@@ -13,14 +13,16 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <center> <h3><u><i><b>All Trainer</b></i></u></h3></center>
         <div align="center">
    <form:form>
        
-    <table class="table table-bordered">
+    <table class="table table-hover">
          
         <th>Name</th>
         <th>Surname</th>
         <th>ID Number</th>
+         <th>Email</th>
         <th>Gender</th>
         <th>Qualification</th>
         <th>Group</th>
@@ -33,6 +35,7 @@
             <tr><td>${trainer.getName()}</td>
             <td>${trainer.getSurname()}</td>
             <td>${trainer.getIdNumber()}</td>
+             <td>${trainer.getEmail()}</td>
             <td>${trainer.getGender()}</td>
             <td>${trainer.getQualification()}</td>
             <td>${trainer.getGroup()}</td>

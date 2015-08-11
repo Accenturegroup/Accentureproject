@@ -20,6 +20,7 @@
         <th>Name</th>
         <th>Surname</th>
         <th>Id Number</th>
+        
         <th>Gender</th>
         <th>Qualification</th>
         <th>Group</th>      
@@ -32,6 +33,7 @@
             <tr><td>${trainer.getLName()}</td>
                 <td>${trainer.getLSurname()}</td>
                 <td>${trainer.getIdNumber()}</td>
+                <td>${trainer.getEmail()}</td>
                 <td>${trainer.getGender()}</td>
                 <td>${trainer.getQualification()}</td>
                 <td>${trainer.getGroup()}</td>

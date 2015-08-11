@@ -18,6 +18,7 @@ public class trainerpojo {
     private String Qualification;
     private String Password;
     private String Group;
+     private String email;
 
     public int getTId() {
         return TId;
@@ -81,6 +82,20 @@ public class trainerpojo {
 
     public void setGroup(String Group) {
         this.Group = Group;
+    }
+
+    /**
+     * @return the email
+     */
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     * @param email the email to set
+     */
+    public void setEmail(String email) {
+        this.email = email;
     }
     
     

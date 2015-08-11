@@ -13,9 +13,10 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <center> <h3><u><i><b>All Assessments</b></i></u></h3></center>
          <div align="center">
      <form:form>
-    <table class="table table-bordered">
+    <table class="table table-hover">
              <th>Assessment Name:</th>
              <th>Assessment Date</th>
              <th>Group Name</th>

@@ -33,5 +33,8 @@
       <property name="Group">
           <column name="groupID"></column>
       </property>
+            <property name="Email">
+          <column name="email"></column>
+      </property>
   </class>
 </hibernate-mapping>

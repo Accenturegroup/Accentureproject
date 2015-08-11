@@ -257,6 +257,7 @@ public class Learnercontroller {
       String qualification=request.getParameter("qual");
       String password= request.getParameter("pass");
       String group=request.getParameter("group");
+      String email=request.getParameter("email");
       
       pojoe.setName(name);
       pojoe.setSurname(surname);
@@ -265,6 +266,7 @@ public class Learnercontroller {
       pojoe.setQualification(qualification);
       pojoe.setPassword(password);
       pojoe.setGroup(group);
+      pojoe.setEmail(email);
       daoe.saveTrainer(pojoe);
         return new ModelAndView("manu", "message", message);  
     }
@@ -274,10 +276,7 @@ public class Learnercontroller {
          int id=Integer.parseInt(request.getParameter("id"));
          
              pojoe=daoe.getById(id);
-//            String hgl= "delete from trainerpojo where trainerID = :id";
-//            org.hibernate.Query query= session.createQuery(hgl);
-//            query.setParameter("id", id);
-//           query.executeUpdate();
+
              daoe.deleteforce(pojoe);
          ModelAndView model=new ModelAndView("manu");
 
@@ -308,6 +307,7 @@ public class Learnercontroller {
          String gender=request.getParameter("Gender");
          String qualification=request.getParameter("Qualification");
          String group=request.getParameter("Group");
+          String email=request.getParameter("email");
          
          pojoe=daoe.getById(id);
          pojoe.setName(name);
@@ -316,7 +316,7 @@ public class Learnercontroller {
          pojoe.setGender(gender);
          pojoe.setQualification(qualification);
          pojoe.setGroup(group);
-          
+         pojoe.setEmail(email); 
          
          daoe.updateforce(pojoe);
 

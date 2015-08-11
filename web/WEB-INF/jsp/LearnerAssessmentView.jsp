@@ -14,9 +14,10 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <center> <h3><u><i><b>All Learner's assessment</b></i></u></h3></center>
     <form:form>
         <div id="show">
-        <table border="1">
+        <table class="table table-hover">
             <tr><td>Mark ID</td><td>Learner ID</td><td>Assessment ID</td><td>Mark</td><td>Date Entered</td></tr>
             <c:forEach var="LAs" items="${msg}">
                 <tr><td>${LAs.getID()}</td>

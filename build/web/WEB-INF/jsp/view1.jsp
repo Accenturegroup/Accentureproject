@@ -16,8 +16,8 @@
     <body>
         <div align="center">
    <form:form>
-       
-    <table class="table table-bordered">
+       <center> <h3><u><i><b>All Groups</b></i></u></h3></center>
+    <table class="table table-hover">
          
         <th>Name</th>
         <th>Duration</th>
