@@ -333,14 +333,14 @@ public class Learnercontroller {
     if(email.equals("Accenture@gmail.com")&&password.equals("accenture@2")){
           model=new ModelAndView("manu");
     } 
-//     List list=(List)dao.getByEmail(email);
-//     if(list.isEmpty()){
-//         model=new ModelAndView("index");
-//     }
-//     learnerspojo ps=(learnerspojo)list.get(0);
-//     if(password.toString().equals(ps.getPassword().toString())){
-//         model=new ModelAndView("learner");
-//     }
+     List list=(List)dao.getByEmail(email);
+     if(list.isEmpty()){
+         model=new ModelAndView("index");
+     }
+     learnerspojo ps=(learnerspojo)list.get(0);
+     if(password.toString().equals(ps.getPassword().toString())){
+         model=new ModelAndView("learner");
+     }
      return model; 
      }
 
