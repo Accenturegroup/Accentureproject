@@ -417,7 +417,15 @@
                 <li>
                     <a href="#">Dashboard</a>
                 </li>
-
+            <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+                <li>
+                    <a href="#" onclick="viewgroup();">View group</a>
+                </li>
+                <li>
+                     <a href="#" onclick="addgroup();">Add group</a>
+                </li>
+                <li>
+                    <a href="#" onclick="searchgroup();">Search group</a>
                 </li>
                 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
                 <li>
