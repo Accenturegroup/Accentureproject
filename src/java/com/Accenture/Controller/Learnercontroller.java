@@ -316,26 +316,13 @@ public class Learnercontroller {
          pojoe.setGender(gender);
          pojoe.setQualification(qualification);
          pojoe.setGroup(group);
-           
-//            String hgl= "update trainerpojo trainer set  tname = :name, tsurname =:surname, tidNumber =:id, gender =:gender,qualification =:qualification,password =:pass, groupID =:group where trainerID = :id2";
-//            org.hibernate.Query query= session.createQuery(hgl);
-//            query.setParameter("id2", trainerid);
-//            query.setParameter("name", name);
-//            query.setParameter("surname", surname);
-//             query.setParameter("id", id);
-//            query.setParameter("gender", gender);
-//            query.setParameter("qualification", qualification);
-//            query.setParameter("pass", pass);
-//            query.setParameter("group", group);
-//            query.executeUpdate();
+          
          
          daoe.updateforce(pojoe);
 
          ModelAndView model=new ModelAndView("manu");
          return model;
      } 
-        
-             
     @RequestMapping("/login")
      public ModelAndView login(HttpServletRequest request,HttpServletResponse res) {  
      String message="";
@@ -343,13 +330,20 @@ public class Learnercontroller {
      String email=request.getParameter("email");
      String password=request.getParameter("password");
      
-     if(email.equals("Accenture@gmail.com")||password.equals("Accenture@2")){
+    if(email.equals("Accenture@gmail.com")&&password.equals("accenture@2")){
           model=new ModelAndView("manu");
-     }else{
-          model=new ModelAndView("index");
+    } 
+     List list=(List)dao.getByEmail(email);
+     if(list.isEmpty()){
+         model=new ModelAndView("index");
+     }
+     learnerspojo ps=(learnerspojo)list.get(0);
+     if(password.toString().equals(ps.getPassword().toString())){
+         model=new ModelAndView("learner");
      }
       return model; 
     }
+
      
      @RequestMapping("/Assessment")
     public ModelAndView Assessment(ModelAndView model){

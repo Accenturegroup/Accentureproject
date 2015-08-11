@@ -8,8 +8,6 @@ package com.Accenture.DAO;
 import com.Accenture.Model.learnerspojo;
 import java.util.ArrayList;
 import java.util.List;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 
 /**
@@ -28,28 +26,11 @@ public void saveLearner(learnerspojo e){
 }  
 //method to update employee  
 public void updateLearner(learnerspojo e){  
-    Session session= null; 
-    SessionFactory sessionFactory = new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
-    session =sessionFactory.openSession();
-    session.beginTransaction(); 
-
-    session.update(e);
-    session.getTransaction().commit();
-    session.flush();
-    session.close();
-    
+    template.update(e);  
 }  
 //method to delete employee  
 public void deleteLearner(learnerspojo e){  
-    Session session= null; 
-    SessionFactory sessionFactory = new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
-    session =sessionFactory.openSession();
-    session.beginTransaction(); 
-
-    session.delete(e);
-    session.getTransaction().commit();
-    session.flush();
-    session.close(); 
+    template.delete(e);  
 }  
 //method to return one employee of given id  
 public learnerspojo getById(int id){  
@@ -62,5 +43,19 @@ public List<learnerspojo> getLearners(){
     list=template.loadAll(learnerspojo.class);  
     return list;  
 }
-    
+public  List<Object> getspecific(String idnumber){
+List<Object> list=new ArrayList<Object>();
+String query = "from labors labors where labors.Labors_Idnumber =?";
+list = template.find(query, idnumber);
+
+return list;
+}
+
+ //method to return one employee of given email  
+public List<Object> getByEmail(String email){  
+   List<Object>list=new ArrayList<>();
+   String query="from learnerspojo l where email =?";
+   list=template.find(query,email);
+    return list;  
+}     
 }
