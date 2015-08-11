@@ -333,21 +333,24 @@ public class Learnercontroller {
     if(email.equals("Accenture@gmail.com")&&password.equals("accenture@2")){
           model=new ModelAndView("manu");
     } 
-     List list=(List)dao.getByEmail(email);
-     if(list.isEmpty()){
-         model=new ModelAndView("index");
+//     List list=(List)dao.getByEmail(email);
+//     if(list.isEmpty()){
+//         model=new ModelAndView("index");
+//     }
+//     learnerspojo ps=(learnerspojo)list.get(0);
+//     if(password.toString().equals(ps.getPassword().toString())){
+//         model=new ModelAndView("learner");
+//     }
+     return model; 
      }
-     learnerspojo ps=(learnerspojo)list.get(0);
-     if(password.toString().equals(ps.getPassword().toString())){
-         model=new ModelAndView("learner");
-     }
-      return model; 
-    }
 
+     
      
      @RequestMapping("/Assessment")
     public ModelAndView Assessment(ModelAndView model){
         AssessmentPojo obj=new AssessmentPojo();
+        List<grouppojo> view1=daog.getgroup();
+        model.addObject("msg",view1);
         model.addObject("Assessment", obj);
         model.setViewName("Assessment");
         return model;
@@ -358,12 +361,14 @@ public class Learnercontroller {
         String message = "";
         String name=request.getParameter("name");
         String date=request.getParameter("date");
+        String group=request.getParameter("group");
         SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd");
         Date now = new Date();
         String today= df.format(now);
         
         ap.setassessName(name);
         ap.setassessDate(date);
+        ap.setgroupName(group);
         ap.setdate(today);
      
       d.saveAssessment(ap);
@@ -378,26 +383,18 @@ public class Learnercontroller {
        @RequestMapping("/deleteAsse")
      public ModelAndView deleteasse(HttpServletRequest request,HttpServletResponse res){
          int id=Integer.parseInt(request.getParameter("id"));
-         
-            Session session;
-   
-            SessionFactory sessionfactory= new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
-            session=sessionfactory.openSession();
-            session.beginTransaction();
-            String hgl= "delete from AssessmentPojo where assessID = :id";
-            org.hibernate.Query query= session.createQuery(hgl);
-            query.setParameter("id", id);
-            query.executeUpdate();
-
+         d.DeleteAssess(id);
          ModelAndView model=new ModelAndView("manu");
          return model;
      }
        @RequestMapping("/editassess")
      public ModelAndView editassess(HttpServletRequest request,HttpServletResponse res){
          int id=Integer.parseInt(request.getParameter("id"));
+         List<grouppojo> view1=daog.getgroup();
          AssessmentPojo p=d.getById(id);
          ModelAndView model=new ModelAndView("editassess");
          model.addObject("editassess", p);
+          model.addObject("msg",view1);
          return model;
      }
       @RequestMapping("/updateassess")
@@ -405,11 +402,13 @@ public class Learnercontroller {
          int id=Integer.parseInt(request.getParameter("assessID"));
          String name=request.getParameter("assessName");
          String date=request.getParameter("assessDate");
-        String now = request.getParameter("date");
+         String group = request.getParameter("groupName");
+         String now = request.getParameter("date");
          AssessmentPojo ap=new AssessmentPojo();
          ap.setassessID(id);
          ap.setassessName(name);
          ap.setassessDate(date);
+         ap.setgroupName(group);
          ap.setdate(now);
          d.updateforceA(ap);
          ModelAndView model=new ModelAndView("manu");

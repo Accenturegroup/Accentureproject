@@ -11,7 +11,10 @@
       <property name="assessDate">
       <column name="assessDate"/>
     </property>
-      <property name="date">
+    <property name="groupName">
+      <column name="groupName"/>
+    </property>
+     <property name="date">
       <column name="date"/>
     </property>
   </class>

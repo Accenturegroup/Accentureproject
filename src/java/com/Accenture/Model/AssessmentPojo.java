@@ -13,9 +13,11 @@ import java.util.Date;
  */
 public class AssessmentPojo {
     
+    
      private int assessID;
     private String assessName;
     private String assessDate;
+    private String groupName;
     private String date;
     
     public void setassessID(int id)
@@ -45,6 +47,12 @@ public class AssessmentPojo {
     {
         return assessDate;
     }
+   public void setgroupName(String gname) {
+        this.groupName = gname;
+    }
+      public String getgroupName() {
+        return groupName;
+    }
       public void setdate( String date)
     {
         this.date= date;
@@ -53,4 +61,5 @@ public class AssessmentPojo {
     {
         return date;
     }
+
 }

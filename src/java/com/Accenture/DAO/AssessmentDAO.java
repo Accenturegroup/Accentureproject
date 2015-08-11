@@ -47,6 +47,18 @@ public void updateAssessment(AssessmentPojo a){
 public void deleteAssessment(AssessmentPojo a){  
     template.delete(a);  
 }  
+public void DeleteAssess(int id)
+{
+   Session session;
+   SessionFactory sessionfactory= new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
+            session=sessionfactory.openSession();
+            session.beginTransaction();
+            String hgl= "delete from AssessmentPojo where assessID = :id";
+            org.hibernate.Query query= session.createQuery(hgl);
+            query.setParameter("id", id);
+            query.executeUpdate();
+}
+
 //method to return one assessment of given id  
 public AssessmentPojo getById(int id){  
     AssessmentPojo a=(AssessmentPojo)template.get(AssessmentPojo.class,id);  

@@ -18,7 +18,8 @@
     <table class="table table-bordered">
              <th>Assessment Name:</th>
              <th>Assessment Date</th>
-             <th>Today's Date and Time</th>
+             <th>Group Name</th>
+             <th>Today's Date</th>
              <th>Edit</th>
              <th>Delete</th>
         <c:forEach var="assess" items="${msg}">
@@ -26,6 +27,7 @@
              <tr>
                  <td>${assess.getassessName()}</td>
                  <td>${assess.getassessDate()}</td>
+                  <td>${assess.getgroupName()}</td>
                  <td>${assess.getdate()}</td>
                  <td><a href="#" onclick="editassess(${assess.getassessID()});">edit</a></td>
                  <td><a href="deleteAsse.html?id=${assess.getassessID()}">delete</a></td>
@@ -38,3 +40,4 @@
          </div>
     </body>
 </html>
+
