@@ -8,6 +8,8 @@ package com.Accenture.DAO;
 import com.Accenture.Model.learnerspojo;
 import java.util.ArrayList;
 import java.util.List;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 
 /**
@@ -26,12 +28,29 @@ public void saveLearner(learnerspojo e){
 }  
 //method to update employee  
 public void updateLearner(learnerspojo e){  
-    template.update(e);  
+    Session session= null; 
+    SessionFactory sessionFactory = new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
+    session =sessionFactory.openSession();
+    session.beginTransaction(); 
+
+    session.update(e);
+    session.getTransaction().commit();
+    session.flush();
+    session.close();
+    
 }  
 //method to delete employee  
 public void deleteLearner(learnerspojo e){  
-    template.delete(e);  
-}  
+    Session session= null; 
+    SessionFactory sessionFactory = new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
+    session =sessionFactory.openSession();
+    session.beginTransaction(); 
+
+    session.delete(e);
+    session.getTransaction().commit();
+    session.flush();
+    session.close(); 
+}   
 //method to return one employee of given id  
 public learnerspojo getById(int id){  
     learnerspojo e=(learnerspojo)template.get(learnerspojo.class,id);  
