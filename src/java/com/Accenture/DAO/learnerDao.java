@@ -6,7 +6,9 @@
 package com.Accenture.DAO;
 
 import com.Accenture.Model.learnerspojo;
+import com.Accenture.Model.trainerpojo;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -62,19 +64,33 @@ public List<learnerspojo> getLearners(){
     list=template.loadAll(learnerspojo.class);  
     return list;  
 }
-public  List<Object> getspecific(String idnumber){
-List<Object> list=new ArrayList<Object>();
-String query = "from labors labors where labors.Labors_Idnumber =?";
-list = template.find(query, idnumber);
-
-return list;
-}
-
  //method to return one employee of given email  
 public List<Object> getByEmail(String email){  
    List<Object>list=new ArrayList<>();
    String query="from learnerspojo l where email =?";
    list=template.find(query,email);
     return list;  
-}     
+}
+public String checklogin(String email,String password){
+    String e="",p="",msg="";
+    Session ses=null;
+    SessionFactory sf=new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
+    ses=sf.openSession();
+    ses.beginTransaction();
+    String HQL_QUERY="from learnerspojo l where email =:email and password =:password";
+    org.hibernate.Query query=ses.createQuery(HQL_QUERY);
+    query.setParameter("email",email);
+    query.setParameter("password",password);
+
+    for(Iterator it=query.iterate();it.hasNext();){
+             learnerspojo b=(learnerspojo) it.next();
+             e=b.getEmail();
+             p=b.getPassword();
+    }
+    if(e.equals(email)&&p.equals(password)){
+        msg="yes";
+    }
+    
+return msg;
+}
 }

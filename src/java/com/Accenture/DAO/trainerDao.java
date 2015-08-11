@@ -7,6 +7,7 @@ package com.Accenture.DAO;
 
 import com.Accenture.Model.trainerpojo;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -36,7 +37,7 @@ public void deleteTrainer(trainerpojo e){
 }  
 
 public void updateforce (trainerpojo l){
-  Session session= null; 
+   Session session= null; 
    SessionFactory sessionFactory = new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
    session =sessionFactory.openSession();
   session.beginTransaction(); 
@@ -70,5 +71,33 @@ public List<trainerpojo> getTrainers(){
     list=template.loadAll(trainerpojo.class);  
     return list;  
 }
+  //method to return one employee of given email  
+public List<Object> getTrainerByEmail(String email){  
+   List<Object>list=new ArrayList<>();
+   String query="from trainerpojo trainer where email =?";
+   list=template.find(query,email);
+    return list;  
+}
+public String checklogin(String email,String password){
+    String e="",p="",msg="";
+    Session ses=null;
+    SessionFactory sf=new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
+    ses=sf.openSession();
+    ses.beginTransaction();
+    String HQL_QUERY="from trainerpojo trainer where email =:email and password =:password";
+    org.hibernate.Query query=ses.createQuery(HQL_QUERY);
+    query.setParameter("email",email);
+    query.setParameter("password",password);
+
+    for(Iterator it=query.iterate();it.hasNext();){
+             trainerpojo b=(trainerpojo) it.next();
+             e=b.getEmail();
+             p=b.getPassword();
+    }
+    if(e.equals(email)&&p.equals(password)){
+        msg="yes";
+    }
     
+return msg;
+}
 }

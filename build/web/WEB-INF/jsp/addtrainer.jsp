@@ -30,7 +30,7 @@
                         <option>Master</option>
                         <option>Doctorate</option>
                     </select></td></tr>
-            <tr><td>Password:</td><td><input class="input-block-level" type="text" name="pass" id="pass" value=""/></td></tr>
+            <tr><td>Password:</td><td><input class="input-block-level" type="password" name="pass" id="pass" value=""/></td></tr>
             <tr><td>Group:</td><td>
                     <select class="input-block-level" name="group" id="group"> 
                         <option></option>

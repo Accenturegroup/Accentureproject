@@ -329,23 +329,21 @@ public class Learnercontroller {
      ModelAndView model=null;
      String email=request.getParameter("email");
      String password=request.getParameter("password");
-     
-    if(email.equals("Accenture@gmail.com")&&password.equals("accenture@2")){
+
+       String msg=daoe.checklogin(email, password);
+       String msg1=dao.checklogin(email, password);
+       if(msg.equals("yes")){
+            model=new ModelAndView("trainerlogin");
+       }else if(msg1.equals("yes")){
+           model=new ModelAndView("learner");
+       }else if(email.equals("Accenture@gmail.com")&&password.equals("accenture@2")){
           model=new ModelAndView("manu");
-    } 
-     List list=(List)dao.getByEmail(email);
-     if(list.isEmpty()){
-         model=new ModelAndView("index");
-     }
-     learnerspojo ps=(learnerspojo)list.get(0);
-     if(password.toString().equals(ps.getPassword().toString())){
-         model=new ModelAndView("learner");
-     }
+       } else{
+            model=new ModelAndView("index");
+       }
      return model; 
      }
 
-     
-     
      @RequestMapping("/Assessment")
     public ModelAndView Assessment(ModelAndView model){
         AssessmentPojo obj=new AssessmentPojo();

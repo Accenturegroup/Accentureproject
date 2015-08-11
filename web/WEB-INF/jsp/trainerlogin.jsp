@@ -428,34 +428,7 @@
                     <a href="#" onclick="searchgroup();">Search group</a>
                 </li>
                 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-                <li>
-                    <a href="#" onclick="addlearner();">Add learner</a>
-                </li>
-                <li>
-                    <a href="#" onclick="registerform();">Mark Register</a>
-                </li>
-                <li>
-                <a href="#" onclick="searchlearner();">Search Learner</a>
-                </li>
-                <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-                <li>
-                <a href="#" onclick="searchTrainer();">Search Trainer</a>
-                </li>
-
-                <li>
-                    <a href="#" onclick="addtrainer();">Add Trainer</a>
-                </li>
-                  <li>
-                    <a href="#" onclick="viewtrainer();">View Trainer</a>
-                </li>
-                <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-                <li>
-                    <a href="#" onclick="addassessment();">Add Assessment</a>
-                </li>
-                    <li>
-                    <a href="#" onclick="viewassessment();">View Assessment</a>
-                </li>
-                <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+         
 
                 <li>
                     <a href="#">Contact</a>
