@@ -19,9 +19,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.hibernate.Session;
@@ -32,6 +35,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -442,5 +446,85 @@ public class Learnercontroller {
         }
         return new ModelAndView("manu", "message", message);  
     }
+     
+     @RequestMapping("/EditLearner")
+    public ModelAndView editlearner(@RequestParam String LID, @ModelAttribute("learner") learnerspojo learner)
+    { 
+        learner = dao.getById(Integer.parseInt(LID));
+        
+        List<String> genderList = new ArrayList<String>();
+        genderList.add("Male");
+        genderList.add("Female");
+        
+        List<String> raceList = new ArrayList<String>();
+        raceList.add("Black");
+        raceList.add("White");
+        raceList.add("Coloured");
+        raceList.add("Indian");
+        raceList.add("Other");
+        
+        List<String> statusList = new ArrayList<String>();
+        statusList.add("Not Started");
+        statusList.add("In Progress");
+        statusList.add("Complete");
+        
+        Map<String, Object> map = new HashMap<String,Object>();
+        map.put("genderList",genderList);
+        map.put("raceList", raceList);
+        map.put("statusList", statusList);
+        map.put("learner", learner);
+        
+        return new ModelAndView("EditLearner","map",map);
+    }
+    
+    @RequestMapping("/updateLearner")
+    public ModelAndView updateLearner(HttpServletRequest request,HttpServletResponse res)
+    {
+        int id = Integer.parseInt(request.getParameter("LID"));
+        String title = request.getParameter("Title");
+        String name = request.getParameter("LName");
+        String surname = request.getParameter("LSurname");
+        String idnum = request.getParameter("id");
+        String gender = request.getParameter("gender");
+        String contact = request.getParameter("number");
+        String email = request.getParameter("email");
+        String race = request.getParameter("race");
+        String group = request.getParameter("groups");
+        String status = request.getParameter("status");
+        
+        
+        pojos = dao.getById(id);
+        
+        pojos.setTitle(title);
+        pojos.setLName(name);
+        pojos.setLSurname(surname);
+        pojos.setId(idnum);
+        pojos.setGender(gender);
+        pojos.setNumber(contact);
+        pojos.setEmail(email);
+        pojos.setRace(race);
+        pojos.setGroups(group);
+        pojos.setStatus(status);
+        
+        dao.updateLearner(pojos);
+        return new ModelAndView("redirect:/");
+    }  
+    
+    @RequestMapping("/DeleteLearner")  
+    public ModelAndView deleteLearner(HttpServletRequest request,HttpServletResponse res) 
+    {
+        int id = Integer.parseInt(request.getParameter("LID"));
+        pojos = dao.getById(id);
+        dao.deleteLearner(pojos);
+        return new ModelAndView("redirect:/");
+    } 
+    
+     @RequestMapping("/learnerList")
+     public ModelAndView getLearners(ModelAndView model) throws IOException
+     {
+         List<learnerspojo> learnerList = dao.getLearners();
+         model.addObject("learnerList",learnerList);
+         return model;
+     }
 
 }
