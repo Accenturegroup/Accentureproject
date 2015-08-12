@@ -57,7 +57,17 @@ public List<LearnerAssessmentPojo> getLearnerAssessment(){
          session.flush();
     session.close();
 }
-   
+    public void deleteforce (LearnerAssessmentPojo l){
+  Session session= null; 
+   SessionFactory sessionFactory = new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
+   session =sessionFactory.openSession();
+  session.beginTransaction(); 
+
+        session.delete(l);
+        session.getTransaction().commit();
+         session.flush();
+    session.close();
+}
    public  List<Object> getspecific(String idnumber){
 List<Object> list=new ArrayList<Object>();
 //return (List)template.findByCriteria(DetachedCriteria.forClass(labors.class).add(Restrictions.eq("Labors_Idnumber", idnumber)));
