@@ -14,40 +14,59 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <center> <h3><u><i><b>All Leaner's</b></i></u></h3></center>
-        <div align="center">
-        <form:form>
-    <table class="table table-hover">
-            <th>Name</th>
-            <th>Surname</th>
-            <th>Title</th>
-            <th>ID Number</th>
-            <th>Gender</th>
-            <th>Contact</th>
-            <th>Email</th>
-            <th>Race</th>
-            <th>Group</th>
-            <th>Status</th>
-            <th></th>
-            <th></th>
-        <c:forEach var="learner" items="${learnerList}">
-            <tr>
-                <td>${learner.getLName()}</td>
-                <td>${learner.getLSurname()}</td>
-                <td>${learner.getTitle()}</td>
-                <td>${learner.getId()}</td>
-                <td>${learner.getGender()}</td>
-                <td>${learner.getNumber()}</td>
-                <td>${learner.getEmail()}</td>
-                <td>${learner.getRace()}</td>
-                <td>${learner.getGroups()}</td>
-                <td>${learner.getStatus()}</td>
-                <td><a href="#"onclick="editlearner(${learner.getLID()});">Edit</a></td>
-                <td><a href="#"onclick="deletelearner(${learner.getLID()});">Delete</a></td>
-            </tr>
-        </c:forEach>
-    </table>
-    </form:form>
+        <section class="page container">
+            <div class="row">
+                 <div class="span12">        
+                <div align="center">
+                       <form:form>
+                    <div id="Person-1" class="box">
+                        <div class="box-header">
+                            <i class="icon-group  icon-large"></i>
+                            <h5>Learner's</h5>
+                            
+                        </div>
+                        <div class="box-content box-table">
+                        <table class="table table-hover tablesorter">
+                            <thead>
+                                <tr>
+                                <th>Name</th>
+                                 <th>Surname</th>
+                                  <th>Title</th>
+                                  <th>ID Number</th>
+                                    <th>Gender</th>
+                                     <th>Contact</th>
+                                     <th>Email</th>
+                                        <th>Race</th>
+                                            <th>Group</th>
+                                    <th>Status</th>
+                                     <th>Edit</th>
+                                     <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                             <c:forEach var="learner" items="${learnerList}">
+                                <tr>
+                                     <td>${learner.getLName()}</td>
+                                 <td>${learner.getLSurname()}</td>
+                                    <td>${learner.getTitle()}</td>
+                                      <td>${learner.getId()}</td>
+                                        <td>${learner.getGender()}</td>
+                                       <td>${learner.getNumber()}</td>
+                                       <td>${learner.getEmail()}</td>
+                                      <td>${learner.getRace()}</td>
+                                          <td>${learner.getGroups()}</td>
+                                      <td>${learner.getStatus()}</td>
+                                         <td><a href="#"onclick="editlearner(${learner.getLID()});">Edit</a></td>
+                                       <td><a href="#"onclick="deletelearner(${learner.getLID()});">Delete</a></td>
+                                         </tr>
+                                 </c:forEach>
+                            
+                            </tbody>
+                        </table>
+                    </div>
+              </div>
+           </form:form>
         </div>
+    </div></section>
     </body>
 </html>

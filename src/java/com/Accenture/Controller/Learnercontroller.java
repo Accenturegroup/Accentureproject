@@ -57,11 +57,17 @@ public class Learnercontroller {
     markregister mpojos=new markregister();
 
     
-    @RequestMapping("/hello")  
+    @RequestMapping("/log")  
     public ModelAndView helloWorld() {  
-        String message = "HELLO SPRING NSIZWA ";  
-        return new ModelAndView("hello", "message", message);  
+        String message = " ";  
+        return new ModelAndView("Login", "message", message);  
     }
+    @RequestMapping("/logout")  
+    public ModelAndView logout() {  
+        String message = " ";  
+        return new ModelAndView("index", "message", message);  
+    }
+
     @RequestMapping("/view")
     public ModelAndView view(ModelAndView model) throws IOException{ 
       List<learnerspojo> view=dao.getLearners();
@@ -337,13 +343,12 @@ public class Learnercontroller {
        }else if(msg1.equals("yes")){
            model=new ModelAndView("learner");
        }else if(email.equals("Accenture@gmail.com")&&password.equals("accenture@2")){
-          model=new ModelAndView("manu");
+          model=new ModelAndView("manu","msg",email);
        } else{
             model=new ModelAndView("index");
        }
      return model; 
      }
-
      @RequestMapping("/Assessment")
     public ModelAndView Assessment(ModelAndView model){
         AssessmentPojo obj=new AssessmentPojo();

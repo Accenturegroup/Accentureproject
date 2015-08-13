@@ -1,29 +1,17 @@
-<%-- 
-    Document   : TemplateIndex
-    Created on : Aug 3, 2015, 3:19:51 PM
-    Author     : EDU-Stud
---%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
-    <title>Template Index</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="styles/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="styles/css/simple-sidebar.css" rel="stylesheet">
-      <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
-        <link href="css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
-        
-        <script>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+     <title>Accenture - South Africa | Strategy, Digital, Technology and Operations</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="layout" content="main"/>
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script src="styles/js/jquery/jquery-1.8.2.min.js" type="text/javascript" ></script>
+    <link href="styles/css/customize-template.css" type="text/css" media="screen, projection" rel="stylesheet" />
+<script>
                 function addgroup(){
                
                  if (window.XMLHttpRequest)
@@ -106,10 +94,8 @@
                  xmlhttp.open("GET","edit.html?id="+id,true);
                  xmlhttp.send();
              }
-             
-             function searchGo(){
+             function searchgroup(){
                
-            
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -125,9 +111,76 @@
                document.getElementById("show").innerHTML=xmlhttp.responseText;
                 }
                  }
-                 xmlhttp.open("GET","findGroup.html",true);
+                 xmlhttp.open("GET","search.html",true);
+                 xmlhttp.send();
+             }
+             function search(){
+               
+               var name=document.getElementById("name").value;
+               alert(name);
+                 if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                 xmlhttp=new XMLHttpRequest(); 
+                }
+                else
+                 {// code for IE6, IE5
+                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                 }
+                xmlhttp.onreadystatechange=function()
+                 {
+              if (xmlhttp.readyState===4 && xmlhttp.status===200)
+                 {
+               document.getElementById("show").innerHTML=xmlhttp.responseText;
+                }
+                 }
+                 xmlhttp.open("GET","search1.html?name="+name,true);
                  xmlhttp.send();
              } 
+             
+             
+             function searchgroup(){
+               
+                 if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                 xmlhttp=new XMLHttpRequest(); 
+                }
+                else
+                 {// code for IE6, IE5
+                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                 }
+                xmlhttp.onreadystatechange=function()
+                 {
+              if (xmlhttp.readyState===4 && xmlhttp.status===200)
+                 {
+               document.getElementById("show").innerHTML=xmlhttp.responseText;
+                }
+                 }
+                 xmlhttp.open("GET","search.html",true);
+                 xmlhttp.send();
+             }
+             function search(){
+               
+               var name=document.getElementById("name").value;
+               alert(name);
+                 if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                 xmlhttp=new XMLHttpRequest(); 
+                }
+                else
+                 {// code for IE6, IE5
+                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                 }
+                xmlhttp.onreadystatechange=function()
+                 {
+              if (xmlhttp.readyState===4 && xmlhttp.status===200)
+                 {
+               document.getElementById("show").innerHTML=xmlhttp.responseText;
+                }
+                 }
+                 xmlhttp.open("GET","search1.html?name="+name,true);
+                 xmlhttp.send();
+             } 
+             
              
               function searchTrainer(){
                
@@ -351,7 +404,7 @@
                  xmlhttp.open("GET","edittrainers.html?id="+id,true);
                  xmlhttp.send();
              }
-                         function registerform(){
+             function registerform(){
               
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -451,149 +504,153 @@
                  xmlhttp.open("GET","editLA.html?id="+id,true);
                  xmlhttp.send();
              }
-             function findgroup(){
-            //  alert(id);
-                 if (window.XMLHttpRequest)
-                {// code for IE7+, Firefox, Chrome, Opera, Safari
-                 xmlhttp=new XMLHttpRequest(); 
-                }
-                else
-                 {// code for IE6, IE5
-                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-                 }
-                xmlhttp.onreadystatechange=function()
-                 {
-              if (xmlhttp.readyState===4 && xmlhttp.status===200)
-                 {
-               document.getElementById("show").innerHTML=xmlhttp.responseText;
-                }
-                 }
-                 xmlhttp.open("GET","findGroup.html",true);
-                 xmlhttp.send();
-             }
-             function search(){
-             var search=document.getElementById("search").value;
-           // alert(search);
-                 if (window.XMLHttpRequest)
-                {// code for IE7+, Firefox, Chrome, Opera, Safari
-                 xmlhttp=new XMLHttpRequest(); 
-                }
-                else
-                 {// code for IE6, IE5
-                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-                 }
-                xmlhttp.onreadystatechange=function()
-                 {
-              if (xmlhttp.readyState===4 && xmlhttp.status===200)
-                 {
-               document.getElementById("show").innerHTML=xmlhttp.responseText;
-                }
-                 }
-                 xmlhttp.open("GET","findGroups.html?search="+search,true);
-                 xmlhttp.send();
-             }
-             
         </script>
-    </head>
-    <body>
-        <div id="wrapper">
-            
-                  <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            
-            <ul class="sidebar-nav">
-                
-                <li class="sidebar-brand">
-                    <a href="#">
-                        Start Bootstrap
-                    </a>
-                </li>
-                <li>
-                    <a href="#">Dashboard</a>
-                </li>
-            <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-                <li>
-                    <a href="#" onclick="viewgroup();">View group</a>
-                </li>
-                <li>
-                     <a href="#" onclick="addgroup();">Add group</a>
-                </li>
-                <li>
-                     <a href="#" onclick="findgroup();">find group</a>
-                </li>
-                <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-                <li>
-                    <a href="#" onclick="addlearner();">Add learner</a>
-                </li>
-                <li>
-                    <a href="#" onclick="viewlearner();">View learner</a>
-                </li>
-                <li>
-                    <a href="#" onclick="registerform();">Mark Register</a>
-                </li>
-                <li>
-                <a href="#" onclick="searchlearner();">Search Learner</a>
-                </li>
-                <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-                <li>
-                <a href="#" onclick="searchTrainer();">Search Trainer</a>
-                </li>
 
-                <li>
-                    <a href="#" onclick="addtrainer();">Add Trainer</a>
-                </li>
-                  <li>
-                    <a href="#" onclick="viewtrainer();">View Trainer</a>
-                </li>
-                <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-                <li>
-                    <a href="#" onclick="addassessment();">Add Assessment</a>
-                </li>
-                    <li>
-                    <a href="#" onclick="viewassessment();">View Assessment</a>
-                </li>
-                <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-                <li>
-                    <a href="#" onclick="addLearnerAssessment()">Add learner assessment</a>
-                </li>
-                <li>
-                    <a href="#" onclick="viewLearnerAssess()">View learner assessment</a>
-                </li>
-                <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-                <li>
-                    <a href="#">Contact</a>
-                </li>
-            </ul>
-        </div>
-        <!-- /#sidebar-wrapper -->
-         <!-- Page Content -->
-                        <div id="page-content-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                              
-                     <a href="#menu-toggle" class="btn btn-large btn-primary" id="menu-toggle">Toggle Menu</a>
+</head>
+    <body>
+        <%String msg=request.getParameter("id");%>
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <button class="btn btn-navbar" data-toggle="collapse" data-target="#app-nav-top-bar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>                   
+                    <div id="app-nav-top-bar" class="nav-collapse">
+
+                        <div class="nav pull-right">
+                         <h6>Hello :${msg}</h6>
+                        </div>
+                        <ul class="nav pull-right">
+                            <li>
+                                <a href="logout.html">Logout</a>
+                            </li>
+                            
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-        <div id="show">
-            
-        </div>
-        </div>
-            <!-- jQuery -->
-    <script src="styles/js/jquery.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="styles/js/bootstrap.min.js"></script>
+        <div id="body-container">
+            <div id="body-content">
+                
+                    <div class="body-nav body-nav-horizontal body-nav-fixed">
+                        <div class="container">
+                       <nav id="header-topnav" class="navbar navbar-default navbar-text">
+                                   <div class="navbar-header">
+                <a href="/za-en" class="acn-logo"  data-rel="ae31639c-46f7-4af8-9040-7f79a71ff287" data-name="asset" data-linktype="navigationsettings:logo" tabindex="0">
+                    <img src="//www.accenture.com/t20150523T054234__w__/za-en/_acnmedia/Accenture/Dev/ComponentImages/logo-accenture.png" alt="" />
+                </a>
+        </div>
+    </nav>
+        </div>
+            </div>
+        
+        <section class="nav nav-page">
+        <div class="container">
+            <div class="row">
+               
+                <div class="page-nav-options">
+                    <div class="span9">
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                            <a href="#"><i class="icon-home"></i>Home</a>
+                            </li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Contact</a></li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Learner's
+                                        <b class="caret hidden-phone"></b>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                           <a href="#" onclick="addlearner();">Add learner</a>
+                                        </li>
+                                        <li>
+                                        <a href="#" onclick="viewlearner();">View learner</a>
+                                        </li>
+                                        <li>
+                                        <a href="#" onclick="registerform(<%=msg%>);">Mark Register</a>
+                                        </li>
+                                        
+                                        <li>
+                                        <a href="#" onclick="searchlearner();">Search Learner</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Trainer's
+                                        <b class="caret hidden-phone"></b>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="dashboard.html">Dashboard</a>
+                                        </li>
+                                        <li>
+                                            <a href="form.html">Form</a>
+                                        </li>
+                                        <li>
+                                            <a href="custom-view.html">Custom View</a>
+                                        </li>
+                                        
+                                        <li>
+                                            <a href="login.html">Login Page</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+         <div id="show">
     
-        <!-- Menu Toggle Script -->
-    <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
+            </div>
+           </div>
+        </div>
+
+        <div id="spinner" class="spinner" style="display:none;">
+            Loading&hellip;
+        </div>
+
+        <footer class="application-footer">
+            <div class="container">
+                <p>Application Footer</p>
+                <div class="disclaimer">
+                    <p>This is an example disclaimer. All right reserved.</p>
+                    <p>Copyright © Student 2015-2020</p>
+                </div>
+            </div>
+        </footer>
+        
+        <script src="styles/js/bootstrap/bootstrap-transition.js" type="text/javascript" ></script>
+        <script src="styles/js/bootstrap/bootstrap-alert.js" type="text/javascript" ></script>
+        <script src="styles/js/bootstrap/bootstrap-modal.js" type="text/javascript" ></script>
+        <script src="styles/js/bootstrap/bootstrap-dropdown.js" type="text/javascript" ></script>
+        <script src="styles/js/bootstrap/bootstrap-scrollspy.js" type="text/javascript" ></script>
+        <script src="styles/js/bootstrap/bootstrap-tab.js" type="text/javascript" ></script>
+        <script src="styles/js/bootstrap/bootstrap-tooltip.js" type="text/javascript" ></script>
+        <script src="styles/js/bootstrap/bootstrap-popover.js" type="text/javascript" ></script>
+        <script src="styles/js/bootstrap/bootstrap-button.js" type="text/javascript" ></script>
+        <script src="styles/js/bootstrap/bootstrap-collapse.js" type="text/javascript" ></script>
+        <script src="styles/js/bootstrap/bootstrap-carousel.js" type="text/javascript" ></script>
+        <script src="styles/js/bootstrap/bootstrap-typeahead.js" type="text/javascript" ></script>
+        <script src="styles/js/bootstrap/bootstrap-affix.js" type="text/javascript" ></script>
+        <script src="styles/js/bootstrap/bootstrap-datepicker.js" type="text/javascript" ></script>
+        <script src="styles/js/jquery/jquery-tablesorter.js" type="text/javascript" ></script>
+        <script src="styles/js/jquery/jquery-chosen.js" type="text/javascript" ></script>
+        <script src="styles/js/jquery/virtual-tour.js" type="text/javascript" ></script>
+        <script type="text/javascript">
+        $(function() {
+            $('#sample-table').tablesorter();
+            $('#datepicker').datepicker();
+            $(".chosen").chosen();
+        });
     </script>
-    
-    </body>
+
+	</body>
 </html>

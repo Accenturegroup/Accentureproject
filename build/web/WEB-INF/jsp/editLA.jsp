@@ -23,8 +23,8 @@
                 <h2 class="form-signin-heading">Update LA</h2>
                 <table> 
                     <tr><td><form:label path="ID">ID</form:label></td><td><form:input class="input-block-level" name="ID" path="ID" value="${ID}"/></td></tr>
-                    <tr><td><form:label path="LearnerID">Learner ID</form:label></td><td><form:input class="input-block-level" read-only="true" name="LearnerID" path="LearnerID" value="${LearnerID}"/> </td></tr>
-                    <tr><td><form:label path="AssessmentID">Assessment ID</form:label></td><td><form:input class="input-block-level" name="AssessmentID" path="AssessmentID" value="${AssessmentID}"/></td></tr>
+                    <tr><td><form:label path="LearnerID">Learner ID</form:label></td><td><form:input class="input-block-level" readonly="true" name="LearnerID" path="LearnerID" value="${LearnerID}"/> </td></tr>
+                    <tr><td><form:label path="AssessmentID">Assessment ID</form:label></td><td><form:input class="input-block-level" readonly="true" name="AssessmentID" path="AssessmentID" value="${AssessmentID}"/></td></tr>
                     <tr><td><form:label path="Marks">Marks</form:label></td><td><form:input class="input-block-level" name="Marks" path="Marks" value="${Marks}"/> </td></tr>
                     <tr><td></td></tr>
                     <tr><td><input class="btn btn-large btn-primary" type="submit" value="Update" /></td></tr>
