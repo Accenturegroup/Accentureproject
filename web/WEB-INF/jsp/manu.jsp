@@ -106,8 +106,10 @@
                  xmlhttp.open("GET","edit.html?id="+id,true);
                  xmlhttp.send();
              }
-             function searchgroup(){
+             
+             function searchGo(){
                
+            
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -123,76 +125,9 @@
                document.getElementById("show").innerHTML=xmlhttp.responseText;
                 }
                  }
-                 xmlhttp.open("GET","search.html",true);
-                 xmlhttp.send();
-             }
-             function search(){
-               
-               var name=document.getElementById("name").value;
-               alert(name);
-                 if (window.XMLHttpRequest)
-                {// code for IE7+, Firefox, Chrome, Opera, Safari
-                 xmlhttp=new XMLHttpRequest(); 
-                }
-                else
-                 {// code for IE6, IE5
-                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-                 }
-                xmlhttp.onreadystatechange=function()
-                 {
-              if (xmlhttp.readyState===4 && xmlhttp.status===200)
-                 {
-               document.getElementById("show").innerHTML=xmlhttp.responseText;
-                }
-                 }
-                 xmlhttp.open("GET","search1.html?name="+name,true);
+                 xmlhttp.open("GET","findGroup.html",true);
                  xmlhttp.send();
              } 
-             
-             
-             function searchgroup(){
-               
-                 if (window.XMLHttpRequest)
-                {// code for IE7+, Firefox, Chrome, Opera, Safari
-                 xmlhttp=new XMLHttpRequest(); 
-                }
-                else
-                 {// code for IE6, IE5
-                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-                 }
-                xmlhttp.onreadystatechange=function()
-                 {
-              if (xmlhttp.readyState===4 && xmlhttp.status===200)
-                 {
-               document.getElementById("show").innerHTML=xmlhttp.responseText;
-                }
-                 }
-                 xmlhttp.open("GET","search.html",true);
-                 xmlhttp.send();
-             }
-             function search(){
-               
-               var name=document.getElementById("name").value;
-               alert(name);
-                 if (window.XMLHttpRequest)
-                {// code for IE7+, Firefox, Chrome, Opera, Safari
-                 xmlhttp=new XMLHttpRequest(); 
-                }
-                else
-                 {// code for IE6, IE5
-                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-                 }
-                xmlhttp.onreadystatechange=function()
-                 {
-              if (xmlhttp.readyState===4 && xmlhttp.status===200)
-                 {
-               document.getElementById("show").innerHTML=xmlhttp.responseText;
-                }
-                 }
-                 xmlhttp.open("GET","search1.html?name="+name,true);
-                 xmlhttp.send();
-             } 
-             
              
               function searchTrainer(){
                
@@ -516,6 +451,48 @@
                  xmlhttp.open("GET","editLA.html?id="+id,true);
                  xmlhttp.send();
              }
+             function findgroup(){
+            //  alert(id);
+                 if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                 xmlhttp=new XMLHttpRequest(); 
+                }
+                else
+                 {// code for IE6, IE5
+                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                 }
+                xmlhttp.onreadystatechange=function()
+                 {
+              if (xmlhttp.readyState===4 && xmlhttp.status===200)
+                 {
+               document.getElementById("show").innerHTML=xmlhttp.responseText;
+                }
+                 }
+                 xmlhttp.open("GET","findGroup.html",true);
+                 xmlhttp.send();
+             }
+             function search(){
+             var search=document.getElementById("search").value;
+           // alert(search);
+                 if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                 xmlhttp=new XMLHttpRequest(); 
+                }
+                else
+                 {// code for IE6, IE5
+                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                 }
+                xmlhttp.onreadystatechange=function()
+                 {
+              if (xmlhttp.readyState===4 && xmlhttp.status===200)
+                 {
+               document.getElementById("show").innerHTML=xmlhttp.responseText;
+                }
+                 }
+                 xmlhttp.open("GET","findGroups.html?search="+search,true);
+                 xmlhttp.send();
+             }
+             
         </script>
     </head>
     <body>
@@ -542,7 +519,7 @@
                      <a href="#" onclick="addgroup();">Add group</a>
                 </li>
                 <li>
-                    <a href="#" onclick="searchgroup();">Search group</a>
+                     <a href="#" onclick="findgroup();">find group</a>
                 </li>
                 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
                 <li>

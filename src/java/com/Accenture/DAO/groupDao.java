@@ -70,4 +70,5 @@ public List<grouppojo> getgroup(){
     list=template.loadAll(grouppojo.class);  
     return list;  
 }
+
 }
