@@ -15,7 +15,6 @@
             <link href="styles/css/customize-template.css" type="text/css" media="screen, projection" rel="stylesheet" />
     </head>
     <body>
-
         <div id="body-container">
             <div>
         <section id="my-account-security-form" class="page container">
@@ -53,7 +52,7 @@
                                 <div class="control-group ">
                                     <label class="control-label">Date Of Birth</label>
                                     <div class="controls">
-                                        <input id="dob" name="dob" class="span4" type="text" value="" autocomplete="false">
+                                        <input id="dob" name="dob" class="span4" type="date" value="" autocomplete="false">
                                     </div>
                                 </div>
                                    <div class="control-group ">

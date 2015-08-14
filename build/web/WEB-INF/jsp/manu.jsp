@@ -558,8 +558,6 @@
                             <li class="active">
                             <a href="#"><i class="icon-home"></i>Home</a>
                             </li>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Contact</a></li>
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Learner's
                                         <b class="caret hidden-phone"></b>
@@ -574,9 +572,21 @@
                                         <li>
                                         <a href="#" onclick="registerform(<%=msg%>);">Mark Register</a>
                                         </li>
-                                        
                                         <li>
                                         <a href="#" onclick="searchlearner();">Search Learner</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                             <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Group's
+                                        <b class="caret hidden-phone"></b>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="#" onclick="addgroup();">Add Group's</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" onclick="viewgroup();">View Group's</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -586,17 +596,10 @@
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li>
-                                            <a href="dashboard.html">Dashboard</a>
+                                            <a href="#" onclick="addtrainer();">Add Trainer's</a>
                                         </li>
                                         <li>
-                                            <a href="form.html">Form</a>
-                                        </li>
-                                        <li>
-                                            <a href="custom-view.html">Custom View</a>
-                                        </li>
-                                        
-                                        <li>
-                                            <a href="login.html">Login Page</a>
+                                            <a href="#" onclick="viewtrainer();">View Trainer's</a>
                                         </li>
                                     </ul>
                                 </li>

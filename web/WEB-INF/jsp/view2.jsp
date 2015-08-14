@@ -13,39 +13,51 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <center> <h3><u><i><b>All Trainer</b></i></u></h3></center>
-        <div align="center">
-   <form:form>
-       
-    <table class="table table-hover">
-         
-        <th>Name</th>
-        <th>Surname</th>
-        <th>ID Number</th>
-         <th>Email</th>
-        <th>Gender</th>
-        <th>Qualification</th>
-        <th>Group</th>
-      
-        <th>Edit</th>
-        <th>Delete</th>
-        <c:forEach var="trainer" items="${msg}">
-            
-                
-            <tr><td>${trainer.getName()}</td>
-            <td>${trainer.getSurname()}</td>
-            <td>${trainer.getIdNumber()}</td>
-             <td>${trainer.getEmail()}</td>
-            <td>${trainer.getGender()}</td>
-            <td>${trainer.getQualification()}</td>
-            <td>${trainer.getGroup()}</td>
-            <td><a href="#" onclick="edittrainer(${trainer.getTId()});">edit</a></td>
-            
-                <td><a href="deletetrainer.html?id=${trainer.getTId()}">delete</a></td></tr>
-        </c:forEach>
-
-    </table>
-    </form:form>
-            </div>
+        <section class="page container">
+            <div class="row">
+                 <div class="span12">        
+                <div align="center">
+                       <form:form>
+                    <div id="Person-1" class="box">
+                        <div class="box-header">
+                            <i class="icon-group  icon-large"></i>
+                            <h5>Trainer's</h5>
+                            
+                        </div>
+                        <div class="box-content box-table">
+                        <table class="table table-hover tablesorter">
+                            <thead>
+                                <tr>
+                                <th>Name</th>
+                                <th>Surname</th>
+                                <th>ID Number</th>
+                                <th>Email</th>
+                                <th>Gender</th>
+                                <th>Qualification</th>
+                                <th>Group</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                             <c:forEach var="trainer" items="${msg}">
+                                <tr><td>${trainer.getName()}</td>
+                                <td>${trainer.getSurname()}</td>
+                                <td>${trainer.getIdNumber()}</td>
+                                <td>${trainer.getEmail()}</td>
+                                <td>${trainer.getGender()}</td>
+                                <td>${trainer.getQualification()}</td>
+                                <td>${trainer.getGroup()}</td>
+                                <td><a href="#" onclick="edittrainer(${trainer.getTId()});">edit</a></td>            
+                                <td><a href="deletetrainer.html?id=${trainer.getTId()}">delete</a></td></tr>
+                                 </c:forEach>
+                            
+                            </tbody>
+                        </table>
+                    </div>
+              </div>
+           </form:form>
+        </div>
+    </div></section>
     </body>
 </html>

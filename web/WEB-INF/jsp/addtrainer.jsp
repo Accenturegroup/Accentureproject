@@ -13,34 +13,114 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <div class="container">
-     <form class="form-signin" method="post" action="addtrainers.html">
-         <h2 class="form-signin-heading">Add Learner</h2>
-        <table>
-            <tr><td>Name:</td><td><input class="input-block-level" type="text" name="name" id="name" value=""/></td></tr>
-            <tr><td>Surname:</td><td><input class="input-block-level" type="text" name="surname" id="surname" value=""/></td></tr>
-            <tr><td>ID Number:</td><td><input class="input-block-level" type="text" name="id" id="id" value=""/></td></tr>
-             <tr><td>Email:</td><td><input class="input-block-level" type="text" name="email" id="email" value=""/></td></tr>
-            <tr><td>Gender:</td><td><select class="input-block-level" name="gender" id="gender">
-                        <option>Male</option>
-                        <option>Female</option>
-                    </select></td></tr>
-            <tr><td>Qualification:</td><td><select class="input-block-level" name="qual" id="race">
-                        <option>BTech</option>
-                        <option>Master</option>
-                        <option>Doctorate</option>
-                    </select></td></tr>
-            <tr><td>Password:</td><td><input class="input-block-level" type="password" name="pass" id="pass" value=""/></td></tr>
-            <tr><td>Group:</td><td>
-                    <select class="input-block-level" name="group" id="group"> 
-                        <option></option>
-                        <c:forEach var="trainer" items="${msg}">
-                            <option value="${trainer.getGname()}">${trainer.getGname()}</option>
-                        </c:forEach>
-                    </select> </td></tr>
-            <tr><td><input class="btn btn-large btn-primary" type="submit"  value="Save"/></td></tr>
-        </table>
-    </form>
-         </div>
+
+        
+                <div id="body-container">
+            <div>
+        <section id="my-account-security-form" class="page container">
+            <form id="userSecurityForm" class="form-horizontal" action="addtrainers.html" method="post">
+                <div class="container">
+
+                    <div class="alert alert-block alert-info">
+                        <p>
+                            Enter Trainer's information.
+                        </p>
+                    </div>
+                    <legend><center>Trainer's Information</center></legend><br>
+                    <div class="row">
+                        <div id="acct-password-row" class="span7">                            
+                            <fieldset>                                
+                                <div class="control-group ">
+                                    <label class="control-label">Name:<span class="required">*</span></label>
+                                    <div class="controls">
+                                    <input class="span4" type="text" name="name" id="name" value=""/>
+                                    </div>
+                                </div>
+                                <div class="control-group ">
+                                    <label class="control-label">ID Number</label>
+                                    <div class="controls">
+                                        <input class="span4" type="text" name="id" id="id" value=""/>
+                                    </div>
+                                </div>
+                                <div class="control-group ">
+                                    <label class="control-label">Contact Number</label>
+                                    <div class="controls">
+                                        <input id="number" name="number" class="span4" type="text" value="" autocomplete="false">
+                                    </div>
+                                </div>                                                                                                                                                               
+                                <div class="control-group ">
+                                    <label class="control-label">Group<span class="required">*</span></label>
+                                    <div class="controls">
+                                        <select class="span4" name="group" id="group">
+                                        <option></option>
+                                       <c:forEach var="group" items="${msg}">
+                                       <option value="${group.getGname()}">${group.getGname()}</option>
+                                       </c:forEach>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="control-group ">
+                                    <label class="control-label">Password</label>
+                                    <div class="controls">
+                                        <input id="pass" name="pass" class="span4" type="password" value="" autocomplete="false">
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div id="acct-verify-row" class="span9">
+                            <fieldset>
+      
+                                <div class="control-group ">
+                                    <label class="control-label">Surname</label>
+                                    <div class="controls">
+                                        <input id="surname" name="surname" class="span4" type="text" value="" autocomplete="false">
+
+                                    </div>
+                                </div>
+                                <div class="control-group ">
+                                    <label class="control-label">Gender<span class="required">*</span></label>
+                                    <div class="controls">
+                                        <select class="span4" name="gender" id="gender">
+                                        <option></option>
+                                        <option>Male</option>
+                                        <option>Female</option>
+                                        </select>
+                                    </div>
+                                </div> 
+                                 <div class="control-group ">
+                                    <label class="control-label">Email</label>
+                                    <div class="controls">
+                                        <input id="email" name="email" class="span4" type="email" value="" autocomplete="false">
+                                    </div>
+                                </div>
+                               <div class="control-group ">
+                                    <label class="control-label">Qualification's</label>
+                                    <div class="controls">
+                                        <select class="span4" name="qual" id="qual">
+                                         <option>BTech</option>
+                                         <option>Master</option>
+                                         <option>Doctorate</option>
+                                         </select>
+                                    </div>
+                                </div>                                                                                              
+
+                                <div class="control-group ">
+                                    <label class="control-label">Confirm Password</label>
+                                    <div class="controls">
+                                        <input id="cpassword" name="cpassword" class="span4" type="password" value="" autocomplete="false">
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <footer id="submit-actions" class="form-actions">
+                        <input id="submit-button" type="submit" class="btn btn-primary"  value="Save">
+                        <input type="submit" class="btn" name="action" value="CANCEL">
+                    </footer>
+                </div>
+            </form>
+        </section>
+            </div>
+        </div>        
     </body>
 </html>

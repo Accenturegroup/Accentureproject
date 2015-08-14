@@ -10,31 +10,103 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-         <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
-
+            <script src="styles/js/jquery/jquery-1.8.2.min.js" type="text/javascript" ></script>
+            <link href="styles/css/customize-template.css" type="text/css" media="screen, projection" rel="stylesheet" />
     </head>
     <body>
-                <div id="show">
-
         <div class="container">
-        
-        <form class="form-signin" method="post" action="addnew.html" >
-            <h2 class="form-signin-heading">Add Group</h2>
-            <table>
-                <tr><td>Group </td><td><input type="text" class="input-block-level" name="name"><br/></td></tr>
-            <tr><td> Duration </td><td><input type="text" class="input-block-level" name="duration"><br/></td></tr>
-            <tr><td>Start Date </td><td><input type="text" class="input-block-level" name="start"><br/></td></tr>
-            <tr><td>End Date </td><td><input type="text"  class="input-block-level" name="finish"><br/></td></tr>
-            <tr><td>Location </td><td><input type="text" class="input-block-level" name="location"><br/></td></tr>
-            <tr><td></td></tr>
-            <tr><td> <input class="btn btn-large btn-primary" type="submit" value="Create"></td></tr>
-       </table>
-       </form>
-        </div>          
-        </div>
-        
-    </body>
-</html>
+        <section id="my-account-security-form" class="page container">
+            <form id="userSecurityForm" class="form-horizontal" action="addnew.html" method="post">
+                <div class="container">
 
+                    <div class="alert alert-block alert-info">
+                        <p>
+                            Enter  Group information.
+                        </p>
+                    </div>
+                    <legend><center>Group's Information</center></legend><br>
+                    <div class="row">
+                        <div id="acct-password-row" class="span7">
+                            
+                            <fieldset>
+                                
+
+                                <div class="control-group ">
+                                    <label class="control-label">Group</label>
+                                    <div class="controls">
+                                        <input id="name" name="name" class="span4" type="text" value="" autocomplete="false">
+                                    </div>
+                                </div>
+                                <div class="control-group ">
+                                    <label class="control-label">Duration</label>
+                                    <div class="controls">
+                                        <input id="duration" name="duration" class="span4" type="number" value="" autocomplete="false">
+                                    </div>
+                                </div>
+                                   <div class="control-group ">
+                                    <label class="control-label">Start Date</label>
+                                    <div class="controls">
+                                        <input id="start" name="start" class="span4" type="date" value="" autocomplete="false">
+
+                                    </div>
+                                </div>
+                                  <div class="control-group ">
+                                    <label class="control-label">End Date</label>
+                                    <div class="controls">
+                                        <input id="finish" name="finish" class="span4" type="date" value="" autocomplete="false">
+
+                                    </div>
+                                </div>
+                                    <div class="control-group ">
+                                    <label class="control-label">Location<span class="required">*</span></label>
+                                    <div class="controls">
+                                        <select class="span4" name="location" id="location">
+                                        <option></option>
+                                        <option>Johannesburg</option>
+                                        <option>Cape Town</option>
+                                        <option>Durban</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div id="acct-verify-row" class="span9">
+                            <fieldset>                                                                                              
+                            </fieldset>
+                        </div>
+                    </div>
+                    <footer id="submit-actions" class="form-actions">
+                        <input id="submit-button" type="submit" class="btn btn-primary"  value="Save">
+                        <input type="submit" class="btn" name="action" value="CANCEL">
+                    </footer>
+                </div>
+            </form>
+        </section>
+            </div>
+        </div>
+        <script src="styles/js/bootstrap/bootstrap-transition.js" type="text/javascript" ></script>
+        <script src="styles/js/bootstrap/bootstrap-alert.js" type="text/javascript" ></script>
+        <script src="styles/js/bootstrap/bootstrap-modal.js" type="text/javascript" ></script>
+        <script src="styles/js/bootstrap/bootstrap-dropdown.js" type="text/javascript" ></script>
+        <script src="styles/js/bootstrap/bootstrap-scrollspy.js" type="text/javascript" ></script>
+        <script src="styles/js/bootstrap/bootstrap-tab.js" type="text/javascript" ></script>
+        <script src="styles/js/bootstrap/bootstrap-tooltip.js" type="text/javascript" ></script>
+        <script src="styles/js/bootstrap/bootstrap-popover.js" type="text/javascript" ></script>
+        <script src="styles/js/bootstrap/bootstrap-button.js" type="text/javascript" ></script>
+        <script src="styles/js/bootstrap/bootstrap-collapse.js" type="text/javascript" ></script>
+        <script src="styles/js/bootstrap/bootstrap-carousel.js" type="text/javascript" ></script>
+        <script src="styles/js/bootstrap/bootstrap-typeahead.js" type="text/javascript" ></script>
+        <script src="styles/js/bootstrap/bootstrap-affix.js" type="text/javascript" ></script>
+        <script src="styles/js/bootstrap/bootstrap-datepicker.js" type="text/javascript" ></script>
+        <script src="styles/js/jquery/jquery-tablesorter.js" type="text/javascript" ></script>
+        <script src="styles/js/jquery/jquery-chosen.js" type="text/javascript" ></script>
+        <script src="styles/js/jquery/virtual-tour.js" type="text/javascript" ></script>
+        <script type="text/javascript">
+        $(function() {
+            $('#sample-table').tablesorter();
+            $('#datepicker').datepicker();
+            $(".chosen").chosen();
+        });
+    </script>
     </body>
 </html>
