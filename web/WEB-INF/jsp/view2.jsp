@@ -32,11 +32,13 @@
                                 <th>Surname</th>
                                 <th>ID Number</th>
                                 <th>Email</th>
+                                <th>Contact</th>
                                 <th>Gender</th>
                                 <th>Qualification</th>
                                 <th>Group</th>
+                                <th>Location</th>
                                 <th>Edit</th>
-                                <th>Delete</th>
+                                
                                 </tr>
                             </thead>
                             <tbody>
@@ -45,11 +47,13 @@
                                 <td>${trainer.getSurname()}</td>
                                 <td>${trainer.getIdNumber()}</td>
                                 <td>${trainer.getEmail()}</td>
+                                <td>${trainer.getContact()}</td>
                                 <td>${trainer.getGender()}</td>
                                 <td>${trainer.getQualification()}</td>
                                 <td>${trainer.getGroup()}</td>
+                                <td>${trainer.getLocation()}</td>
                                 <td><a href="#" onclick="edittrainer(${trainer.getTId()});">edit</a></td>            
-                                <td><a href="deletetrainer.html?id=${trainer.getTId()}">delete</a></td></tr>
+                                <!--<td><a href="deletetrainer.html?id=${trainer.getTId()}">delete</a></td></tr>-->
                                  </c:forEach>
                             
                             </tbody>

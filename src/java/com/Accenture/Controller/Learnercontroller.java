@@ -270,7 +270,8 @@ public class Learnercontroller {
       String password= request.getParameter("pass");
       String group=request.getParameter("group");
       String email=request.getParameter("email");
-      
+      String number=request.getParameter("number");
+      String location = request.getParameter("location");
       pojoe.setName(name);
       pojoe.setSurname(surname);
       pojoe.setIdNumber(id);
@@ -279,8 +280,10 @@ public class Learnercontroller {
       pojoe.setPassword(password);
       pojoe.setGroup(group);
       pojoe.setEmail(email);
+      pojoe.setContact(number);
+      pojoe.setLocation(location);
       daoe.saveTrainer(pojoe);
-        return new ModelAndView("manu", "message", message);  
+      return new ModelAndView("manu", "message", message);  
     }
      
      @RequestMapping("/deletetrainer")
@@ -311,15 +314,17 @@ public class Learnercontroller {
      
     @RequestMapping("/updatetrainer")
      public ModelAndView updatetrainer(HttpServletRequest request,HttpServletResponse res){
-         
+        String message="";
          int id=Integer.parseInt(request.getParameter("TId"));
          String name=request.getParameter("Name");
          String surname=request.getParameter("Surname");
          String number=request.getParameter("IdNumber");
          String gender=request.getParameter("Gender");
-         String qualification=request.getParameter("Qualification");
+         String qualification=request.getParameter("qual");
          String group=request.getParameter("Group");
-          String email=request.getParameter("email");
+         String email=request.getParameter("email");
+         String contact=request.getParameter("contact");
+         String location=request.getParameter("location");
          
          pojoe=daoe.getById(id);
          pojoe.setName(name);
@@ -328,12 +333,14 @@ public class Learnercontroller {
          pojoe.setGender(gender);
          pojoe.setQualification(qualification);
          pojoe.setGroup(group);
-         pojoe.setEmail(email); 
+         pojoe.setEmail(email);
+         pojoe.setContact(contact);
+         pojoe.setLocation(location);
          
          daoe.updateforce(pojoe);
 
-         ModelAndView model=new ModelAndView("manu");
-         return model;
+          return new ModelAndView("manu", "message", message);
+
      } 
     @RequestMapping("/login")
      public ModelAndView login(HttpServletRequest request,HttpServletResponse res) {  
@@ -495,6 +502,7 @@ public class Learnercontroller {
         String race = request.getParameter("race");
         String group = request.getParameter("groups");
         String status = request.getParameter("status");
+        String location = request.getParameter("location");
         
         String message="";
         pojos = dao.getById(id);
@@ -509,7 +517,7 @@ public class Learnercontroller {
         pojos.setRace(race);
         pojos.setGroups(group);
         pojos.setStatus(status);
-        
+        pojos.setLocation(location);
         dao.updateLearner(pojos);
         return new ModelAndView("manu", "message", message);
 
@@ -517,11 +525,11 @@ public class Learnercontroller {
     
     @RequestMapping("/DeleteLearner")  
     public ModelAndView deleteLearner(HttpServletRequest request,HttpServletResponse res) 
-    {
+    {String message="";
         int id = Integer.parseInt(request.getParameter("LID"));
         pojos = dao.getById(id);
         dao.deleteLearner(pojos);
-        return new ModelAndView("redirect:/");
+         return new ModelAndView("manu", "message", message);
     } 
     
      @RequestMapping("/learnerList")

@@ -18,7 +18,9 @@ public class trainerpojo {
     private String Qualification;
     private String Password;
     private String Group;
-     private String email;
+    private String email;
+    private String location;
+    private String contact;
 
     public int getTId() {
         return TId;
@@ -96,6 +98,34 @@ public class trainerpojo {
      */
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    /**
+     * @return the location
+     */
+    public String getLocation() {
+        return location;
+    }
+
+    /**
+     * @param location the location to set
+     */
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    /**
+     * @return the contact
+     */
+    public String getContact() {
+        return contact;
+    }
+
+    /**
+     * @param contact the contact to set
+     */
+    public void setContact(String contact) {
+        this.contact = contact;
     }
     
     

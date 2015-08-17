@@ -33,9 +33,9 @@
                         <div id="acct-password-row" class="span7">                            
                             <fieldset>                
                 <div class="control-group ">
-                    <label >ID</label>
+              
                     <div class="controls">
-                    <form:input class="span4" name="groupid" path="groupid" value="${groupid}"/>
+                        <form:hidden class="span4" name="groupid" path="groupid" value="${groupid}"/>
                     </div>
                 </div>
                 <div class="control-group "><form:label path="gname">Name</form:label>
@@ -66,7 +66,7 @@
                         </div>
                     </div>
                      <footer id="submit-actions" class="form-actions">
-                        <input id="submit-button" type="submit" class="btn btn-primary"  value="Save">
+                        <input id="submit-button" type="submit" class="btn btn-primary"  value="Update">
                         <input type="submit" class="btn" name="action" value="CANCEL">
                     </footer>
             

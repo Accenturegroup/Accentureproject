@@ -36,5 +36,11 @@
             <property name="Email">
           <column name="email"></column>
       </property>
+      <property name="Location">
+          <column name="location"></column>
+      </property>
+            <property name="Contact">
+          <column name="contact"></column>
+      </property>
   </class>
 </hibernate-mapping>

@@ -36,6 +36,14 @@
                                     <input class="span4" type="text" name="name" id="name" value=""/>
                                     </div>
                                 </div>
+                                      
+                                <div class="control-group ">
+                                    <label class="control-label">Surname</label>
+                                    <div class="controls">
+                                        <input id="surname" name="surname" class="span4" type="text" value="" autocomplete="false">
+
+                                    </div>
+                                </div>
                                 <div class="control-group ">
                                     <label class="control-label">ID Number</label>
                                     <div class="controls">
@@ -43,11 +51,33 @@
                                     </div>
                                 </div>
                                 <div class="control-group ">
+                                    <label class="control-label">Gender<span class="required">*</span></label>
+                                    <div class="controls">
+                                        <select class="span4" name="gender" id="gender">
+                                        <option></option>
+                                        <option>Male</option>
+                                        <option>Female</option>
+                                        </select>
+                                    </div>
+                                </div>                                                                                                                                                                
+                                <div class="control-group ">
                                     <label class="control-label">Contact Number</label>
                                     <div class="controls">
-                                        <input id="number" name="number" class="span4" type="text" value="" autocomplete="false">
+                                        <input class="span4" type="number" name="number" id="number" value=""/>
                                     </div>
-                                </div>                                                                                                                                                               
+                                </div>
+                                 <div class="control-group ">
+                                    <label class="control-label">Email</label>
+                                    <div class="controls">
+                                        <input id="email" name="email" class="span4" type="email" value="" autocomplete="false">
+                                    </div>
+                                </div>
+
+                            </fieldset>
+                        </div>
+                        <div id="acct-verify-row" class="span9">
+                            <fieldset>
+
                                 <div class="control-group ">
                                     <label class="control-label">Group<span class="required">*</span></label>
                                     <div class="controls">
@@ -60,37 +90,14 @@
                                     </div>
                                 </div>
                                 <div class="control-group ">
-                                    <label class="control-label">Password</label>
+                                    <label class="control-label">Location<span class="required">*</span></label>
                                     <div class="controls">
-                                        <input id="pass" name="pass" class="span4" type="password" value="" autocomplete="false">
-                                    </div>
-                                </div>
-                            </fieldset>
-                        </div>
-                        <div id="acct-verify-row" class="span9">
-                            <fieldset>
-      
-                                <div class="control-group ">
-                                    <label class="control-label">Surname</label>
-                                    <div class="controls">
-                                        <input id="surname" name="surname" class="span4" type="text" value="" autocomplete="false">
-
-                                    </div>
-                                </div>
-                                <div class="control-group ">
-                                    <label class="control-label">Gender<span class="required">*</span></label>
-                                    <div class="controls">
-                                        <select class="span4" name="gender" id="gender">
+                                        <select class="span4" name="location" id="location">
                                         <option></option>
-                                        <option>Male</option>
-                                        <option>Female</option>
+                                        <option>Johannesburg</option>
+                                        <option>Cape Town</option>
+                                        <option>Durban</option>
                                         </select>
-                                    </div>
-                                </div> 
-                                 <div class="control-group ">
-                                    <label class="control-label">Email</label>
-                                    <div class="controls">
-                                        <input id="email" name="email" class="span4" type="email" value="" autocomplete="false">
                                     </div>
                                 </div>
                                <div class="control-group ">
@@ -103,7 +110,12 @@
                                          </select>
                                     </div>
                                 </div>                                                                                              
-
+                                <div class="control-group ">
+                                    <label class="control-label">Password</label>
+                                    <div class="controls">
+                                        <input id="pass" name="pass" class="span4" type="password" value="" autocomplete="false">
+                                    </div>
+                                </div>
                                 <div class="control-group ">
                                     <label class="control-label">Confirm Password</label>
                                     <div class="controls">
