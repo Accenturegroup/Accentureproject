@@ -6,12 +6,14 @@
 package com.Accenture.Controller;
 
 import com.Accenture.DAO.AssessmentDAO;
+import com.Accenture.DAO.LearnerAssessmentDAO;
 import com.Accenture.DAO.feedbackDao;
 import com.Accenture.DAO.groupDao;
 import com.Accenture.DAO.learnerDao;
 import com.Accenture.DAO.markregisterDao;
 import com.Accenture.DAO.trainerDao;
 import com.Accenture.Model.AssessmentPojo;
+import com.Accenture.Model.LearnerAssessmentPojo;
 import com.Accenture.Model.feedbackpojo;
 import com.Accenture.Model.grouppojo;
 import com.Accenture.Model.learnerspojo;
@@ -23,10 +25,13 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -601,4 +606,128 @@ public class Learnercontroller {
          return model;
      }
 
+     //Noli View Learner Assessment
+      @RequestMapping("/LearnerAssessmentView")
+    public ModelAndView LearnerAssessmentView(ModelAndView model) throws IOException{ 
+      List<LearnerAssessmentPojo> LearnerAssessmentView=ldao.getLearnerAssessment();
+     model.addObject("msg",LearnerAssessmentView);
+      return model;
+    }
+  
+    
+    //Noli Add Learner Assessment
+//    
+      LearnerAssessmentDAO ldao=(LearnerAssessmentDAO)r.getBean("las");
+    LearnerAssessmentPojo lap=new LearnerAssessmentPojo();
+
+    
+    //Noli Add Learner Assessment
+    @RequestMapping("/LearnerAssessmentAddView")
+    public ModelAndView LearnerAssessmentAddView(ModelAndView model) throws IOException{ 
+     LearnerAssessmentPojo pojo=new LearnerAssessmentPojo();
+     
+      List<AssessmentPojo> AssessmentView=d.getAssessments();
+      List<learnerspojo> view=dao.getLearners();
+      
+     model.addObject("LearnerAssessmentAddView",pojo);
+     model.addObject("learner",view);
+     model.addObject("Assessment",AssessmentView);
+     
+      return model;
+    }
+    
+    @RequestMapping("/LearnerAssessmentAdd")
+    public ModelAndView LearnerAssessmentAdd(HttpServletRequest request,HttpServletResponse res) { 
+     String message="";
+     int lid=Integer.parseInt(request.getParameter("lid"));
+     int aid=Integer.parseInt(request.getParameter("aid"));
+     Double mark=Double.parseDouble(request.getParameter("mark"));
+     
+     lap.setAssessmentID(aid);
+     lap.setLearnerID(lid);
+     lap.setMarks(mark);
+     ldao.saveLearnerAssessment(lap);
+      return new ModelAndView("add","message",message);
+    }
+    
+    //Noli edit learner Assessment
+    @RequestMapping("/editLA")
+     public ModelAndView editLA(HttpServletRequest request,HttpServletResponse res){
+         int id=Integer.parseInt(request.getParameter("id"));
+         LearnerAssessmentPojo lpojo=ldao.getById(id);
+         
+         ModelAndView model=new ModelAndView("editLA");
+         model.addObject("editLA", lpojo);
+         return model;
+     }
+     @RequestMapping("/updateLA")
+     public ModelAndView updateLA(HttpServletRequest request,HttpServletResponse res){
+         int ID=Integer.parseInt(request.getParameter("ID"));
+         Double Marks=Double.parseDouble(request.getParameter("Marks"));
+         
+            LearnerAssessmentPojo lpojo=ldao.getById(ID);
+            lpojo.setMarks(Marks);
+            ldao.updateforce(lpojo);
+
+         ModelAndView model=new ModelAndView("manu");
+         return model;
+     }
+    @RequestMapping("/deleteLA")
+     public ModelAndView deleteLA(HttpServletRequest request,HttpServletResponse res){
+         int ID=Integer.parseInt(request.getParameter("id"));
+         
+            Session session;
+   
+            SessionFactory sessionfactory= new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
+            session=sessionfactory.openSession();
+            session.beginTransaction();
+            String hgl= "delete from LearnerAssessmentPojo where ID = :id";
+            org.hibernate.Query query= session.createQuery(hgl);
+            query.setParameter("id", ID);
+            int count=query.executeUpdate();
+
+         ModelAndView model=new ModelAndView("index");
+//         model.addObject("view1", ppojo);
+         return model;
+     }
+     
+      @RequestMapping("/findGroup")
+    public ModelAndView findGroup(ModelAndView model) throws IOException{ 
+     grouppojo pojo=new grouppojo();
+      model.addObject("grouppojo",pojo);
+      return model;
+    }
+     @RequestMapping("/findGroups")
+     public ModelAndView findGroups(ModelAndView model,HttpServletRequest request,HttpServletResponse res)
+     {
+         String search=request.getParameter("search");
+         
+        List<grouppojo> result=new ArrayList<grouppojo>();
+         result= daog.search(search);
+
+       Iterator it=result.iterator();
+       model.addObject("it",it);
+      return model;
+     }
+     
+     @RequestMapping("/Student")
+    public ModelAndView Student(ModelAndView model) throws IOException{
+        List<learnerspojo> list=dao.getLearners();
+           model.addObject("learner",list);
+      return model;
+    }
+    
+     @RequestMapping("/Students")
+     public ModelAndView Students(ModelAndView model,HttpServletRequest request,HttpServletResponse res)
+     {
+         int id=Integer.parseInt(request.getParameter("search"));
+         
+        List<learnerspojo> result=new ArrayList<learnerspojo>();
+        result=dao.search(id);
+   
+       Iterator it=result.iterator();
+       model.addObject("it",it);
+      return model;
+     }
+      
 }
