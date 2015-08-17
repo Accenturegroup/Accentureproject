@@ -14,11 +14,29 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <center> <h3><u><i><b>All Learner's assessment</b></i></u></h3></center>
-    <form:form>
-        <div id="show">
-        <table class="table table-hover">
-            <tr><td>Mark ID</td><td>Learner ID</td><td>Assessment ID</td><td>Mark</td><td>Date Entered</td></tr>
+        <section class="page container">
+            <div class="row">
+                 <div class="span12">        
+                <div align="center">
+                       <form:form>
+                    <div id="Person-1" class="box">
+                        <div class="box-header">
+                            <i class="icon-group  icon-large"></i>
+                            <h5>Groups</h5>
+                            
+                        </div>
+                        <div class="box-content box-table">
+                        <table class="table table-hover tablesorter">
+                            <thead>
+                                <tr>
+                                    <th>Mark ID</th>
+                                    <th>Learner ID</th>
+                                    <th>Assessment ID</th>
+                                    <th>Mark</th>
+                                    <th>Date Entered</th>
+                                </tr>
+                            </thead>
+                            <tbody>
             <c:forEach var="LAs" items="${msg}">
                 <tr><td>${LAs.getID()}</td>
                 <td>${LAs.getLearnerID()}</td>
@@ -30,7 +48,15 @@
                 </tr>
                 
             </c:forEach>
+                </tbody>
         </table>
             </div>
+                    </div>
+                           </form:form>
+                </div>
+                 </div>
+            </div>
+        </section>
+            
     </body>
 </html>

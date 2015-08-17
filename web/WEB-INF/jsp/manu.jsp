@@ -504,6 +504,87 @@
                  xmlhttp.open("GET","editLA.html?id="+id,true);
                  xmlhttp.send();
              }
+              function findgroup(){
+            //  alert(id);
+                 if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                 xmlhttp=new XMLHttpRequest(); 
+                }
+                else
+                 {// code for IE6, IE5
+                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                 }
+                xmlhttp.onreadystatechange=function()
+                 {
+              if (xmlhttp.readyState===4 && xmlhttp.status===200)
+                 {
+               document.getElementById("show").innerHTML=xmlhttp.responseText;
+                }
+                 }
+                 xmlhttp.open("GET","findGroup.html",true);
+                 xmlhttp.send();
+             }
+             function search(){
+             var search=document.getElementById("search").value;
+           // alert(search);
+                 if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                 xmlhttp=new XMLHttpRequest(); 
+                }
+                else
+                 {// code for IE6, IE5
+                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                 }
+                xmlhttp.onreadystatechange=function()
+                 {
+              if (xmlhttp.readyState===4 && xmlhttp.status===200)
+                 {
+               document.getElementById("show").innerHTML=xmlhttp.responseText;
+                }
+                 }
+                 xmlhttp.open("GET","findGroups.html?search="+search,true);
+                 xmlhttp.send();
+             }
+             function student(){
+           // alert(search);
+                 if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                 xmlhttp=new XMLHttpRequest(); 
+                }
+                else
+                 {// code for IE6, IE5
+                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                 }
+                xmlhttp.onreadystatechange=function()
+                 {
+              if (xmlhttp.readyState===4 && xmlhttp.status===200)
+                 {
+               document.getElementById("show").innerHTML=xmlhttp.responseText;
+                }
+                 }
+                 xmlhttp.open("GET","Student.html",true);
+                 xmlhttp.send();
+             }
+               function Students(search){
+           //alert(search);
+                 if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                 xmlhttp=new XMLHttpRequest(); 
+                }
+                else
+                 {// code for IE6, IE5
+                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                 }
+                xmlhttp.onreadystatechange=function()
+                 {
+              if (xmlhttp.readyState===4 && xmlhttp.status===200)
+                 {
+               document.getElementById("show").innerHTML=xmlhttp.responseText;
+                }
+                 }
+                 xmlhttp.open("GET","Students.html?search="+search,true);
+                 xmlhttp.send();
+             }
         </script>
 
 </head>
@@ -573,7 +654,7 @@
                                         <a href="#" onclick="registerform(<%=msg%>);">Mark Register</a>
                                         </li>
                                         <li>
-                                        <a href="#" onclick="searchlearner();">Search Learner</a>
+                                        <a href="#" onclick="student();">Search Learner</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -587,6 +668,8 @@
                                         </li>
                                         <li>
                                             <a href="#" onclick="viewgroup();">View Group's</a>
+                                        </li><li>
+                                            <a href="#" onclick="findgroup();">Find Group</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -600,6 +683,22 @@
                                         </li>
                                         <li>
                                             <a href="#" onclick="viewtrainer();">View Trainer's</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" onclick="searchgroup();">Search Group</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                        <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Learner Assessments
+                                        <b class="caret hidden-phone"></b>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="#" onclick="viewLearnerAssess();">View Learner Assessments</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" onclick="addLearnerAssessment();">Add Learner Assessments</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -622,10 +721,10 @@
 
         <footer class="application-footer">
             <div class="container">
-                <p>Application Footer</p>
+                <p></p>
                 <div class="disclaimer">
-                    <p>This is an example disclaimer. All right reserved.</p>
-                    <p>Copyright © Student 2015-2020</p>
+                    <p>Created for Accenture August 2015</p>
+                    <p></p>
                 </div>
             </div>
         </footer>

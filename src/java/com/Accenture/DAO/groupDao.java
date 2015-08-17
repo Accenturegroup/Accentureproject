@@ -8,6 +8,7 @@ package com.Accenture.DAO;
 import com.Accenture.Model.AssessmentPojo;
 import com.Accenture.Model.grouppojo;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -71,4 +72,28 @@ public List<grouppojo> getgroup(){
     return list;  
 }
 
+public List<grouppojo> search(String search)
+{
+    List<grouppojo> result=new ArrayList<grouppojo>();
+     Session session=null;
+          SessionFactory sessionfactory = new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
+            session = sessionfactory.openSession();
+            session.beginTransaction();
+			
+            String HQL_QUERY= "from grouppojo groups where gname like '%"+search+"%'";
+            org.hibernate.Query query = session.createQuery(HQL_QUERY);
+         
+            for(Iterator it = query.iterate();it.hasNext();){
+                grouppojo l = (grouppojo) it.next();
+                
+                l.getDuration();
+                l.getFinish();
+                l.getGname();
+                l.getGroupid();
+                l.getLocation();
+                l.getStart();
+                result.add(l);
+            }
+          return result;  
+}
 }

@@ -18,7 +18,6 @@
                  ${res.gname}
                  ${res.duration}</br>
              </c:forEach>
-           ${it}
         </div>
     </body>
 </html>

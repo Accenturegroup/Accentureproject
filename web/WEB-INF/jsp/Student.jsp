@@ -1,6 +1,6 @@
 <%-- 
-    Document   : findGroups
-    Created on : Aug 13, 2015, 11:20:37 AM
+    Document   : Student
+    Created on : Aug 14, 2015, 8:50:39 AM
     Author     : Andile
 --%>
 
@@ -13,11 +13,11 @@
         <title>JSP Page</title>
     </head>
     <body>
-         <div id="show">
-             <c:forEach var="res" items="${it}">
-                 ${res.gname}
-                 ${res.duration}</br>
-             </c:forEach>
+        <div id="show">
+           <c:forEach var="lear" items="${learner}">
+               <a href="#" onclick="Students(${lear.getLID()});">${lear.getLName()}</a></br>
+        </c:forEach> 
         </div>
+        
     </body>
 </html>
