@@ -504,6 +504,90 @@
                  xmlhttp.open("GET","editLA.html?id="+id,true);
                  xmlhttp.send();
              }
+             
+             function saveFeedback(){
+               
+                 if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                 xmlhttp=new XMLHttpRequest(); 
+                }
+                else
+                 {// code for IE6, IE5
+                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                 }
+                xmlhttp.onreadystatechange=function()
+                 {
+              if (xmlhttp.readyState===4 && xmlhttp.status===200)
+                 {
+               document.getElementById("show").innerHTML=xmlhttp.responseText;
+                }
+                 }
+                 xmlhttp.open("GET","saveFeedback.html",true);
+                 xmlhttp.send();
+             } 
+             
+             function viewFeedback(){
+               
+                 if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                 xmlhttp=new XMLHttpRequest(); 
+                }
+                else
+                 {// code for IE6, IE5
+                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                 }
+                xmlhttp.onreadystatechange=function()
+                 {
+              if (xmlhttp.readyState===4 && xmlhttp.status===200)
+                 {
+               document.getElementById("show").innerHTML=xmlhttp.responseText;
+                }
+                 }
+                 xmlhttp.open("GET","viewFeedback.html",true);
+                 xmlhttp.send();
+             }
+             
+        function updateFeedback(id){
+               
+                 if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                 xmlhttp=new XMLHttpRequest(); 
+                }
+                else
+                 {// code for IE6, IE5
+                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                 }
+                xmlhttp.onreadystatechange=function()
+                 {
+              if (xmlhttp.readyState===4 && xmlhttp.status===200)
+                 {
+               document.getElementById("show").innerHTML=xmlhttp.responseText;
+                }
+                 }
+                 xmlhttp.open("GET","updateFeedback.html?id="+id,true);
+                 xmlhttp.send();
+             }
+              function giveFeedback(){
+                 if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                 xmlhttp=new XMLHttpRequest(); 
+                }
+                else
+                 {// code for IE6, IE5
+                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                 }
+                xmlhttp.onreadystatechange=function()
+                 {
+              if (xmlhttp.readyState===4 && xmlhttp.status===200)
+                 {
+               document.getElementById("show").innerHTML=xmlhttp.responseText;
+                }
+                 }
+                 xmlhttp.open("GET","giveFeedback.html",true);
+                 xmlhttp.send();
+             }
+
+             
         </script>
 
 </head>
@@ -575,7 +659,13 @@
                                         <li>
                                         <a href="#" onclick="searchlearner();">Search Learner</a>
                                         </li>
-                                    </ul>
+                                        <li>
+                                            <a href="#" onclick="giveFeedback()">Give Feedback About Learners</a>
+                                        </li>
+                                           <li>
+                                            <a href="#" onclick="viewFeedback()">View Learners Feedback</a>
+                                        </li>
+                                        </ul>
                                 </li>
                              <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Group's

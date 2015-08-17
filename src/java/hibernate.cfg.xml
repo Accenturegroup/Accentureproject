@@ -12,5 +12,6 @@
     <mapping resource="trainer.hbm.xml"/>
     <mapping resource="markregister.hbm.xml"/>
     <mapping resource="LearnerAssessment.hbm.xml"/>
+    <mapping resource="feedback1.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

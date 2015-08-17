@@ -6,33 +6,30 @@
 package com.Accenture.Controller;
 
 import com.Accenture.DAO.AssessmentDAO;
+import com.Accenture.DAO.feedbackDao;
 import com.Accenture.DAO.groupDao;
 import com.Accenture.DAO.learnerDao;
 import com.Accenture.DAO.markregisterDao;
 import com.Accenture.DAO.trainerDao;
 import com.Accenture.Model.AssessmentPojo;
+import com.Accenture.Model.feedbackpojo;
 import com.Accenture.Model.grouppojo;
 import com.Accenture.Model.learnerspojo;
 import com.Accenture.Model.markregister;
 import com.Accenture.Model.trainerpojo;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -55,7 +52,9 @@ public class Learnercontroller {
     markregisterDao mdao=(markregisterDao)r.getBean("m");
 
     markregister mpojos=new markregister();
-
+    feedbackDao fdao=(feedbackDao)r.getBean("f");
+    feedbackpojo fpojo= new feedbackpojo();
+    
     
     @RequestMapping("/log")  
     public ModelAndView helloWorld() {  
@@ -520,6 +519,80 @@ public class Learnercontroller {
      {
          List<learnerspojo> learnerList = dao.getLearners();
          model.addObject("learnerList",learnerList);
+         return model;
+     }
+     
+          
+     @RequestMapping("/giveFeedback")
+     public ModelAndView giveFeedback(ModelAndView model){
+         List <learnerspojo> learner=dao.getLearners();
+         feedbackpojo obj=new feedbackpojo();
+         model.addObject("givefeedback",obj);
+         model.setViewName("giveFeedback");
+         model.addObject("msg",learner);
+         return model;
+     }
+     
+     @RequestMapping("/saveFeedback")
+     public ModelAndView saveFeedback(HttpServletRequest request,HttpServletResponse res){
+        String message = "";
+        
+        int learnerid=Integer.parseInt(request.getParameter("learnerid"));
+        String feedback=request.getParameter("feedback");
+        
+        
+        fpojo.setLid(learnerid);
+        fpojo.setFeedbackid(learnerid);
+        fpojo.setFeedback(feedback);
+      
+        fdao.savefeedback(fpojo);
+        return new ModelAndView("manu", "message", message); 
+     }
+     @RequestMapping("/updateFeedback")
+     public ModelAndView updateFeedback(HttpServletRequest request,HttpServletResponse res){
+        int fid=Integer.parseInt(request.getParameter("id"));
+        List<learnerspojo> view1=dao.getLearners();
+        feedbackpojo fpojo=fdao.getById(fid);
+        ModelAndView model=new ModelAndView("updateFeedback");
+        model.addObject("updateFeedback",fpojo);
+        model.addObject("msg",view1);
+        return model;
+     }
+     
+    
+    @RequestMapping("/saveUpdateFeedback")
+     public ModelAndView saveUpdateFeedback(HttpServletRequest request,HttpServletResponse res){
+         String message = "";
+         
+         int id=Integer.parseInt(request.getParameter("feedbackid"));
+         int lid=Integer.parseInt(request.getParameter("lid"));
+         String feedback=request.getParameter("feedback");
+     
+         
+         fpojo.setFeedbackid(id);
+         fpojo.setLid(lid);
+         fpojo.setFeedback(feedback);
+    
+         
+         fdao.updateforceg(fpojo);
+
+         return new ModelAndView("manu", "message", message); 
+     } 
+    @RequestMapping("/viewFeedback")        
+    public ModelAndView viewFeedback(ModelAndView model) throws IOException{ 
+      List<feedbackpojo> viewFeedback=fdao.getfeedback();
+     model.addObject("msg",viewFeedback);
+      return model;
+    }
+    @RequestMapping("/deleteFeedback")
+      public ModelAndView deleteFeedback(HttpServletRequest request,HttpServletResponse res){
+         int id=Integer.parseInt(request.getParameter("id"));
+         
+         fpojo.setFeedbackid(id);
+         fdao.deleteforceg(fpojo);
+
+         ModelAndView model=new ModelAndView("manu");
+
          return model;
      }
 
