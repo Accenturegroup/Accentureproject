@@ -226,6 +226,7 @@ public class Learnercontroller {
       String password= request.getParameter("pass");
       String status=request.getParameter("status");
       String name= request.getParameter("name");
+      String location= request.getParameter("location");
      
       pojos.setLSurname(surname);
       pojos.setTitle(title);
@@ -238,6 +239,7 @@ public class Learnercontroller {
       pojos.setPassword(password);
       pojos.setStatus(status);
       pojos.setLName(name);
+      pojos.setLocation(location);
       dao.saveLearner(pojos);
         return new ModelAndView("manu", "message", message);  
     }
@@ -462,12 +464,14 @@ public class Learnercontroller {
         statusList.add("Not Started");
         statusList.add("In Progress");
         statusList.add("Complete");
-        
+        List<grouppojo> msg=daog.getgroup();
         Map<String, Object> map = new HashMap<String,Object>();
         map.put("genderList",genderList);
         map.put("raceList", raceList);
         map.put("statusList", statusList);
         map.put("learner", learner);
+        map.put("msg", msg);
+
         
         return new ModelAndView("EditLearner","map",map);
     }
@@ -487,7 +491,7 @@ public class Learnercontroller {
         String group = request.getParameter("groups");
         String status = request.getParameter("status");
         
-        
+        String message="";
         pojos = dao.getById(id);
         
         pojos.setTitle(title);
@@ -502,7 +506,8 @@ public class Learnercontroller {
         pojos.setStatus(status);
         
         dao.updateLearner(pojos);
-        return new ModelAndView("redirect:/");
+        return new ModelAndView("manu", "message", message);
+
     }  
     
     @RequestMapping("/DeleteLearner")  
