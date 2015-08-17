@@ -24,7 +24,7 @@
                  <table>
        <tr><td><form:label path="feedbackid">Feedback ID</form:label></td><td><form:input class="input-block-level" name="ID" path="feedbackid" value="${feedbackid}"/></td></tr>
        <tr><td><form:label path="lid">Learner ID</form:label></td><td><form:input class="input-block-level" name="LearnerID" path="lid" value="${lid}"/> </td></tr>
-       <tr><td><form:label path="feedback">Feedback</form:label></td><td><form:input class="input-block-level" name="feedback" path="feedback" value="${feedback}"/></td></tr>
+       <tr><td><form:label path="feedback">Feedback</form:label></td><td><form:textarea rows="20" cols="100" class="input-block-level" name="feedback" path="feedback" value="${feedback}"/></td></tr>
        
        <tr><td><input class="btn btn-large btn-primary" type="submit" value="Update" /> </td></tr>
                  </table>
