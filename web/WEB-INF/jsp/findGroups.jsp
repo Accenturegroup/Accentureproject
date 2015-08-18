@@ -13,11 +13,47 @@
         <title>JSP Page</title>
     </head>
     <body>
-         <div id="show">
-             <c:forEach var="res" items="${it}">
-                 ${res.gname}
-                 ${res.duration}</br>
-             </c:forEach>
+        <div id="show">
+<section class="page container">
+            <div class="row">
+                 <div class="span12">        
+                <div align="center">
+                       <form:form>
+                    <div id="Person-1" class="box">
+                        <div class="box-header">
+                            <i class="icon-group  icon-large"></i>
+                            <h5>Groups</h5>
+                            
+                        </div>
+                        <div class="box-content box-table">
+                        <table class="table table-hover tablesorter">
+                            <thead>
+                                <tr>
+                                <th>Name</th>
+                                <th>Duration</th>
+                                <th>Start</th>
+                                <th>Finish</th>
+                                <th>Location</th>      
+                                <th>Edit</th>
+                                <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody> 
+                             <c:forEach var="res" items="${it}">
+                                <tr><td>${res.gname}</td>
+                                <td>${res.duration}</td>
+                                <td>${res.duration}</td>
+                                <td>${res.duration}</td>
+                                <td>${res.duration}</td>
+                                <td>${res.duration}</td>
+                                <td>${res.duration}</td></tr>
+                                 </c:forEach>
+                            </tbody>
+                        </table>
+                    </div>
+              </div>
+           </form:form>
         </div>
+    </div></section></div>
     </body>
 </html>

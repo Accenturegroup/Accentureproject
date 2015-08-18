@@ -14,23 +14,83 @@
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-      <div class="container">
-      <form class="form-signin" method="post" action="addnewAssess.html" >
-          <h2 class="form-signin-heading">Add Assessment</h2>
-          <table>
-              <tr> <td>Name :</td><td><input  class="input-block-level" type="text" name="name" id="name" required="true"></td></tr>
-              <tr><td>Date :</td><td><input  class="input-block-level" type="text" name="date" id="datepicker" required="true"></td></tr>
-               <tr><td>Group:</td><td>
-                    <select class="input-block-level" name="group" id="group" value="">
-             <option></option>
-            <c:forEach var="group" items="${msg}">
-            <option value="${group.getGname()}">${group.getGname()}</option>
-            </c:forEach>
-            </select></td></tr>
-              <tr><td><input class="btn btn-large btn-primary" type="submit" onclick="addassessment()"value="Create"></td></tr>
-          </table>
-        </form>
+<div class="container">
+        <section id="my-account-security-form" class="page container">
+            <form class="form-signin" method="post" action="addnewAssess.html" >
+                <div class="container">
+
+                    <div class="alert alert-block alert-info">
+                        <p>
+                            Enter Assessment's information.
+                        </p>
+                    </div>
+                    <legend><center>Assessment's Information</center></legend><br>
+                    <div class="row">
+                        <div id="acct-password-row" class="span7">
+                            <fieldset>
+                                <div class="control-group ">
+                                    <label class="control-label">Name :</label>
+                                    <div class="controls">
+                                        <input  class="span4" type="text" name="name" id="name" required="true">
+                                    </div>
+                                </div>
+                                <div class="control-group ">
+                                    <label class="control-label">Date :</label>
+                                    <div class="controls">
+                                        <input  class="span4" type="date" name="date" id="datepicker" required="true">
+                                    </div>
+                                </div>
+                                   <div class="control-group ">
+                                    <label class="control-label">Group:</label>
+                                    <div class="controls">
+                                       <select class="span4" name="group" id="group" value="">
+                                       <option></option>
+                                       <c:forEach var="group" items="${msg}">
+                                       <option value="${group.getGname()}">${group.getGname()}</option>
+                                       </c:forEach>
+                                       </select>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div id="acct-verify-row" class="span9">
+                            <fieldset>                                                                                              
+                            </fieldset>
+                        </div>
+                    </div>
+                    <footer id="submit-actions" class="form-actions">
+                        <input id="submit-button" type="submit" class="btn btn-primary"  value="Save">
+                        <input type="submit" class="btn" name="action" value="CANCEL">
+                    </footer>
+                </div>
+            </form>
+        </section>
+            </div>
         </div>
-</body>
+        <script src="styles/js/bootstrap/bootstrap-transition.js" type="text/javascript" ></script>
+        <script src="styles/js/bootstrap/bootstrap-alert.js" type="text/javascript" ></script>
+        <script src="styles/js/bootstrap/bootstrap-modal.js" type="text/javascript" ></script>
+        <script src="styles/js/bootstrap/bootstrap-dropdown.js" type="text/javascript" ></script>
+        <script src="styles/js/bootstrap/bootstrap-scrollspy.js" type="text/javascript" ></script>
+        <script src="styles/js/bootstrap/bootstrap-tab.js" type="text/javascript" ></script>
+        <script src="styles/js/bootstrap/bootstrap-tooltip.js" type="text/javascript" ></script>
+        <script src="styles/js/bootstrap/bootstrap-popover.js" type="text/javascript" ></script>
+        <script src="styles/js/bootstrap/bootstrap-button.js" type="text/javascript" ></script>
+        <script src="styles/js/bootstrap/bootstrap-collapse.js" type="text/javascript" ></script>
+        <script src="styles/js/bootstrap/bootstrap-carousel.js" type="text/javascript" ></script>
+        <script src="styles/js/bootstrap/bootstrap-typeahead.js" type="text/javascript" ></script>
+        <script src="styles/js/bootstrap/bootstrap-affix.js" type="text/javascript" ></script>
+        <script src="styles/js/bootstrap/bootstrap-datepicker.js" type="text/javascript" ></script>
+        <script src="styles/js/jquery/jquery-tablesorter.js" type="text/javascript" ></script>
+        <script src="styles/js/jquery/jquery-chosen.js" type="text/javascript" ></script>
+        <script src="styles/js/jquery/virtual-tour.js" type="text/javascript" ></script>
+        <script type="text/javascript">
+        $(function() {
+            $('#sample-table').tablesorter();
+            $('#datepicker').datepicker();
+            $(".chosen").chosen();
+        });
+    </script>
+    </body>
 </html>
 

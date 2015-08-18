@@ -15,6 +15,7 @@
             <link href="styles/css/customize-template.css" type="text/css" media="screen, projection" rel="stylesheet" />
     </head>
     <body>
+        <div id="show1"></div>
         <div id="body-container">
             <div>
         <section id="my-account-security-form" class="page container">
