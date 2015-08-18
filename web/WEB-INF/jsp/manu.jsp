@@ -718,7 +718,7 @@
             <div class="row">
                
                 <div class="page-nav-options">
-                    <div class="span9">
+                    <div>
                         <ul class="nav nav-tabs">
                             <li class="active">
                             <a href="#"><i class="icon-home"></i>Home</a>
@@ -810,13 +810,6 @@
         </div>
 
         <footer class="application-footer">
-            <div class="container">
-                <p></p>
-                <div class="disclaimer">
-                    <p>Created for Accenture August 2015</p>
-                    <p></p>
-                </div>
-            </div>
         </footer>
         
         <script src="styles/js/bootstrap/bootstrap-transition.js" type="text/javascript" ></script>

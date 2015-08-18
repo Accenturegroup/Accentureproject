@@ -121,15 +121,8 @@
                 </div>-->
             </div>
 
-        </div>
-<footer class="application-footer">
-            <div class="container">
-                <p>Application Footer</p>
-                <div class="disclaimer">
-                    <p>This is an example disclaimer. All right reserved.</p>
-                    <p>Copyright © keaplogik 2011-2012</p>
-                </div>
-            </div>
+        </div><footer class="application-footer">
+
         </footer>
     </section>
         <script src="styles/js/bootstrap/bootstrap-transition.js" type="text/javascript" ></script>

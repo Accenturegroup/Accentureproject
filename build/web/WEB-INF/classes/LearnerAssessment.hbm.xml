@@ -14,8 +14,8 @@
         <property name="Marks">
             <column name="mark"></column>
         </property>
-      <!-- <property name="dateEntered" type="timestamp">
+      <property name="DateEntered">
             <column name="dateEntered"></column>
-        </property>-->
+        </property>
     </class>
 </hibernate-mapping>

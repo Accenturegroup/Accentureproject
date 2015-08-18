@@ -650,12 +650,16 @@ public class Learnercontroller {
      int lid=Integer.parseInt(request.getParameter("lid"));
      int aid=Integer.parseInt(request.getParameter("aid"));
      Double mark=Double.parseDouble(request.getParameter("mark"));
+      SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd");
+      Date now = new Date();
+      String today= df.format(now);
      
      lap.setAssessmentID(aid);
      lap.setLearnerID(lid);
      lap.setMarks(mark);
+     lap.setDateEntered(today);
      ldao.saveLearnerAssessment(lap);
-      return new ModelAndView("add","message",message);
+      return new ModelAndView("manu","message",message);
     }
     
     //Noli edit learner Assessment
@@ -694,7 +698,7 @@ public class Learnercontroller {
             query.setParameter("id", ID);
             int count=query.executeUpdate();
 
-         ModelAndView model=new ModelAndView("index");
+         ModelAndView model=new ModelAndView("manu");
 //         model.addObject("view1", ppojo);
          return model;
      }

@@ -14,15 +14,7 @@
     </head>
     <body>
         <div >
-            <p>
-            <input type="text" id="search" name="search" onblur="search();" >
-            <input type="button" value="Search" onclick="search();" >
-            </p>
-            <p>
-                
-                    ${it}
-              
-            </p>
+            <input type="text" id="search" name="search" onkeyup="search();">
         </div>
     </body>
 </html>

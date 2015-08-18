@@ -16,7 +16,7 @@ public class LearnerAssessmentPojo {
     private int LearnerID;
     private int AssessmentID;
     private Double Marks;
-    private Date dateEntered;
+    private String dateEntered;
 
     /**
      * @return the ID
@@ -77,16 +77,14 @@ public class LearnerAssessmentPojo {
     /**
      * @return the dateEntered
      */
-    public Date getDateEntered() {
+    public String getDateEntered() {
         return dateEntered;
     }
 
     /**
      * @param dateEntered the dateEntered to set
      */
-    public void setDateEntered(Date dateEntered) {
+    public void setDateEntered(String dateEntered) {
         this.dateEntered = dateEntered;
     }
-    
-
 }

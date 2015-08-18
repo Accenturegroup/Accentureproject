@@ -13,34 +13,43 @@
         <title>JSP Page</title>
     </head>
     <body>
-       <div align="center">
-   <form:form>
-       
-    <table class="table table-bordered">
-         
-        <th>Feedback ID</th>
-        <th>Learner ID</th>
-        <th>Feedback</th>
-
-      
-        <th>Edit</th>
-        <th>Delete</th>
-        <c:forEach var="feedback" items="${msg}">
-            
-                
-            <tr><td>${feedback.getFeedbackid()}</td>
-            <td>${feedback.getLid()}</td>
-            <td>${feedback.getFeedback()}</td>
-
-           
-                <td><a href="#" onclick="updateFeedback(${feedback.getFeedbackid()});">Update</a></td>
-                
-                <td><a href="deleteFeedback.html?id=${feedback.getFeedbackid()}">Delete</a></td></tr>
-        </c:forEach>
-
-    </table>
-    </form:form>
+<section class="page container">
+            <div class="row">
+                 <div class="span12">        
+                <div align="center">
+                       <form:form>
+                    <div id="Person-1" class="box">
+                        <div class="box-header">
+                            <i class="icon-group  icon-large"></i>
+                            <h5>Groups</h5>
+                            
+                        </div>
+                        <div class="box-content box-table">
+                        <table class="table table-hover tablesorter">
+                            <thead>
+                                <tr>
+                                <th>Feedback ID</th>
+                                <th>Learner ID</th>
+                                <th>Feedback</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                             <c:forEach var="feedback" items="${msg}">
+                            <tr><td>${feedback.getFeedbackid()}</td>
+                            <td>${feedback.getLid()}</td>
+                            <td>${feedback.getFeedback()}</td>
+                            <td><a href="#" onclick="updateFeedback(${feedback.getFeedbackid()});">Update</a></td>
+                            <td><a href="deleteFeedback.html?id=${feedback.getFeedbackid()}">Delete</a></td></tr>
+                            </c:forEach>
+                            </tbody>
+                        </table>
+                    </div>
+              </div>
+           </form:form>
            <a href="manu.html">GO TO HOME PAGE</A>
-            </div>
+        </div>
+    </div></section>
     </body>
 </html>
