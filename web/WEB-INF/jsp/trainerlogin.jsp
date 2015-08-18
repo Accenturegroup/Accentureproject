@@ -639,9 +639,6 @@
         <div id="spinner" class="spinner" style="display:none;">
             Loading&hellip;
         </div>
-
-        <footer class="application-footer">
-        </footer>
         
         <script src="styles/js/bootstrap/bootstrap-transition.js" type="text/javascript" ></script>
         <script src="styles/js/bootstrap/bootstrap-alert.js" type="text/javascript" ></script>

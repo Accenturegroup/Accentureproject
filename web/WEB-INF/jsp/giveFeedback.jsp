@@ -46,7 +46,7 @@
                                 <div class="control-group ">
                                     <label class="control-label">Feedback:</label>
                                     <div class="controls">
-                                        <textarea class="span4" rows="20" cols="100" id="feedback" name="feedback">FEEDBACK:</textarea>
+                                        <textarea class="span4" rows="20" cols="100" id="feedback" name="feedback"></textarea>
                                     </div>
                                 </div>
                             </fieldset>

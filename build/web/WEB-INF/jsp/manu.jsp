@@ -440,7 +440,7 @@
                  {
               if (xmlhttp.readyState===4 && xmlhttp.status===200)
                  {
-               document.getElementById("show").innerHTML=xmlhttp.responseText;
+               document.getElementById("show1").innerHTML=xmlhttp.responseText;
                 }
                  }
                  xmlhttp.open("GET","Students.html?search="+search,true);
@@ -448,7 +448,7 @@
              }
              
              function saveFeedback(){
-               
+               document.getElementById("show1").innerHTML="<div id=show1></div>";
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -534,7 +534,6 @@
 
 </head>
     <body>
-        <%String msg=request.getParameter("id");%>
         <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
@@ -546,7 +545,7 @@
                     <div id="app-nav-top-bar" class="nav-collapse">
 
                         <div class="nav pull-right">
-                         <h6>Hello :${msg}</h6>
+                         
                         </div>
                         <ul class="nav pull-right">
                             <li>
@@ -596,7 +595,7 @@
                                         <a href="#" onclick="viewlearner();">View learner</a>
                                         </li>
                                         <li>
-                                        <a href="#" onclick="registerform(<%=msg%>);">Mark Register</a>
+                                        <a href="#" onclick="registerform();">Mark Register</a>
                                         </li>
                                         <li>
                                         <a href="#" onclick="student();">Search Learner</a>
@@ -649,7 +648,7 @@
                                    <a href="#" onclick="addassessment();">Add Assessment's</a>
                                  </li>
                                         <li>
-                                            <a href="#" onclick="viewtrainer();">View Trainer's</a>
+                                            <a href="#" onclick="viewassessment();">View Assessment</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -684,11 +683,7 @@
 
         <div id="spinner" class="spinner" style="display:none;">
             Loading&hellip;
-        </div>
-
-        <footer class="application-footer">
-        </footer>
-        
+        </div>        
         <script src="styles/js/bootstrap/bootstrap-transition.js" type="text/javascript" ></script>
         <script src="styles/js/bootstrap/bootstrap-alert.js" type="text/javascript" ></script>
         <script src="styles/js/bootstrap/bootstrap-modal.js" type="text/javascript" ></script>

@@ -14,25 +14,64 @@
         <title>JSP Page</title>
     </head>
     <body>
-     <div class="container">
-        <c:url var="editassess" value="addnewAssess.html"/>
+
+<div class="container">
+        <section id="my-account-security-form" class="page container">
+      <c:url var="editassess" value="addnewAssess.html"/>
             <form:form class="form-signin" id="editform" modelAttribute="editassess" method="post" action="updateassess.html">
-               <h2 class="form-signin-heading">Update Assessment</h2>
-                <table> 
-                    <tr> <td><form:label path="assessID">Id</form:label></td><td><form:input class="input-block-level" name="assessID" path="assessID" value="${assessID}"/> </td></tr>
-                       <tr> <td><form:label path="assessName">Name</form:label></td><td><form:input class="input-block-level" name="assessName" path="assessName" value="${assessName}"/> </td></tr>
-                       <tr> <td><form:label path="assessDate">Date</form:label></td><td><form:input class="input-block-level" name="assessDate" path="assessDate" value="${assessDate}"/> </td></tr>
-                       <tr> <td><form:label path="groupName">Group</form:label></td>
-                        <td><form:select class="input-block-level" name="group" path="groupName"> 
+                <div class="container">
+
+                    <div class="alert alert-block alert-info">
+                        <p>
+                            Update Assessment information.
+                        </p>
+                    </div>
+                    <legend><center>Update Assessment's Information</center></legend><br>
+                    <div class="row">
+                        <div id="acct-password-row" class="span7">                            
+                            <fieldset>                
+                <div class="control-group ">
+              
+                    <div class="controls">
+                        <form:hidden class="input-block-level" name="assessID" path="assessID" value="${assessID}"/>
+                    </div>
+                </div>
+                <div class="control-group "><label >Name</label>
+                    <div class="controls"><form:input class="span4" name="assessName" path="assessName" value="${assessName}"/>
+                    </div>
+                </div>
+                <div class="control-group "><label>Date</label>
+                    <div class="controls"><form:input class="span4" type="date" name="assessDate" path="assessDate" value="${assessDate}"/>
+                    </div>
+                </div>
+                <div class="control-group "><label path="start">Group</label>
+                    <div class="controls"><form:select class="span4" name="group" path="groupName"> 
                         <c:forEach var="group" items="${msg}">
                             <option value="${group.getGname()}">${group.getGname()}</option>
-                        </c:forEach> </form:select> </td></tr>
-                       <tr> <td><form:label path="date">Today's Date</form:label></td><td><form:input class="input-block-level" name="date" path="date" value="${date}" readonly="true"/></td></td></tr>
-                       <tr><td></td></tr>
-                       <tr> <td><input class="btn btn-large btn-primary" type="submit" value="Update" /> </td></tr>
-                </table>
-            </form:form>
-    </div>
+                        </c:forEach> </form:select>
+                    </div>
+                </div>
+                <div class="control-group "><label path="finish">Today's Date</label>
+                    <div class="controls"><form:input class="span4" name="date" path="date" value="${date}" readonly="true"/>
+                    </div>
+                </div>
+
+                    </fieldset>
+                        </div>
+                        <div id="acct-verify-row" class="span9">
+                            <fieldset>                                                                                              
+                            </fieldset>
+                        </div>
+                    </div>
+                     <footer id="submit-actions" class="form-actions">
+                        <input id="submit-button" type="submit" class="btn btn-primary"  value="Update">
+                        <input type="submit" class="btn" name="action" value="CANCEL">
+                    </footer>
+            
+        </div>          
+        </div></form:form>
+        </section>
+        </div>  
     </body>
 </html>
 

@@ -40,15 +40,15 @@
                             <tr><td>${feedback.getFeedbackid()}</td>
                             <td>${feedback.getLid()}</td>
                             <td>${feedback.getFeedback()}</td>
-                            <td><a href="#" onclick="updateFeedback(${feedback.getFeedbackid()});">Update</a></td>
-                            <td><a href="deleteFeedback.html?id=${feedback.getFeedbackid()}">Delete</a></td></tr>
+                            <td><a href="#" onclick="updateFeedback(${feedback.getFeedbackid()});">edit</a></td>
+                            <td><a href="deleteFeedback.html?id=${feedback.getFeedbackid()}">delete</a></td></tr>
                             </c:forEach>
                             </tbody>
                         </table>
                     </div>
               </div>
            </form:form>
-           <a href="manu.html">GO TO HOME PAGE</A>
+         
         </div>
     </div></section>
     </body>

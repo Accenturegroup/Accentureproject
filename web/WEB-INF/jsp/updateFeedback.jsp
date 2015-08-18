@@ -14,24 +14,52 @@
         <title>JSP Page</title>
     </head>
     <body>
-       
-         <div id="show">
-         <div class="container">
-             
-            <c:url var="updateFeedback" value="giveFeedback.html"/>
+<div class="container">
+        <section id="my-account-security-form" class="page container">
+ <c:url var="updateFeedback" value="giveFeedback.html"/>
             <form:form class="form-signin" id="updateFeedback" modelAttribute="updateFeedback" method="post" action="saveUpdateFeedback.html">
-                <h2 class="form-signin-heading">Update Feedback</h2>
-                 <table>
-       <tr><td><form:label path="feedbackid">Feedback ID</form:label></td><td><form:input class="input-block-level" name="ID" path="feedbackid" value="${feedbackid}"/></td></tr>
-       <tr><td><form:label path="lid">Learner ID</form:label></td><td><form:input class="input-block-level" name="LearnerID" path="lid" value="${lid}"/> </td></tr>
-       <tr><td><form:label path="feedback">Feedback</form:label></td><td><form:textarea rows="20" cols="100" class="input-block-level" name="feedback" path="feedback" value="${feedback}"/></td></tr>
-       
-       <tr><td><input class="btn btn-large btn-primary" type="submit" value="Update" /> </td></tr>
-                 </table>
-            </form:form>
-                  
-        </div>
-      </div>
-            <a href="manu.html">GO TO HOME PAGE</A>
+                <div class="container">
+
+                    <div class="alert alert-block alert-info">
+                        <p>
+                            Update Feedback information.
+                        </p>
+                    </div>
+                    <legend><center>Update Feedback Information</center></legend><br>
+                    <div class="row">
+                        <div id="acct-password-row" class="span7">                            
+                            <fieldset>                
+                <div class="control-group ">
+              
+                    <div class="controls">
+                        <form:hidden class="input-block-level" name="ID" path="feedbackid" value="${feedbackid}"/>
+                    </div>
+                </div>
+                <div class="control-group "><label>Learner ID</label>
+                    <div class="controls"><form:input class="span4" name="LearnerID" path="lid" value="${lid}"/>
+                    </div>
+                </div>
+                <div class="control-group "><label>Feedback</label>
+                    <div class="controls"><form:textarea rows="20" cols="100" class="span4" name="feedback" path="feedback" value="${feedback}"/>
+                    </div>
+                </div>
+                    </fieldset>
+                        </div>
+                        <div id="acct-verify-row" class="span9">
+                            <fieldset>                                                                                              
+                            </fieldset>
+                        </div>
+                    </div>
+                     <footer id="submit-actions" class="form-actions">
+                        <input id="submit-button" type="submit" class="btn btn-primary"  value="Update">
+                        <input type="submit" class="btn" name="action" value="CANCEL">
+                    </footer>
+        </div>          
+        </div></form:form>
+                </div>
+           
+        </section>
+</div>
+            
     </body>
 </html>

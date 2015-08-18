@@ -66,6 +66,11 @@ public class Learnercontroller {
         String message = " ";  
         return new ModelAndView("Login", "message", message);  
     }
+    @RequestMapping("/onload")  
+    public ModelAndView onload() {  
+        String message = " ";  
+        return new ModelAndView("Login", "message", message);  
+    }
     @RequestMapping("/logout")  
     public ModelAndView logout() {  
         String message = " ";  

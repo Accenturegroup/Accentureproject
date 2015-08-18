@@ -13,32 +13,49 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <center> <h3><u><i><b>All Assessments</b></i></u></h3></center>
-         <div align="center">
-     <form:form>
-    <table class="table table-hover">
-             <th>Assessment Name:</th>
-             <th>Assessment Date</th>
-             <th>Group Name</th>
-             <th>Today's Date</th>
-             <th>Edit</th>
-             <th>Delete</th>
-        <c:forEach var="assess" items="${msg}">
+        <section class="page container">
+            <div class="row">
+                 <div class="span12">        
+                <div align="center">
+                       <form:form>
+                    <div id="Person-1" class="box">
+                        <div class="box-header">
+                            <i class="icon-group  icon-large"></i>
+                            <h5>All Assessments</h5>
+                            
+                        </div>
+                        <div class="box-content box-table">
+                        <table class="table table-hover tablesorter">
+                            <thead>
+                                <tr>
+                                <th>Assessment Name:</th>
+                                <th>Assessment Date</th>
+                                <th>Group Name</th>
+                                <th>Today's Date</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <c:forEach var="assess" items="${msg}">
             
-             <tr>
-                 <td>${assess.getassessName()}</td>
-                 <td>${assess.getassessDate()}</td>
-                  <td>${assess.getgroupName()}</td>
-                 <td>${assess.getdate()}</td>
-                 <td><a href="#" onclick="editassess(${assess.getassessID()});">edit</a></td>
-                 <td><a href="deleteAsse.html?id=${assess.getassessID()}">delete</a></td>
+                            <tr>
+                            <td>${assess.getassessName()}</td>
+                            <td>${assess.getassessDate()}</td>
+                            <td>${assess.getgroupName()}</td>
+                            <td>${assess.getdate()}</td>
+                            <td><a href="#" onclick="editassess(${assess.getassessID()});">edit</a></td>
+                            <td><a href="deleteAsse.html?id=${assess.getassessID()}">delete</a></td>
              </tr>
         
         </c:forEach>
-
-    </table>
-    </form:form>
-         </div>
+                            </tbody>
+                        </table>
+                    </div>
+              </div>
+           </form:form>
+        </div>
+    </div></section>
     </body>
 </html>
 

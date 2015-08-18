@@ -67,7 +67,7 @@ public List<learnerspojo> getLearners(){
  //method to return one employee of given email  
 public List<Object> getByEmail(String email){  
    List<Object>list=new ArrayList<>();
-   String query="from learnerspojo l where email =?";
+   String query="from learnerspojo  learners where email =?";
    list=template.find(query,email);
     return list;  
 }
@@ -77,7 +77,7 @@ public String checklogin(String email,String password){
     SessionFactory sf=new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
     ses=sf.openSession();
     ses.beginTransaction();
-    String HQL_QUERY="from learnerspojo l where email =:email and password =:password";
+    String HQL_QUERY="from learnerspojo  learners where email =:email and password =:password";
     org.hibernate.Query query=ses.createQuery(HQL_QUERY);
     query.setParameter("email",email);
     query.setParameter("password",password);
@@ -102,7 +102,7 @@ public List<learnerspojo> search(int id)
             session = sessionfactory.openSession();
             session.beginTransaction();
 			
-            String HQL_QUERY= "from learnerspojo l where lid="+id;
+            String HQL_QUERY= "from learnerspojo  learners where lid="+id;
             org.hibernate.Query query = session.createQuery(HQL_QUERY);
          
             for(Iterator it = query.iterate();it.hasNext();){

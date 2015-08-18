@@ -23,9 +23,8 @@
                                 </a>
                             </li>
                             <li>
-                                <i class="icon-chevron-right pull-right"></i>
                                 <c:forEach var="lear" items="${learner}">
-                                <a href="#"  onclick="Students(${lear.getLID()});">${lear.getLName()}</a></br>
+                                <a href="#"  onclick="Students(${lear.getLID()});"><i class="icon-chevron-right pull-right"></i>${lear.getLName()}</a></br>
                                 </c:forEach>
                             </li> 
                         </ul>
