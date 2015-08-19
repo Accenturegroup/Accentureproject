@@ -30,36 +30,38 @@
                             <thead>
                                 <tr>
                                 <th>Name</th>
-                                 <th>Surname</th>
-                                  <th>Title</th>
-                                  <th>ID Number</th>
-                                    <th>Gender</th>
-                                     <th>Contact</th>
-                                     <th>Email</th>
-                                        <th>Race</th>
-                                            <th>Group</th>
-                                    <th>Status</th>
-                                     <th>Edit</th>
-                                     <th>Delete</th>
+                                <th>Surname</th>
+                                <th>Title</th>
+                                <th>ID Number</th>
+                                <th>Gender</th>
+                                <th>Contact</th>
+                                <th>Email</th>
+                                <th>Race</th>
+                                <th>Group</th>
+                                <th>Location</th>            
+                                <th>Status</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
                                 </tr>
                             </thead>
                             <tbody>
-                             <c:forEach var="learner" items="${learnerList}">
+                            <c:forEach var="learner" items="${learnerList}">
                                 <tr>
-                                     <td>${learner.getLName()}</td>
-                                 <td>${learner.getLSurname()}</td>
+                                    <td>${learner.getLName()}</td>
+                                    <td>${learner.getLSurname()}</td>
                                     <td>${learner.getTitle()}</td>
-                                      <td>${learner.getId()}</td>
-                                        <td>${learner.getGender()}</td>
-                                       <td>${learner.getNumber()}</td>
-                                       <td>${learner.getEmail()}</td>
-                                      <td>${learner.getRace()}</td>
-                                          <td>${learner.getGroups()}</td>
-                                      <td>${learner.getStatus()}</td>
-                                         <td><a href="#"onclick="editlearner(${learner.getLID()});">Edit</a></td>
-                                       <td><a href="#"onclick="deletelearner(${learner.getLID()});">Delete</a></td>
-                                         </tr>
-                                 </c:forEach>
+                                    <td>${learner.getId()}</td>
+                                    <td>${learner.getGender()}</td>
+                                    <td>${learner.getNumber()}</td>
+                                    <td>${learner.getEmail()}</td>
+                                    <td>${learner.getRace()}</td>
+                                    <td>${learner.getGroups()}</td>
+                                    <td>${learner.getLocation()}</td>    
+                                    <td>${learner.getStatus()}</td>
+                                    <td><a href="#"onclick="editlearner(${learner.getLID()});">Edit</a></td>
+                                    <td><a href="#"onclick="deletelearner(${learner.getLID()});">Delete</a></td>
+                                </tr>
+                            </c:forEach>
                             
                             </tbody>
                         </table>

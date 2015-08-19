@@ -105,22 +105,39 @@
                                 <div class="control-group ">
                                     <label class="control-label">Group<span class="required">*</span></label>
                                     <div class="controls">
-                                        <select class="span4" name="group" id="group">
-                                       <c:forEach var="group" items="${map.msg}">
-                                       <option value="${group.getGname()}">${group.getGname()}</option>
-                                       </c:forEach>
-                                        </select>
+                                        <spring:bind path="groups">
+                            <select name="group" class="span4">
+                            <c:forEach items='${map.group}' var='groupName'>
+                                <c:choose>
+                                    <c:when test="${groupName.getGname() eq map.learner.getGroups()}">
+                                        <option value="${groupName.getGname()}" selected="true">${groupName.getGname()}</option> 
+                                        </c:when>  
+                                         <c:otherwise> 
+                                              <option value="${groupName.getGname()}">${groupName.getGname()}</option>
+                                        </c:otherwise>
+                                </c:choose>
+                            </c:forEach>
+                            </select>
+                            </spring:bind>
                                     </div>
                                 </div>
                                 <div class="control-group ">
                                     <label class="control-label">Location<span class="required">*</span></label>
                                     <div class="controls">
-                                        <select class="span4" name="location" id="location">
-                                        <option></option>
-                                        <option>Johannesburg</option>
-                                        <option>Cape Town</option>
-                                        <option>Durban</option>
-                                        </select>
+                                        <spring:bind path="location">
+                            <select name="location" class="span4">
+                            <c:forEach items='${map.location}' var='locationName'>
+                                <c:choose>
+                                    <c:when test="${locationName.getLocation() eq map.learner.getLocation()}">
+                                        <option value="${locationName.getLocation()}" selected="true">${locationName.getLocation()}</option> 
+                                        </c:when>  
+                                         <c:otherwise> 
+                                              <option value="${locationName.getLocation()}">${locationName.getLocation()}</option>
+                                        </c:otherwise>
+                                </c:choose>
+                            </c:forEach>
+                            </select>
+                            </spring:bind>
                                     </div>
                                 </div>
                                 <div class="control-group ">

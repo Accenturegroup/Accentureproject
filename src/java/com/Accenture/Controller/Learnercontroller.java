@@ -489,13 +489,18 @@ public class Learnercontroller {
         statusList.add("Not Started");
         statusList.add("In Progress");
         statusList.add("Complete");
-        List<grouppojo> msg=daog.getgroup();
+        
+        List<grouppojo> group =daog.getgroup();
+        
+        List<locationpojo> location = daol.getLocations();
+        
         Map<String, Object> map = new HashMap<String,Object>();
         map.put("genderList",genderList);
         map.put("raceList", raceList);
         map.put("statusList", statusList);
         map.put("learner", learner);
-        map.put("msg", msg);
+        map.put("group", group);
+        map.put("location", location);
 
         
         return new ModelAndView("EditLearner","map",map);
