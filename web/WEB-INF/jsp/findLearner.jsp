@@ -11,27 +11,38 @@
         <div id="body-container">
         <div>
               <section id="my-account-security-form" class="page container">
-        <form class="form-signin" class="form-horizontal" action="findLearners.html" method="POST">
+                  <form class="form-signin" action="findLearners.html" method="POST">
              <div class="container">
             <div class="row">
                 <div id="acct-password-row" class="span7">
                             <fieldset>
-                                  <div class="control-group ">
-             <select id="lid" name="lid" onselect="findLearners();">
-                            <c:forEach var="g" items="${group}">
-                                <option value=${g.getGname()}>
-                                    ${g.getGname()}</option>
+                                <div class="control-group ">
+                        <label class="control-label">Group<span class="required">*</span></label>
+                    <div class="controls">
+                        <select name="lid">
+                            <c:forEach var="learner" items="${group}">
+                                <option value=${learner.getGname()}>
+                                    ${learner.getGname()}</option>
                             </c:forEach>
-             </select>
+                        </select>
+                        <label class="control-label">Location<span class="required">*</span></label>
+                    <div class="controls">
+                        <select name="loc">
+                            <c:forEach var="l" items="${loc}">
+                                <option value=${l.getLocation()}>
+                                    ${l.getLocation()}</option>
+                            </c:forEach>
+                        </select>
+                                  </div>
                                   </div>
                                 <div class="control-group">
-                                    <input type="submit" value="Search" onclick="findLearners();" class="btn">
+                                    <input type="submit" value="Search"  >
                                 </div>
                             </fieldset>
                 </div>
             </div>
              </div>
-        </form>
+                  </form>
               </section>
         </div>
         </div>

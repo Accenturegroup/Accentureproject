@@ -528,6 +528,52 @@
                  xmlhttp.open("GET","giveFeedback.html",true);
                  xmlhttp.send();
              }
+             function findLearner(){
+                 
+                 if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                 xmlhttp=new XMLHttpRequest(); 
+                }
+                else
+                 {// code for IE6, IE5
+                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                 }
+                xmlhttp.onreadystatechange=function()
+                 {
+              if (xmlhttp.readyState===4 && xmlhttp.status===200)
+                 {
+               document.getElementById("show").innerHTML=xmlhttp.responseText;
+                }
+                 }
+                 xmlhttp.open("GET","findLearner.html",true);
+                 xmlhttp.send();
+             }
+             
+             function findLearners(){
+                // var id=document.getElementById("lid");
+                 //var group=id.options[id.selectedIndex].text;
+                 //var group=id.value;
+                 alert(group);
+                 if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                 xmlhttp=new XMLHttpRequest(); 
+                }
+                else
+                 {// code for IE6, IE5
+                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                 }
+                xmlhttp.onreadystatechange=function()
+                 {
+              if (xmlhttp.readyState===4 && xmlhttp.status===200)
+                 {
+               document.getElementById("show").innerHTML=xmlhttp.responseText;
+                }
+                 }
+                 xmlhttp.open("GET","findLearners.html",true);
+                 xmlhttp.send();
+             }
+             
+
 
              
         </script>
@@ -605,6 +651,9 @@
                                         </li>
                                            <li>
                                             <a href="#" onclick="viewFeedback()">View Learners Feedback</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" onclick="findLearner()">View Learners By Group</a>
                                         </li>
                                         </ul>
                                 </li>

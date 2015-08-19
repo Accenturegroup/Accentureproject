@@ -759,21 +759,27 @@ public class Learnercontroller {
        model.addObject("it",it);
       return model;
      }
+     
       @RequestMapping("/findLearner")
     public ModelAndView findLearner(ModelAndView model) throws IOException{ 
-     learnerspojo pojo=new learnerspojo();
-     List<grouppojo> group=new ArrayList<grouppojo>();
-      model.addObject("learner",pojo);
+     learnerspojo learner=new learnerspojo();
+     
+     List<grouppojo> group=daog.getgroup();
+     List<locationpojo> loc=daol.getLocations();
+     
+      model.addObject("learner",learner);
       model.addObject("group",group);
+      model.addObject("loc",loc);
       return model;
     }
      @RequestMapping("/findLearners")
      public ModelAndView findLearners(ModelAndView model,HttpServletRequest request,HttpServletResponse res)
      {
-         String group=request.getParameter("group");
+         String group=request.getParameter("lid");
+         String loc=request.getParameter("loc");
          
         List<learnerspojo> result=new ArrayList<learnerspojo>();
-         result= dao.search0(group);
+         result= dao.search0(group,loc);
 
        Iterator it=result.iterator();
        model.addObject("it",it);

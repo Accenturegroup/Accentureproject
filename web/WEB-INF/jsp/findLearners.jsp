@@ -13,11 +13,11 @@
     </head>
     <body>
         Learner 
-        ${it}
         <div id="show">
+           
         <c:forEach var="l" items="${it}">
-            ${g.LName}
-            ${g.LSurname}
+            ${l.LName}
+            ${l.LSurname}</br>
         </c:forEach>
         </div>
     </body>
