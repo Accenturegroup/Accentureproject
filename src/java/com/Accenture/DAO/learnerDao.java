@@ -124,4 +124,36 @@ public List<learnerspojo> search(int id)
             }
           return result;  
 }
+
+
+public List<learnerspojo> search0(String group)
+{
+    List<learnerspojo> result=new ArrayList<learnerspojo>();
+     Session session=null;
+          SessionFactory sessionfactory = new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
+            session = sessionfactory.openSession();
+            session.beginTransaction();
+			
+            String HQL_QUERY= "from learnerspojo l where groups="+group;
+            org.hibernate.Query query = session.createQuery(HQL_QUERY);
+         
+            for(Iterator it = query.iterate();it.hasNext();){
+                learnerspojo l = (learnerspojo) it.next();
+                
+                l.getEmail();
+                l.getGender();
+                l.getGroups();
+                l.getId();
+                l.getLID();
+                l.getLName();
+                l.getLSurname();
+                l.getNumber();
+                l.getPassword();
+                l.getRace();
+                l.getStatus();
+                l.getTitle();
+                result.add(l);
+            }
+          return result;  
+}
 }
