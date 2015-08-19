@@ -39,6 +39,7 @@
                  <value>markregister.hbm.xml</value>
                  <value>LearnerAssessment.hbm.xml</value>
                  <value>feedback1.hbm.xml</value>
+                 <value>location.hbm.xml</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -74,6 +75,9 @@
         <property name="template" ref="template"/>
     </bean>
     <bean class="com.Accenture.DAO.feedbackDao" id="f">
+        <property name="template" ref="template"/>
+    </bean>
+     <bean class="com.Accenture.DAO.locationDao" id="loc">
         <property name="template" ref="template"/>
     </bean>
 

@@ -10,6 +10,7 @@ import com.Accenture.DAO.LearnerAssessmentDAO;
 import com.Accenture.DAO.feedbackDao;
 import com.Accenture.DAO.groupDao;
 import com.Accenture.DAO.learnerDao;
+import com.Accenture.DAO.locationDao;
 import com.Accenture.DAO.markregisterDao;
 import com.Accenture.DAO.trainerDao;
 import com.Accenture.Model.AssessmentPojo;
@@ -17,6 +18,7 @@ import com.Accenture.Model.LearnerAssessmentPojo;
 import com.Accenture.Model.feedbackpojo;
 import com.Accenture.Model.grouppojo;
 import com.Accenture.Model.learnerspojo;
+import com.Accenture.Model.locationpojo;
 import com.Accenture.Model.markregister;
 import com.Accenture.Model.trainerpojo;
 import java.io.IOException;
@@ -50,8 +52,10 @@ public class Learnercontroller {
     learnerDao dao=(learnerDao)r.getBean("d");
     groupDao daog=(groupDao)r.getBean("g");
     trainerDao daoe= (trainerDao)r.getBean("e");
+    locationDao daol=(locationDao)r.getBean("loc");
       AssessmentDAO d=(AssessmentDAO)r.getBean("a");
      learnerspojo pojos=new learnerspojo();
+     locationpojo pojol=new locationpojo();
     grouppojo pojo=new grouppojo();
     trainerpojo pojoe= new trainerpojo();
     markregisterDao mdao=(markregisterDao)r.getBean("m");
@@ -307,14 +311,18 @@ public class Learnercontroller {
       @RequestMapping("/edittrainers")
      public ModelAndView edittrainers(HttpServletRequest request,HttpServletResponse res){
          
-          List<grouppojo> view1=daog.getgroup();
+        List<grouppojo> view1=daog.getgroup();
+          List<locationpojo> view2= daol.getLocations();
+     
      
          int id=Integer.parseInt(request.getParameter("id"));
          trainerpojo a=daoe.getById(id);
          ModelAndView model=new ModelAndView("edittrainers");
          model.addObject("edittrainers", a);
          model.addObject("msg",view1);
+         model.addObject("msg2",view2);
          return model;
+
      }
      
     @RequestMapping("/updatetrainer")
