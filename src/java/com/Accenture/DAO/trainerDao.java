@@ -100,4 +100,23 @@ public String checklogin(String email,String password){
     
 return msg;
 }
+public List<trainerpojo>findlocandgro(String email){
+    List<trainerpojo>list=new ArrayList<>();
+    Session ses=null;
+    SessionFactory sf=new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
+    ses=sf.openSession();
+    ses.beginTransaction();
+    String HQL_QUERY="from trainerpojo trainer where email =:email";
+    org.hibernate.Query query=ses.createQuery(HQL_QUERY);
+    query.setParameter("email",email);
+    for(Iterator it=query.iterate();it.hasNext();){
+             trainerpojo b=(trainerpojo) it.next();
+             b.getGroup();
+             b.getLocation();
+             list.add(b);
+    }
+    return list;
+}
+
+
 }

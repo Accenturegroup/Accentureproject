@@ -70,11 +70,7 @@ public class Learnercontroller {
         String message = " ";  
         return new ModelAndView("Login", "message", message);  
     }
-    @RequestMapping("/onload")  
-    public ModelAndView onload() {  
-        String message = " ";  
-        return new ModelAndView("Login", "message", message);  
-    }
+
     @RequestMapping("/logout")  
     public ModelAndView logout() {  
         String message = " ";  
@@ -365,7 +361,7 @@ public class Learnercontroller {
        String msg=daoe.checklogin(email, password);
        String msg1=dao.checklogin(email, password);
        if(msg.equals("yes")){
-            model=new ModelAndView("trainerlogin");
+           model=new ModelAndView("trainerlogin","msg",email);
        }else if(msg1.equals("yes")){
            model=new ModelAndView("learner");
        }else if(email.equals("Accenture@gmail.com")&&password.equals("accenture@2")){
@@ -550,13 +546,33 @@ public class Learnercontroller {
          return new ModelAndView("manu", "message", message);
     } 
     
-     @RequestMapping("/learnerList")
-     public ModelAndView getLearners(ModelAndView model) throws IOException
+@RequestMapping("/learnerList")
+     public ModelAndView getLearners(HttpServletRequest request,ModelAndView model)
      {
+         String email=request.getParameter("msg");
+       List<trainerpojo>result=daoe.findlocandgro(email);
+       String g="",l="";
+       List<learnerspojo>list=null;
+       for(trainerpojo e:result){
+         l=e.getLocation();
+         g=e.getGroup();
+         list=dao.search0(g,l);
+     }
+        Iterator it=list.iterator();
          List<learnerspojo> learnerList = dao.getLearners();
+         
          model.addObject("learnerList",learnerList);
+         model.addObject("msg",it);
          return model;
      }
+//     @RequestMapping("/learnerList")
+//     public ModelAndView getLearners(ModelAndView model) throws IOException
+//     {
+//         List<learnerspojo> learnerList = dao.getLearners();
+//         model.addObject("learnerList",learnerList);
+//         return model;
+//     }
+
      
           
      @RequestMapping("/giveFeedback")

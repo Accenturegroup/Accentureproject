@@ -26,17 +26,38 @@
                         <div class="box-content box-table">
                         <table class="table table-hover tablesorter">
                             <thead>
-                                <tr>
-                                <th>ID:</th>
-                                <th>Name:</th>
-                                <th>Surname:</th>
+                               <tr>
+                                <th>Name</th>
+                                <th>Surname</th>
+                                <th>Title</th>
+                                <th>ID Number</th>
+                                <th>Gender</th>
+                                <th>Contact</th>
+                                <th>Email</th>
+                                <th>Race</th>
+                                <th>Group</th>
+                                <th>Location</th>            
+                                <th>Status</th>
+                                <th>Edit</th>
+                                
                                 </tr>
                             </thead>
                             <tbody>
                              <c:forEach var="lea" items="${it}">
-                                <tr><td>${lea.getLID()}</td>
+                                <tr>
                                 <td>${lea.getLName()}</td>
-                                <td>${lea.getLSurname()}</td></tr>
+                                    <td>${lea.getLSurname()}</td>
+                                    <td>${lea.getTitle()}</td>
+                                    <td>${lea.getId()}</td>
+                                    <td>${lea.getGender()}</td>
+                                    <td>${lea.getNumber()}</td>
+                                    <td>${lea.getEmail()}</td>
+                                    <td>${lea.getRace()}</td>
+                                    <td>${lea.getGroups()}</td>
+                                    <td>${lea.getLocation()}</td>    
+                                    <td>${lea.getStatus()}</td>
+                                    <td><a href="#"onclick="editlearner(${lea.getLID()});">Edit</a></td>
+                                    <!--<td><a href="#"onclick="deletelearner(${lea.getLID()});">Delete</a></td></tr>-->
                                  </c:forEach>
                             
                             </tbody>
