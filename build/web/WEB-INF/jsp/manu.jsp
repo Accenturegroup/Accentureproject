@@ -13,7 +13,7 @@
     <link href="styles/css/customize-template.css" type="text/css" media="screen, projection" rel="stylesheet" />
 <script>
                 function addgroup(){
-               
+               document.getElementById("show1").innerHTML="";
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -33,7 +33,7 @@
                  xmlhttp.send();
              } 
              function viewgroup(){
-               
+               document.getElementById("show1").innerHTML="";
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -54,7 +54,7 @@
              }
              
              function viewtrainer(){
-               
+               document.getElementById("show1").innerHTML="";
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -75,7 +75,7 @@
              }
              
             function editpage(id){
-              
+              document.getElementById("show1").innerHTML="";
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -96,6 +96,7 @@
              }
 
             function addlearner(){
+                document.getElementById("show1").innerHTML="";
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -115,6 +116,7 @@
                  xmlhttp.send();
              }
              function viewlearner(){
+                 document.getElementById("show1").innerHTML="";
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -134,7 +136,7 @@
                  xmlhttp.send();
              }
              function editlearner(id){
-              
+              document.getElementById("show1").innerHTML="";
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -154,7 +156,7 @@
                  xmlhttp.send();
              }
              function deletelearner(id){
-              
+              document.getElementById("show1").innerHTML="";
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -174,6 +176,7 @@
                  xmlhttp.send();
              }
               function addtrainer(){
+                  document.getElementById("show1").innerHTML="";
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -193,6 +196,7 @@
                  xmlhttp.send();
              }
               function addassessment(){
+                  document.getElementById("show1").innerHTML="";
           if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -212,7 +216,7 @@
                  xmlhttp.send();
              }
              function viewassessment(){
-               
+               document.getElementById("show1").innerHTML="";
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -232,7 +236,7 @@
                  xmlhttp.send();
              }
              function editassess(id){
-              
+              document.getElementById("show1").innerHTML="";
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -253,7 +257,7 @@
              }
              
               function edittrainer(id){
-              
+              document.getElementById("show1").innerHTML="";
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -273,7 +277,7 @@
                  xmlhttp.send();
              }
              function registerform(){
-              
+              document.getElementById("show1").innerHTML="";
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -314,6 +318,7 @@
                  xmlhttp.send();
              }
              function addLearnerAssessment(){
+                 document.getElementById("show1").innerHTML="";
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -333,7 +338,7 @@
                  xmlhttp.send();
              }
              function viewLearnerAssess(){
-               
+               document.getElementById("show1").innerHTML="";
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -353,7 +358,7 @@
                  xmlhttp.send();
              }
              function editLearnerAssess(id){
-            //  alert(id);
+             document.getElementById("show1").innerHTML="";
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -407,7 +412,7 @@
                  xmlhttp.send();
              }
              function student(){
-           // alert(search);
+              document.getElementById("show1").innerHTML="";
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -448,6 +453,7 @@
              }
              
              function saveFeedback(){
+                 document.getElementById("show1").innerHTML="";
                document.getElementById("show1").innerHTML="<div id=show1></div>";
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -469,7 +475,7 @@
              } 
              
              function viewFeedback(){
-               
+               document.getElementById("show1").innerHTML="";
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -490,7 +496,7 @@
              }
              
         function updateFeedback(id){
-               
+               document.getElementById("show1").innerHTML="";
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -510,6 +516,7 @@
                  xmlhttp.send();
              }
               function giveFeedback(){
+                  document.getElementById("show1").innerHTML="";
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -636,15 +643,15 @@
                                         <b class="caret hidden-phone"></b>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li>
+                                         <!--<li>
                                            <a href="#" onclick="addlearner();">Add learner</a>
-                                        </li>
+                                        </li>-->
                                         <li>
                                         <a href="#" onclick="viewlearner();">View learner</a>
                                         </li>
-                                        <li>
+                                        <!-- <li>
                                         <a href="#" onclick="registerform();">Mark Register</a>
-                                        </li>
+                                        </li>-->
                                         <li>
                                         <a href="#" onclick="student();">Search Learner</a>
                                         </li>
@@ -654,9 +661,6 @@
                                            <li>
                                             <a href="#" onclick="viewFeedback()">View Learners Feedback</a>
                                         </li>
-                                        <li>
-                                            <a href="#" onclick="findLearner()">View Learners By Group</a>
-                                        </li>
                                         </ul>
                                 </li>
                              <li class="dropdown">
@@ -664,9 +668,9 @@
                                         <b class="caret hidden-phone"></b>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li>
+                                        <!-- <li>
                                             <a href="#" onclick="addgroup();">Add Group's</a>
-                                        </li>
+                                        </li>-->
                                         <li>
                                             <a href="#" onclick="viewgroup();">View Group's</a>
                                         </li><li>
@@ -679,9 +683,9 @@
                                         <b class="caret hidden-phone"></b>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li>
+                                         <!--<li>
                                             <a href="#" onclick="addtrainer();">Add Trainer's</a>
-                                        </li>
+                                        </li>-->
                                         <li>
                                             <a href="#" onclick="viewtrainer();">View Trainer's</a>
                                         </li>
@@ -695,9 +699,9 @@
                                      <b class="caret hidden-phone"></b>
                                     </a>
                                     <ul class="dropdown-menu">
-                                     <li>
+                                     <!-- <li>
                                    <a href="#" onclick="addassessment();">Add Assessment's</a>
-                                 </li>
+                                    </li>-->
                                         <li>
                                             <a href="#" onclick="viewassessment();">View Assessment</a>
                                         </li>
@@ -713,9 +717,9 @@
                                         <li>
                                             <a href="#" onclick="viewLearnerAssess();">View Learner Assessments</a>
                                         </li>
-                                        <li>
+                                       <!-- <li>
                                             <a href="#" onclick="addLearnerAssessment();">Add Learner Assessments</a>
-                                        </li>
+                                        </li>-->
                                     </ul>
                                 </li>
                         </ul>
