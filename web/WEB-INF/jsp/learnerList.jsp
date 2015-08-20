@@ -14,7 +14,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <section class="page container">
+        <!--<section class="page container">
             <div class="row">
                  <div class="span12">        
                 <div align="center">
@@ -69,6 +69,24 @@
               </div>
            </form:form>
         </div>
-    </div></section>
+    </div></section>-->
+                <div class="span4">
+                    <div class="blockoff-right">
+                        <ul id="person-list" class="nav nav-list">
+                            <li class="nav-header">Learner's</li>
+                            <li class="active">
+                                <a id="view-all" href="#">
+                                    <i class="icon-chevron-right pull-right"></i>
+                                    <b>All Learner's</b>
+                                </a>
+                            </li>
+                            <li>
+                                <c:forEach var="msg" items="${msg}">
+                                <a href="#"  onclick="Students(${msg.getLID()});"><i class="icon-chevron-right pull-right"></i> ${msg.getLName()}</a></br>
+                                </c:forEach>
+                            </li> 
+                        </ul>
+                    </div>
+                </div>    
     </body>
 </html>

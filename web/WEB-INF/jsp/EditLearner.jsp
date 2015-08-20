@@ -106,8 +106,8 @@
                                     <label class="control-label">Group<span class="required">*</span></label>
                                     <div class="controls">
                                         <spring:bind path="groups">
-                            <select name="group" class="span4">
-                            <c:forEach items='${map.group}' var='groupName'>
+                                <select name="groups" class="span4">
+                             <c:forEach items='${map.group}' var='groupName'>
                                 <c:choose>
                                     <c:when test="${groupName.getGname() eq map.learner.getGroups()}">
                                         <option value="${groupName.getGname()}" selected="true">${groupName.getGname()}</option> 
