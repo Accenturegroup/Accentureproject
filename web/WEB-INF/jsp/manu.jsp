@@ -555,7 +555,7 @@
                  var locid=document.getElementById("locid");
                  var location=locid.options[locid.selectedIndex].text;
                  //var group=id.value;
-                 alert(group+location);
+                // alert(group+location);
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -571,7 +571,7 @@
                document.getElementById("show").innerHTML=xmlhttp.responseText;
                 }
                  }
-                 xmlhttp.open("GET","findLearners.html?group="+group+"&& location="+location,true);
+                 xmlhttp.open("GET","findLearners.html?group="+group+"&&location="+location,true);
                  xmlhttp.send();
              }
              

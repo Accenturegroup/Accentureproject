@@ -35,6 +35,7 @@
                         </select>
                                   </div>
                                   </div>
+                                </div>
                                 <div class="control-group">
                                     <input type="submit" value="Search" onclick="findLearners();" >
                                 </div>
@@ -42,7 +43,6 @@
                 </div>
             </div>
              </div>
-                  </form>
               </section>
         </div>
         </div>
