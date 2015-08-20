@@ -12,40 +12,13 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <section class="page container">
-            <div class="row">
-                 <div class="span12">        
-                       <form:form>
-                    <div id="Person-1" class="box">
-                        <div class="box-header">
-                            <i class="icon-user  icon-large"></i>
-                            <h5>Student</h5>
-                            
-                        </div>
-                        <div class="box-content box-table">
-                        <table class="table table-hover tablesorter">
-                            <thead>
-                                <tr>
-                                <th>ID:</th>
-                                <th>Name:</th>
-                                <th>Surname:</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-       
+        Learner 
+        <div id="show">
            
         <c:forEach var="l" items="${it}">
-            <tr><td>${l.LID}</td>
-                <td> ${l.LName}</td>
-                <td> ${l.LSurname}</td>
+            ${l.LName}
+            ${l.LSurname}</br>
         </c:forEach>
-                            </tbody>
-                        </table>
-                        </div>
-                    </div>
-                       </form:form>
-                 </div>
-            </div>
-        </section>
+        </div>
     </body>
 </html>

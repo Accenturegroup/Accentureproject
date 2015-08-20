@@ -705,7 +705,16 @@ public class Learnercontroller {
     @RequestMapping("/deleteLA")
      public ModelAndView deleteLA(HttpServletRequest request,HttpServletResponse res){
          int ID=Integer.parseInt(request.getParameter("id"));
-
+         
+//            Session session;
+//   
+//            SessionFactory sessionfactory= new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
+//            session=sessionfactory.openSession();
+//            session.beginTransaction();
+//            String hgl= "delete from LearnerAssessmentPojo where ID = :id";
+//            org.hibernate.Query query= session.createQuery(hgl);
+//            query.setParameter("id", ID);
+//            int count=query.executeUpdate();
          lap.setID(ID);
          ldao.deleteLearnerAssessment(lap);
 
@@ -768,8 +777,8 @@ public class Learnercontroller {
      @RequestMapping("/findLearners")
      public ModelAndView findLearners(ModelAndView model,HttpServletRequest request,HttpServletResponse res)
      {
-         String group=request.getParameter("group");
-        String loc=request.getParameter("location");
+         String group=request.getParameter("lid");
+         String loc=request.getParameter("loc");
          
         List<learnerspojo> result=new ArrayList<learnerspojo>();
          result= dao.search0(group,loc);
