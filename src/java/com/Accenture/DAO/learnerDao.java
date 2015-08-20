@@ -134,7 +134,7 @@ public List<learnerspojo> search0(String group,String loc)
             session = sessionfactory.openSession();
             session.beginTransaction();
 			
-            String HQL_QUERY= "from learnerspojo l where groups='"+group+"'AND location='"+loc+"'";
+            String HQL_QUERY= "from learnerspojo l where groups='"+group+"' AND location='"+loc+"'";
             org.hibernate.Query query = session.createQuery(HQL_QUERY);
          
             for(Iterator it = query.iterate();it.hasNext();){

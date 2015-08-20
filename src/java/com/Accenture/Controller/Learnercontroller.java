@@ -777,8 +777,8 @@ public class Learnercontroller {
      @RequestMapping("/findLearners")
      public ModelAndView findLearners(ModelAndView model,HttpServletRequest request,HttpServletResponse res)
      {
-         String group=request.getParameter("lid");
-         String loc=request.getParameter("loc");
+         String group=request.getParameter("group");
+         String loc=request.getParameter("location");
          
         List<learnerspojo> result=new ArrayList<learnerspojo>();
          result= dao.search0(group,loc);
