@@ -706,15 +706,17 @@ public class Learnercontroller {
      public ModelAndView deleteLA(HttpServletRequest request,HttpServletResponse res){
          int ID=Integer.parseInt(request.getParameter("id"));
          
-            Session session;
-   
-            SessionFactory sessionfactory= new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
-            session=sessionfactory.openSession();
-            session.beginTransaction();
-            String hgl= "delete from LearnerAssessmentPojo where ID = :id";
-            org.hibernate.Query query= session.createQuery(hgl);
-            query.setParameter("id", ID);
-            int count=query.executeUpdate();
+//            Session session;
+//   
+//            SessionFactory sessionfactory= new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
+//            session=sessionfactory.openSession();
+//            session.beginTransaction();
+//            String hgl= "delete from LearnerAssessmentPojo where ID = :id";
+//            org.hibernate.Query query= session.createQuery(hgl);
+//            query.setParameter("id", ID);
+//            int count=query.executeUpdate();
+         lap.setID(ID);
+         ldao.deleteLearnerAssessment(lap);
 
          ModelAndView model=new ModelAndView("manu");
 //         model.addObject("view1", ppojo);
