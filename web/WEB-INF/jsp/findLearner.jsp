@@ -11,7 +11,7 @@
         <div id="body-container">
         <div>
               <section id="my-account-security-form" class="page container">
-                  <form class="form-signin" action="findLearners.html" method="POST">
+                 <!-- <form class="form-signin" action="findLearners.html" method="POST">-->
              <div class="container">
             <div class="row">
                 <div id="acct-password-row" class="span7">
@@ -19,7 +19,7 @@
                                 <div class="control-group ">
                         <label class="control-label">Group<span class="required">*</span></label>
                     <div class="controls">
-                        <select name="lid">
+                        <select name="lid" id="lid">
                             <c:forEach var="learner" items="${group}">
                                 <option value=${learner.getGname()}>
                                     ${learner.getGname()}</option>
@@ -27,7 +27,7 @@
                         </select>
                         <label class="control-label">Location<span class="required">*</span></label>
                     <div class="controls">
-                        <select name="loc">
+                        <select name="loc" id="locid">
                             <c:forEach var="l" items="${loc}">
                                 <option value=${l.getLocation()}>
                                     ${l.getLocation()}</option>
@@ -36,7 +36,7 @@
                                   </div>
                                   </div>
                                 <div class="control-group">
-                                    <input type="submit" value="Search"  >
+                                    <input type="submit" value="Search" onclick="findLearners();" >
                                 </div>
                             </fieldset>
                 </div>
