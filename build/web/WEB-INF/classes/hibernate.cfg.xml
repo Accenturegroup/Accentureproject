@@ -14,5 +14,6 @@
     <mapping resource="LearnerAssessment.hbm.xml"/>
     <mapping resource="feedback1.hbm.xml"/>
     <mapping resource="location.hbm.xml"/>
+    <mapping resource="questionnaire.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

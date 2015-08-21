@@ -7,12 +7,14 @@ package com.Accenture.Controller;
 
 import com.Accenture.DAO.AssessmentDAO;
 import com.Accenture.DAO.LearnerAssessmentDAO;
+import com.Accenture.DAO.QuestionnaireDAO;
 import com.Accenture.DAO.feedbackDao;
 import com.Accenture.DAO.groupDao;
 import com.Accenture.DAO.learnerDao;
 import com.Accenture.DAO.locationDao;
 import com.Accenture.DAO.markregisterDao;
 import com.Accenture.DAO.trainerDao;
+import com.Accenture.Model.Answerspojo;
 import com.Accenture.Model.AssessmentPojo;
 import com.Accenture.Model.LearnerAssessmentPojo;
 import com.Accenture.Model.feedbackpojo;
@@ -57,6 +59,7 @@ public class Learnercontroller {
      learnerspojo pojos=new learnerspojo();
      locationpojo pojol=new locationpojo();
     grouppojo pojo=new grouppojo();
+    QuestionnaireDAO vv= (QuestionnaireDAO) r.getBean("v");
     trainerpojo pojoe= new trainerpojo();
     markregisterDao mdao=(markregisterDao)r.getBean("m");
 
@@ -363,7 +366,7 @@ public class Learnercontroller {
        if(msg.equals("yes")){
            model=new ModelAndView("trainerlogin","msg",email);
        }else if(msg1.equals("yes")){
-           model=new ModelAndView("learner");
+           model=new ModelAndView("learner","msg",email);
        }else if(email.equals("Accenture@gmail.com")&&password.equals("accenture@2")){
           model=new ModelAndView("manu","msg",email);
        } else{
@@ -803,4 +806,28 @@ public class Learnercontroller {
        model.addObject("it",it);
       return model;
      }
+     @RequestMapping("/Questionnaire")  
+    public ModelAndView survey() {  
+        String message = " ";  
+        return new ModelAndView("Questionnaire", "message", message);  
+    }
+     @RequestMapping("/saveQ")
+    public ModelAndView saveQs(HttpServletRequest request,HttpServletResponse res) { 
+        Answerspojo ap=new Answerspojo();
+        String message = "";
+        
+        String [] lid=request.getParameterValues("learner");
+        String [] qid=request.getParameterValues("questions");
+        String [] ans=request.getParameterValues("answers");
+        
+        for (int i=0;i<10;i++){
+        ap.setlearnerid(lid[i]);
+        ap.setquestionid(qid[i]);
+        ap.setanswer(ans[i]);
+        
+        vv.saveV(ap);
+        }
+     return new ModelAndView("manu", "message", message);  
+    }
+
 }
