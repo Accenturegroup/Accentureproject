@@ -1,5 +1,27 @@
 
 <!DOCTYPE html>
+<%@page language="java" import="java.util.*"%>
+<%
+String msg=request.getParameter("msg");
+
+if(msg==null)msg="";
+
+Date now=new Date();
+String timestamp=now.toString();
+Cookie cookie=new Cookie("msg",msg);
+cookie.setMaxAge(365*24*60*60);
+response.addCookie(cookie);%>
+<%String cookieName="Error";
+Cookie cookies[]=request.getCookies();
+Cookie myCookie=null;
+if(cookies!=null){
+    for(int i=0;i<cookies.length;i++){
+        if(cookies[i].getName().equals(cookieName)){
+         myCookie=cookies[i];
+         break;  
+        }
+    }
+}%>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
@@ -299,8 +321,14 @@
                  xmlhttp.send();
              }
 
-             function drop(){
+             function addmeth(){
                  document.getElementById("show1").innerHTML="";
+                 var name=document.getElementById("name").value;
+                 var duration=document.getElementById("duration").value;
+                 var start=document.getElementById("start").value;
+                 var finish=document.getElementById("finish").value;
+                 var location=document.getElementById("location").value;
+                  var msg=document.getElementById("msg").value;
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -316,7 +344,7 @@
                document.getElementById("show").innerHTML=xmlhttp.responseText;
                 }
                  }
-                 xmlhttp.open("GET","drop.html",true);
+                 xmlhttp.open("GET","addnew.html?="+name+"&duration="+duration+"&start="+start+"&finish="+finish+"&location="+location+"$msg="+msg,true);
                  xmlhttp.send();
              }
              function addLearnerAssessment(){
@@ -549,12 +577,9 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
+                        
                     </button>                   
                     <div id="app-nav-top-bar" class="nav-collapse">
-
-                        <div class="nav pull-right">
-                         
-                        </div>
                         <ul class="nav pull-right">
                             <li>
                                 <a href="logout.html">Logout</a>
@@ -562,6 +587,7 @@
                             
                         </ul>
                     </div>
+                   Hello: ${msg}
                 </div>
             </div>
         </div>
@@ -630,7 +656,7 @@
                                             <a href="#" onclick="findgroup();">Find Group</a>
                                         </li>
                                     </ul>
-                                </li>-->
+                                </li><-->
                             <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Trainer's
                                         <b class="caret hidden-phone"></b>
@@ -680,7 +706,7 @@
 
     </section>
             <input type="hidden" name="email" id="email" value="${msg}">
-
+            
              <div id="show">
             </div>
             <div id="show1">

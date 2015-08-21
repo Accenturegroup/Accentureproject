@@ -807,9 +807,9 @@ public class Learnercontroller {
       return model;
      }
      @RequestMapping("/Questionnaire")  
-    public ModelAndView survey() {  
-        String message = " ";  
-        return new ModelAndView("Questionnaire", "message", message);  
+    public ModelAndView survey(HttpServletRequest request) {  
+        String msg=request.getParameter("email");
+        return new ModelAndView("Questionnaire", "msg", msg);  
     }
      @RequestMapping("/saveQ")
     public ModelAndView saveQs(HttpServletRequest request,HttpServletResponse res) { 
