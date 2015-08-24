@@ -5,6 +5,7 @@
         <group>
             <file>file:/C:/Users/EDU-Stud/Documents/NetBeansProjects/Accentureproject/Accentureproject/web/WEB-INF/jsp/index.jsp</file>
             <file>file:/C:/Users/EDU-Stud/Documents/NetBeansProjects/Accentureproject/Accentureproject/web/WEB-INF/jsp/learnerList.jsp</file>
+            <file>file:/C:/Users/EDU-Stud/Documents/NetBeansProjects/Accentureproject/Accentureproject/web/WEB-INF/jsp/add.jsp</file>
             <file>file:/C:/Users/EDU-Stud/Documents/NetBeansProjects/Accentureproject/Accentureproject/src/java/com/Accenture/DAO/learnerDao.java</file>
             <file>file:/C:/Users/EDU-Stud/Documents/NetBeansProjects/Accentureproject/Accentureproject/web/WEB-INF/jsp/Students.jsp</file>
             <file>file:/C:/Users/EDU-Stud/Documents/NetBeansProjects/Accentureproject/Accentureproject/web/WEB-INF/jsp/manu.jsp</file>
@@ -13,6 +14,7 @@
             <file>file:/C:/Users/EDU-Stud/Documents/NetBeansProjects/Accentureproject/Accentureproject/web/WEB-INF/jsp/trainerlogin.jsp</file>
             <file>file:/C:/Users/EDU-Stud/Documents/NetBeansProjects/Accentureproject/Accentureproject/src/java/com/Accenture/Controller/Learnercontroller.java</file>
             <file>file:/C:/Users/EDU-Stud/Documents/NetBeansProjects/Accentureproject/Accentureproject/web/WEB-INF/jsp/Questionnaire.jsp</file>
+            <file>file:/C:/Users/EDU-Stud/Documents/NetBeansProjects/Accentureproject/Accentureproject/web/WEB-INF/jsp/learner.jsp</file>
         </group>
     </open-files>
 </project-private>
