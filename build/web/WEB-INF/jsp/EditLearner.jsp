@@ -19,7 +19,7 @@
          <div class="container">
         <section id="my-account-security-form" class="page container">
        <c:url var="edit" value="addnew.html"/>
-         <form:form class="form-signin" id="editform" modelAttribute="learner" method="POST" >
+       <form:form class="form-signin" id="editform" modelAttribute="learner" method="POST" action="updateLearner.html" >
                 <div class="container">
 
                     <div class="alert alert-block alert-info">
@@ -31,22 +31,23 @@
                     <div class="row">
                         <div id="acct-password-row" class="span7">                            
                             <fieldset>
-                                <form:hidden path="LID" value="${map.learner.getLID()}" />
+                                <form:hidden path="LID" id="LID" value="${map.learner.getLID()}" />
+                                <input class="span4" type="hidden" name="msg"   value="${map.msg}">
                 <div class="control-group ">
                     <label >Title</label>
                     <div class="controls">
-                    <form:input class="span4" path="Title" value="${map.learner.getTitle()}"/>
+                        <form:input class="span4" id="Title" path="Title" value="${map.learner.getTitle()}"/>
                     </div>
                 </div>
                 <div class="control-group ">
                     <label >Name</label>
-                    <div class="controls"><form:input class="span4" path="LName" value="${map.learner.getLName()}"/>
+                    <div class="controls"><form:input class="span4" id="LName" path="LName" value="${map.learner.getLName()}"/>
                     </div>
                 </div>
                 <div class="control-group ">
                     <label >Surname</label>
                     <div class="controls">
-                    <form:input class="span4" path="LSurname" value="${map.learner.getLSurname()}"/>
+                        <form:input class="span4" id="LSurname" path="LSurname" value="${map.learner.getLSurname()}"/>
                     </div>
                 </div>
                 <div class="control-group "><label >Race</label>
@@ -54,11 +55,11 @@
                             <c:forEach items='${map.raceList}' var='raceName'>
                                 <c:choose>
                                     <c:when test="${raceName eq map.learner.getRace()}">
-                                        <input type="radio" name="race" value="${raceName}"
+                                        <input type="radio" id="race" name="race" value="${raceName}"
                                                checked="checked">${raceName}
                                         </c:when>  
                                          <c:otherwise> 
-                                              <input type="radio" name="race" value="${raceName}">${raceName} 
+                                             <input type="radio" id="race" name="race" value="${raceName}">${raceName} 
                                         </c:otherwise>
                                 </c:choose>
                             </c:forEach>
@@ -67,7 +68,7 @@
                 </div>
                     
                 <div class="control-group "><label >ID Number</label>
-                    <div class="controls"><form:input class="span4" path="id" value="${map.learner.getId()}"/>
+                    <div class="controls"><form:input class="span4" id="id" path="id" value="${map.learner.getId()}"/>
                     </div>
                 </div>
                 <div class="control-group ">
@@ -76,11 +77,11 @@
                             <c:forEach items='${map.genderList}' var='genderName'>
                                 <c:choose>
                                     <c:when test="${genderName eq map.learner.getGender()}">
-                                        <input type="radio" name="gender" value="${genderName}"
+                                        <input type="radio" id="gender" name="gender" value="${genderName}"
                                                checked="checked">${genderName}
                                         </c:when>  
                                          <c:otherwise> 
-                                              <input type="radio" name="gender" value="${genderName}">${genderName} 
+                                             <input type="radio" id="gender" name="gender" value="${genderName}">${genderName} 
                                         </c:otherwise>
                                 </c:choose>
                             </c:forEach>
@@ -95,18 +96,18 @@
                             <div class="control-group ">
                                     <label class="control-label">Contact Number</label>
                                     <div class="controls">
-                                    <form:input class="span4" path="number" value="${map.learner.getNumber()}"/>
+                                        <form:input class="span4" id="number" path="number" value="${map.learner.getNumber()}"/>
                                     </div>
                                 </div>
                                 <div class="control-group "><label >Email</label>
-                               <div class="controls"><form:input class="span4" path="email" value="${map.learner.getEmail()}"/>
+                                    <div class="controls"><form:input class="span4" id="email" path="email" value="${map.learner.getEmail()}"/>
                                 </div>
                                 </div>
                                 <div class="control-group ">
                                     <label class="control-label">Group<span class="required">*</span></label>
                                     <div class="controls">
                                         <spring:bind path="groups">
-                                <select name="groups" class="span4">
+                                            <select name="groups" id="groups" class="span4">
                              <c:forEach items='${map.group}' var='groupName'>
                                 <c:choose>
                                     <c:when test="${groupName.getGname() eq map.learner.getGroups()}">
@@ -125,7 +126,7 @@
                                     <label class="control-label">Location<span class="required">*</span></label>
                                     <div class="controls">
                                         <spring:bind path="location">
-                            <select name="location" class="span4">
+                                            <select name="location" id="location" class="span4">
                             <c:forEach items='${map.location}' var='locationName'>
                                 <c:choose>
                                     <c:when test="${locationName.getLocation() eq map.learner.getLocation()}">
@@ -144,7 +145,7 @@
                                     <label class="control-label">Status<span class="required">*</span></label>
                                     <div class="controls">
                                         <spring:bind path="status">
-                            <select name="status" class="span4">
+                                            <select name="status" id="status" class="span4">
                             <c:forEach items='${map.statusList}' var='statusName'>
                                 <c:choose>
                                     <c:when test="${statusName eq map.learner.getStatus()}">
@@ -163,7 +164,7 @@
                         </div>
                     </div>
                      <footer id="submit-actions" class="form-actions">
-                         <input id="submit-button" type="button" class="btn btn-primary" onclick="editlearners();" value="Update">
+                         <input id="submit-button" type="submit" class="btn btn-primary" onclick="editlearners();" value="Update">
                         <input type="submit" class="btn" name="action" value="CANCEL">
                     </footer>
             

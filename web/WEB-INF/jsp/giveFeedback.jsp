@@ -16,7 +16,7 @@
     <body>
 <div class="container">
         <section id="my-account-security-form" class="page container">
-            <form class="form-signin" method="post">
+           <form id="userSecurityForm" class="form-horizontal" method="post">
                 <div class="container">
 
                     <div class="alert alert-block alert-info">

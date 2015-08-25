@@ -113,6 +113,7 @@ public List<trainerpojo>findlocandgro(String email){
              trainerpojo b=(trainerpojo) it.next();
              b.getGroup();
              b.getLocation();
+             b.getEmail();
              list.add(b);
     }
     return list;

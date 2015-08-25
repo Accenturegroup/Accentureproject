@@ -195,6 +195,8 @@ if(cookies!=null){
              }
              function editlearner(id){
               document.getElementById("show1").innerHTML="";
+              var msg=document.getElementById("email").value;
+              alert(msg);
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -210,10 +212,10 @@ if(cookies!=null){
                document.getElementById("show").innerHTML=xmlhttp.responseText;
                 }
                  }
-                 xmlhttp.open("GET","EditLearner.html?LID="+id,true);
+                 xmlhttp.open("GET","EditLearner.html?LID="+id+"&msg="+msg,true);
                  xmlhttp.send();
              }
-             function editlearners(){
+             /*function editlearners(){
                 document.getElementById("show1").innerHTML="";
                 
                 var LID=document.getElementById("LID").value;
@@ -230,7 +232,7 @@ if(cookies!=null){
                 var status=document.getElementById("status").value;
                 var pass=document.getElementById("pass").value;
                 var msg=document.getElementById("email").value;
-                
+                alert("fdfd");
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -246,9 +248,9 @@ if(cookies!=null){
                document.getElementById("show").innerHTML=xmlhttp.responseText;
                 }
                  }
-                 xmlhttp.open("GET","updateLearner.html?LID="+LID+"&Title="+Title+"&LName="+LName+"&LSurname="+LSurname+"&race="+race+"&id="+id+"&gender="+gender+"&number="+number+"&email="+email+"&group="+group+"&location="+location+"&status="+status+"&pass="+pass+"&msg"+msg,true);
+                 xmlhttp.open("GET","updateLearner.html?LID="+LID+"&Title="+Title+"&LName="+LName+"&LSurname="+LSurname,true);
                  xmlhttp.send();
-             }
+             }*/
              function deletelearner(id){
               document.getElementById("show1").innerHTML="";
                  if (window.XMLHttpRequest)
@@ -445,6 +447,7 @@ if(cookies!=null){
              }
              function addLearnerAssessment(){
                  document.getElementById("show1").innerHTML="";
+                 var msg=document.getElementById("email").value;
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -460,7 +463,7 @@ if(cookies!=null){
                document.getElementById("show").innerHTML=xmlhttp.responseText;
                 }
                  }
-                 xmlhttp.open("GET","LearnerAssessmentAddView.html",true);
+                 xmlhttp.open("GET","LearnerAssessmentAddView.html?msg="+msg,true);
                  xmlhttp.send();
              }
              function viewLearnerAssess(){
@@ -578,7 +581,7 @@ if(cookies!=null){
                  xmlhttp.send();
              }
              
-             function saveFeedback(){
+            /* function saveFeedback(){
               document.getElementById("show1").innerHTML="";
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -597,13 +600,13 @@ if(cookies!=null){
                  }
                  xmlhttp.open("GET","saveFeedback.html",true);
                  xmlhttp.send();
-             } 
+             }*/ 
              function saveFeedbacks(){
-              document.getElementById("show1").innerHTML="";
-              document.getElementById("show").innerHTML="";
+             
               var learnerid=document.getElementById("learnerid").value;
               var feedback=document.getElementById("feedback").value;
               var msg=document.getElementById("email").value;
+              
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -665,6 +668,7 @@ if(cookies!=null){
              }
               function giveFeedback(){
                   document.getElementById("show1").innerHTML="";
+                  var msg=document.getElementById("email").value;
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -680,7 +684,7 @@ if(cookies!=null){
                document.getElementById("show").innerHTML=xmlhttp.responseText;
                 }
                  }
-                 xmlhttp.open("GET","giveFeedback.html",true);
+                 xmlhttp.open("GET","giveFeedback.html?msg="+msg,true);
                  xmlhttp.send();
              }
 
