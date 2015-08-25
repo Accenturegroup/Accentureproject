@@ -31,7 +31,36 @@
                  }
                  xmlhttp.open("GET","add.html",true);
                  xmlhttp.send();
-             } 
+             }
+             function addmeth(){
+                   document.getElementById("show1").innerHTML="";
+
+                var name=document.getElementById("name").value;
+                var duration=document.getElementById("duration").value;
+                var start=document.getElementById("start").value;
+                var finish=document.getElementById("finish").value;
+                var location=document.getElementById("location").value;
+                var msg=document.getElementById("email").value;
+                alert("dfasdf");
+                
+                if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                 xmlhttp=new XMLHttpRequest(); 
+                }
+                else
+                 {// code for IE6, IE5
+                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                 }
+                xmlhttp.onreadystatechange=function()
+                 {
+              if (xmlhttp.readyState===4 && xmlhttp.status===200)
+                 {
+               document.getElementById("show").innerHTML=xmlhttp.responseText;
+                }
+                 }
+                 xmlhttp.open("GET","addnew.html?name="+name+"&&duration="+duration+"&&start="+start+"&&finish="+finish+"&&location="+location+"&&msg="+msg,true);
+                 xmlhttp.send();
+             }
              function viewgroup(){
                document.getElementById("show1").innerHTML="";
                  if (window.XMLHttpRequest)
@@ -217,6 +246,7 @@
              }
              function viewassessment(){
                document.getElementById("show1").innerHTML="";
+               
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -232,8 +262,9 @@
                document.getElementById("show").innerHTML=xmlhttp.responseText;
                 }
                  }
-                 xmlhttp.open("GET","ViewAssess.html",true);
+                 xmlhttp.open("GET","ViewAssess.html?msg="+msg,true);
                  xmlhttp.send();
+                 
              }
              function editassess(id){
               document.getElementById("show1").innerHTML="";
@@ -582,9 +613,6 @@
                  xmlhttp.send();
              }
              
-
-
-             
         </script>
 
 </head>
@@ -600,7 +628,8 @@
                     <div id="app-nav-top-bar" class="nav-collapse">
 
                         <div class="nav pull-right">
-                         
+                         ${msg}
+
                         </div>
                         <ul class="nav pull-right">
                             <li>
@@ -668,14 +697,15 @@
                                         <b class="caret hidden-phone"></b>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <!-- <li>
+                                        <li>
                                             <a href="#" onclick="addgroup();">Add Group's</a>
-                                        </li>-->
+                                        </li>
                                         <li>
                                             <a href="#" onclick="viewgroup();">View Group's</a>
-                                        </li><li>
-                                            <a href="#" onclick="findgroup();">Find Group</a>
                                         </li>
+                                        <!--<li>
+                                            <a href="#" onclick="findgroup();">Find Group</a>
+                                        </li>-->
                                     </ul>
                                 </li>
                             <li class="dropdown">
@@ -729,7 +759,9 @@
         </div>
 
     </section>
+             <input type="text" name="email" id="email" value="${msg}">
              <div id="show">
+                 
             </div>
             <div id="show1">
             </div>

@@ -115,15 +115,26 @@ public class Learnercontroller {
         String start=request.getParameter("start");
         String finish=request.getParameter("finish");
         String location=request.getParameter("location");
-        String tid=request.getParameter("tid");
+        String msg=request.getParameter("msg");
         pojo.setGname(name);
         pojo.setDuration(duration);
         pojo.setFinish(finish);
         pojo.setStart(start);
         pojo.setLocation(location);
         daog.savegroup(pojo);
-        return new ModelAndView("manu", "message", message);  
+        return new ModelAndView("manu","msg", msg);  
     }
+//        @RequestMapping("/addnew")
+//     public String addnew(String name,String duration,String start,String finish,String location) {  
+//        String message = "successfully";
+//        pojo.setGname(name.toUpperCase());
+//        pojo.setDuration(duration);
+//        pojo.setFinish(finish);
+//        pojo.setStart(start);
+//        pojo.setLocation(location);
+//        daog.savegroup(pojo);
+//        return message;
+//    }
      @RequestMapping("/edit")
      public ModelAndView edit(HttpServletRequest request,HttpServletResponse res){
          int id=Integer.parseInt(request.getParameter("id"));
@@ -228,7 +239,6 @@ public class Learnercontroller {
      public ModelAndView addlearners(HttpServletRequest request,HttpServletResponse res) {  
         String message = "";
       String title= request.getParameter("title");
-     
       String surname= request.getParameter("surname");
       String id=request.getParameter("id");
       String number=request.getParameter("number");
@@ -240,7 +250,8 @@ public class Learnercontroller {
       String status=request.getParameter("status");
       String name= request.getParameter("name");
       String location= request.getParameter("location");
-     
+      String msg= request.getParameter("msg");
+      
       pojos.setLSurname(surname);
       pojos.setTitle(title);
       pojos.setId(id);
@@ -254,7 +265,7 @@ public class Learnercontroller {
       pojos.setLName(name);
       pojos.setLocation(location);
       dao.saveLearner(pojos);
-        return new ModelAndView("manu", "message", message);  
+      return new ModelAndView("trainerlogin","msg", msg);  
     }
      
     @RequestMapping("/addtrainer")
@@ -368,6 +379,7 @@ public class Learnercontroller {
        }else if(msg1.equals("yes")){
            model=new ModelAndView("learner","msg",email);
        }else if(email.equals("Accenture@gmail.com")&&password.equals("accenture@2")){
+           email="Accenture@gmail.com";
           model=new ModelAndView("manu","msg",email);
        } else{
             model=new ModelAndView("index");
@@ -390,6 +402,7 @@ public class Learnercontroller {
         String name=request.getParameter("name");
         String date=request.getParameter("date");
         String group=request.getParameter("group");
+        String msg=request.getParameter("msg");
         SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd");
         Date now = new Date();
         String today= df.format(now);
@@ -399,20 +412,23 @@ public class Learnercontroller {
         ap.setgroupName(group);
         ap.setdate(today);
      
-      d.saveAssessment(ap);
-     return new ModelAndView("manu", "message", message);  
+        d.saveAssessment(ap);
+     return new ModelAndView("trainerlogin","msg", msg);  
     }
-        @RequestMapping("/ViewAssess")
-    public ModelAndView viewass(ModelAndView model) throws IOException{ 
-      List<AssessmentPojo> view=d.getAssessments();
-     model.addObject("msg",view);
+    @RequestMapping("/ViewAssess")
+    public ModelAndView viewass(ModelAndView model,HttpServletRequest request) throws IOException{ 
+      List<AssessmentPojo> view=d.getAssessments();     
+      String email=request.getParameter("msg");
+      model.addObject("it",view);
+      model.addObject("msg",email);
       return model;
     }
-       @RequestMapping("/deleteAsse")
+    @RequestMapping("/deleteAsse")
      public ModelAndView deleteasse(HttpServletRequest request,HttpServletResponse res){
          int id=Integer.parseInt(request.getParameter("id"));
+         String email=request.getParameter("msg");
          d.DeleteAssess(id);
-         ModelAndView model=new ModelAndView("manu");
+         ModelAndView model=new ModelAndView("trainerlogin","msg",email);
          return model;
      }
        @RequestMapping("/editassess")
@@ -439,7 +455,7 @@ public class Learnercontroller {
          ap.setgroupName(group);
          ap.setdate(now);
          d.updateforceA(ap);
-         ModelAndView model=new ModelAndView("manu");
+         ModelAndView model=new ModelAndView("trainerlogin");
          return model;
      }               
       @RequestMapping("/markregister")
@@ -520,8 +536,8 @@ public class Learnercontroller {
         String group = request.getParameter("groups");
         String status = request.getParameter("status");
         String location = request.getParameter("location");
-        
-        String message="";
+        String msg=request.getParameter("msg");
+       
         pojos = dao.getById(id);
         
         pojos.setTitle(title);
@@ -536,7 +552,7 @@ public class Learnercontroller {
         pojos.setStatus(status);
         pojos.setLocation(location);
         dao.updateLearner(pojos);
-        return new ModelAndView("manu", "message", message);
+        return new ModelAndView("trainerlogin", "msg", msg);
 
     }  
     
@@ -587,21 +603,21 @@ public class Learnercontroller {
          model.addObject("msg",learner);
          return model;
      }
-     
+    
      @RequestMapping("/saveFeedback")
      public ModelAndView saveFeedback(HttpServletRequest request,HttpServletResponse res){
         String message = "";
         
         int learnerid=Integer.parseInt(request.getParameter("learnerid"));
         String feedback=request.getParameter("feedback");
-        
+        String msg=request.getParameter("msg");
         
         fpojo.setLid(learnerid);
         fpojo.setFeedbackid(learnerid);
         fpojo.setFeedback(feedback);
       
         fdao.savefeedback(fpojo);
-        return new ModelAndView("manu", "message", message); 
+        return new ModelAndView("trainerlogin","msg",msg); 
      }
      @RequestMapping("/updateFeedback")
      public ModelAndView updateFeedback(HttpServletRequest request,HttpServletResponse res){

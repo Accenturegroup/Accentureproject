@@ -13,7 +13,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <div id="show">
+       <div id="show">
 <section class="page container">
             <div class="row">
                  <div class="span12">        
@@ -39,14 +39,14 @@
                                 </tr>
                             </thead>
                             <tbody> 
-                             <c:forEach var="res" items="${it}">
-                                <tr><td>${res.gname}</td>
-                                <td>${res.duration}</td>
-                                <td>${res.duration}</td>
-                                <td>${res.duration}</td>
-                                <td>${res.duration}</td>
-                                <td>${res.duration}</td>
-                                <td>${res.duration}</td></tr>
+                             <c:forEach var="group" items="${it}">
+                                <tr><td>${group.getGname()}</td>
+                                <td>${group.getDuration()}</td>
+                                <td>${group.getStart()}</td>
+                                <td>${group.getFinish()}</td>
+                                <td>${group.getLocation()}</td>           
+                                <td><a href="#" onclick="editpage(${group.getGroupid()});">edit</a></td>            
+                                <td><a href="delete.html?id=${group.getGroupid()}">delete</a></td></tr>
                                  </c:forEach>
                             </tbody>
                         </table>

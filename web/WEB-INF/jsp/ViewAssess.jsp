@@ -37,7 +37,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            <c:forEach var="assess" items="${msg}">
+                            <c:forEach var="assess" items="${it}">
             
                             <tr>
                             <td>${assess.getassessName()}</td>
@@ -45,7 +45,7 @@
                             <td>${assess.getgroupName()}</td>
                             <td>${assess.getdate()}</td>
                             <td><a href="#" onclick="editassess(${assess.getassessID()});">edit</a></td>
-                            <td><a href="deleteAsse.html?id=${assess.getassessID()}">delete</a></td>
+                            <td><a href="deleteAsse.html?id=${assess.getassessID()}&msg=${msg}">delete</a></td>
              </tr>
         
         </c:forEach>

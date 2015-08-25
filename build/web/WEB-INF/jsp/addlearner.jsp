@@ -19,7 +19,7 @@
         <div id="body-container">
             <div>
         <section id="my-account-security-form" class="page container">
-            <form id="userSecurityForm" class="form-horizontal" action="addlearners.html" method="post">
+            <form id="userSecurityForm" class="form-horizontal" method="post">
                 <div class="container">
 
                     <div class="alert alert-block alert-info">
@@ -160,7 +160,7 @@
                         </div>
                     </div>
                     <footer id="submit-actions" class="form-actions">
-                        <input id="submit-button" type="submit" class="btn btn-primary"  value="Save">
+                        <input id="submit-button" type="button" class="btn btn-primary" onclick="addlearners();" value="Save">
                         <input type="submit" class="btn" name="action" value="CANCEL">
                     </footer>
                 </div>

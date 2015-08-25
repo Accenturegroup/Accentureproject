@@ -137,6 +137,40 @@ if(cookies!=null){
                  xmlhttp.open("GET","addlearner.html",true);
                  xmlhttp.send();
              }
+              function addlearners(){
+                document.getElementById("show1").innerHTML="";
+                var title=document.getElementById("title").value;
+                var name=document.getElementById("name").value;
+                var surname=document.getElementById("surname").value;
+                var race=document.getElementById("race").value;
+                var id=document.getElementById("id").value;
+                var gender=document.getElementById("gender").value;
+                var number=document.getElementById("number").value;
+                var email=document.getElementById("email").value;
+                var group=document.getElementById("group").value;
+                var location=document.getElementById("location").value;
+                var status=document.getElementById("status").value;
+                var pass=document.getElementById("pass").value;
+                var msg=document.getElementById("email").value;
+                
+                 if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                 xmlhttp=new XMLHttpRequest(); 
+                }
+                else
+                 {// code for IE6, IE5
+                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                 }
+                xmlhttp.onreadystatechange=function()
+                 {
+              if (xmlhttp.readyState===4 && xmlhttp.status===200)
+                 {
+               document.getElementById("show").innerHTML=xmlhttp.responseText;
+                }
+                 }
+                 xmlhttp.open("GET","addlearners.html?title="+title+"&name="+name+"&surname="+surname+"&race="+race+"&id="+id+"&gender="+gender+"&number="+number+"&email="+email+"&group="+group+"&location="+location+"&status="+status+"&pass="+pass+"&msg"+msg,true);
+                 xmlhttp.send();
+             }
              function viewlearner(){
                  //document.getElementById("show1").innerHTML="";
                  var msg=document.getElementById("email").value;
@@ -177,6 +211,42 @@ if(cookies!=null){
                 }
                  }
                  xmlhttp.open("GET","EditLearner.html?LID="+id,true);
+                 xmlhttp.send();
+             }
+             function editlearners(){
+                document.getElementById("show1").innerHTML="";
+                
+                var LID=document.getElementById("LID").value;
+                var Title=document.getElementById("Title").value;
+                var LName=document.getElementById("LName").value;
+                var LSurname=document.getElementById("LSurname").value;
+                var race=document.getElementById("race").value;
+                var id=document.getElementById("id").value;
+                var gender=document.getElementById("gender").value;
+                var number=document.getElementById("number").value;
+                var email=document.getElementById("email").value;
+                var group=document.getElementById("groups").value;
+                var location=document.getElementById("location").value;
+                var status=document.getElementById("status").value;
+                var pass=document.getElementById("pass").value;
+                var msg=document.getElementById("email").value;
+                
+                 if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                 xmlhttp=new XMLHttpRequest(); 
+                }
+                else
+                 {// code for IE6, IE5
+                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                 }
+                xmlhttp.onreadystatechange=function()
+                 {
+              if (xmlhttp.readyState===4 && xmlhttp.status===200)
+                 {
+               document.getElementById("show").innerHTML=xmlhttp.responseText;
+                }
+                 }
+                 xmlhttp.open("GET","updateLearner.html?LID="+LID+"&Title="+Title+"&LName="+LName+"&LSurname="+LSurname+"&race="+race+"&id="+id+"&gender="+gender+"&number="+number+"&email="+email+"&group="+group+"&location="+location+"&status="+status+"&pass="+pass+"&msg"+msg,true);
                  xmlhttp.send();
              }
              function deletelearner(id){
@@ -221,7 +291,7 @@ if(cookies!=null){
              }
               function addassessment(){
                   document.getElementById("show1").innerHTML="";
-          if (window.XMLHttpRequest)
+                if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
                 }
@@ -239,8 +309,34 @@ if(cookies!=null){
                  xmlhttp.open("GET","Assessment.html",true);
                  xmlhttp.send();
              }
+             function addassessments(){
+                document.getElementById("show1").innerHTML="";
+                var date=document.getElementById("datepicker").value;
+                var group=document.getElementById("group").value;
+                var name=document.getElementById("name").value;
+                var msg=document.getElementById("email").value;
+                if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                 xmlhttp=new XMLHttpRequest(); 
+                }
+                else
+                 {// code for IE6, IE5
+                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                 }
+                xmlhttp.onreadystatechange=function()
+                 {
+              if (xmlhttp.readyState===4 && xmlhttp.status===200)
+                 {
+               document.getElementById("show").innerHTML=xmlhttp.responseText;
+                }
+                 }
+                 xmlhttp.open("GET","addnewAssess.html?name="+name+"&group="+group+"&date="+date+"&msg="+msg,true);
+                 xmlhttp.send();
+             }
              function viewassessment(){
                document.getElementById("show1").innerHTML="";
+               var msg=document.getElementById("email").value;
+               alert(msg);
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -256,7 +352,7 @@ if(cookies!=null){
                document.getElementById("show").innerHTML=xmlhttp.responseText;
                 }
                  }
-                 xmlhttp.open("GET","ViewAssess.html",true);
+                 xmlhttp.open("GET","ViewAssess.html?msg="+msg,true);
                  xmlhttp.send();
              }
              function editassess(id){
@@ -502,7 +598,30 @@ if(cookies!=null){
                  xmlhttp.open("GET","saveFeedback.html",true);
                  xmlhttp.send();
              } 
-             
+             function saveFeedbacks(){
+              document.getElementById("show1").innerHTML="";
+              document.getElementById("show").innerHTML="";
+              var learnerid=document.getElementById("learnerid").value;
+              var feedback=document.getElementById("feedback").value;
+              var msg=document.getElementById("email").value;
+                 if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                 xmlhttp=new XMLHttpRequest(); 
+                }
+                else
+                 {// code for IE6, IE5
+                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                 }
+                xmlhttp.onreadystatechange=function()
+                 {
+              if (xmlhttp.readyState===4 && xmlhttp.status===200)
+                 {
+               document.getElementById("show").innerHTML=xmlhttp.responseText;
+                }
+                 }
+                 xmlhttp.open("GET","saveFeedback.html?learnerid="+learnerid+"&feedback="+feedback+"&msg="+msg,true);
+                 xmlhttp.send();
+             }
              function viewFeedback(){
                 document.getElementById("show1").innerHTML="";
                  if (window.XMLHttpRequest)
@@ -705,7 +824,7 @@ if(cookies!=null){
         </div>
 
     </section>
-            <input type="hidden" name="email" id="email" value="${msg}">
+                <input type="text" name="email" id="email" value="${msg}">
             
              <div id="show">
             </div>

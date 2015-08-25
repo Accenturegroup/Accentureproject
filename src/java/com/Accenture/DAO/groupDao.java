@@ -80,7 +80,7 @@ public List<grouppojo> search(String search)
             session = sessionfactory.openSession();
             session.beginTransaction();
 			
-            String HQL_QUERY= "from grouppojo groups where gname like '%"+search+"%'";
+            String HQL_QUERY= "from grouppojo groups where gname like '"+search+"%'";
             org.hibernate.Query query = session.createQuery(HQL_QUERY);
          
             for(Iterator it = query.iterate();it.hasNext();){

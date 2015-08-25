@@ -76,7 +76,7 @@
                         </div>
                     </div>
                     <footer id="submit-actions" class="form-actions">
-                        <input id="submit-button" type="submit" class="btn btn-primary" onclick="addmeth();" value="Save">
+                        <input id="submit-button" type="button" class="btn btn-primary" onclick="addmeth();" value="Save">
                         <input type="submit" class="btn" name="action" value="CANCEL">
                     </footer>
                 </div>

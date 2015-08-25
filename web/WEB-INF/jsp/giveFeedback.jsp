@@ -16,7 +16,7 @@
     <body>
 <div class="container">
         <section id="my-account-security-form" class="page container">
-            <form class="form-signin" method="post" action="saveFeedback.html">
+            <form class="form-signin" method="post">
                 <div class="container">
 
                     <div class="alert alert-block alert-info">
@@ -34,7 +34,7 @@
                                 <div class="control-group ">
                                     <label class="control-label">Learner Name:</label>
                                     <div class="controls">
-                                        <select class="span4" name="learnerid" id="learner">
+                                        <select class="span4" name="learnerid" id="learnerid">
                                      <option></option>
                                      <c:forEach var="learner" items="${msg}">
                                      <option value="${learner.getLID()}">${learner.getLID()} ${learner.getLName()} ${learner.getLSurname()}</option>
@@ -58,7 +58,7 @@
                     </div>
                     <a href="manu.html">GO TO HOME PAGE</A>
                     <footer id="submit-actions" class="form-actions">
-                        <input id="submit-button" type="submit" class="btn btn-primary"  value="Save">
+                        <input id="submit-button" type="button" class="btn btn-primary"  value="Save" onclick="saveFeedbacks();">
                         <input type="submit" class="btn" name="action" value="CANCEL">
                     </footer>
                 </div>

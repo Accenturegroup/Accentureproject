@@ -19,7 +19,7 @@
          <div class="container">
         <section id="my-account-security-form" class="page container">
        <c:url var="edit" value="addnew.html"/>
-         <form:form class="form-signin" id="editform" modelAttribute="learner" method="POST" action="updateLearner.html">
+         <form:form class="form-signin" id="editform" modelAttribute="learner" method="POST" >
                 <div class="container">
 
                     <div class="alert alert-block alert-info">
@@ -163,7 +163,7 @@
                         </div>
                     </div>
                      <footer id="submit-actions" class="form-actions">
-                        <input id="submit-button" type="submit" class="btn btn-primary"  value="Update">
+                         <input id="submit-button" type="button" class="btn btn-primary" onclick="editlearners();" value="Update">
                         <input type="submit" class="btn" name="action" value="CANCEL">
                     </footer>
             

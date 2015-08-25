@@ -14,6 +14,22 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <div id="show"> 
+        <div class="span4" >
+              <div class="blockoff-right">
+                        <ul id="person-list" class="nav" nav-list="">
+                            <li class="nav-header">Groups</li>
+                            <li class="active">
+                                <a id="view-all" href="#">
+                                    <i class="icon-chevron-right" pull-right=""></i>
+                                    <b>Search</b>
+                                    <i class="icon-search"></i>
+                                   <input id="search" name="search" onkeyup="search();" type="text">
+                            </a>
+               </li> </ul></div>
+            </div>
+        </div>
+        <div id="show1">
 <section class="page container">
             <div class="row">
                  <div class="span12">        
@@ -26,6 +42,8 @@
                             
                         </div>
                         <div class="box-content box-table">
+
+                            <div id="show1">
                         <table class="table table-hover tablesorter">
                             <thead>
                                 <tr>
@@ -51,10 +69,12 @@
                             
                             </tbody>
                         </table>
+                            </div>
                     </div>
               </div>
            </form:form>
         </div>
     </div></section>
+            </div>
     </body>
 </html>
