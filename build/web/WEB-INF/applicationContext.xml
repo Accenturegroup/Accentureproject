@@ -41,6 +41,7 @@
                  <value>feedback1.hbm.xml</value>
                  <value>location.hbm.xml</value>
                  <value>questionnaire.hbm.xml</value>
+                 <value>question.hbm.xml</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -82,6 +83,9 @@
         <property name="template" ref="template"/>
     </bean>
        <bean class="com.Accenture.DAO.QuestionnaireDAO" id="v">
+        <property name="template" ref="template"/>
+    </bean>
+    <bean class="com.Accenture.DAO.questionsDAO" id="q">
         <property name="template" ref="template"/>
     </bean>
 

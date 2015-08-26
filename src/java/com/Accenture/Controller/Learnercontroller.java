@@ -13,6 +13,7 @@ import com.Accenture.DAO.groupDao;
 import com.Accenture.DAO.learnerDao;
 import com.Accenture.DAO.locationDao;
 import com.Accenture.DAO.markregisterDao;
+import com.Accenture.DAO.questionsDAO;
 import com.Accenture.DAO.trainerDao;
 import com.Accenture.Model.Answerspojo;
 import com.Accenture.Model.AssessmentPojo;
@@ -22,6 +23,7 @@ import com.Accenture.Model.grouppojo;
 import com.Accenture.Model.learnerspojo;
 import com.Accenture.Model.locationpojo;
 import com.Accenture.Model.markregister;
+import com.Accenture.Model.questionspojo;
 import com.Accenture.Model.trainerpojo;
 import java.io.IOException;
 import java.text.ParseException;
@@ -62,6 +64,8 @@ public class Learnercontroller {
     QuestionnaireDAO vv= (QuestionnaireDAO) r.getBean("v");
     trainerpojo pojoe= new trainerpojo();
     markregisterDao mdao=(markregisterDao)r.getBean("m");
+    questionsDAO qd=(questionsDAO)r.getBean("q");
+
 
     markregister mpojos=new markregister();
     feedbackDao fdao=(feedbackDao)r.getBean("f");
@@ -846,16 +850,19 @@ public class Learnercontroller {
        model.addObject("it",it);
       return model;
      }
-    @RequestMapping("/Questionnaire")  
-    public ModelAndView survey(HttpServletRequest request) {  
+        @RequestMapping("/Questionnaire")  
+    public ModelAndView survey(ModelAndView model,HttpServletRequest request)throws IOException {  
         String msg=request.getParameter("email");
-        return new ModelAndView("Questionnaire", "msg", msg);  
+          List<questionspojo> que=qd.getQ();
+          model.addObject("que",que);
+          model.addObject("msg", msg); 
+          return model;
     }
+
      @RequestMapping("/saveQ")
     public ModelAndView saveQs(HttpServletRequest request,HttpServletResponse res) { 
         Answerspojo ap=new Answerspojo();
-        String message = "";
-        
+       
         String [] lid=request.getParameterValues("learner");
         String [] qid=request.getParameterValues("questions");
         String [] ans=request.getParameterValues("answers");
@@ -867,7 +874,7 @@ public class Learnercontroller {
         
         vv.saveV(ap);
         }
-     return new ModelAndView("manu", "message", message);  
+     return new ModelAndView("saveQ");  
     }
     @RequestMapping("/details")
      public ModelAndView details(HttpServletRequest request,HttpServletResponse res){

@@ -3,12 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/EDU-Stud/Documents/NetBeansProjects/Accentureproject/Accentureproject/web/WEB-INF/jsp/index.jsp</file>
-            <file>file:/C:/Users/EDU-Stud/Documents/NetBeansProjects/Accentureproject/Accentureproject/web/WEB-INF/jsp/manu.jsp</file>
-            <file>file:/C:/Users/EDU-Stud/Documents/NetBeansProjects/Accentureproject/Accentureproject/web/WEB-INF/jsp/ViewAssess.jsp</file>
-            <file>file:/C:/Users/EDU-Stud/Documents/NetBeansProjects/Accentureproject/Accentureproject/web/WEB-INF/jsp/EditLearner.jsp</file>
-            <file>file:/C:/Users/EDU-Stud/Documents/NetBeansProjects/Accentureproject/Accentureproject/web/WEB-INF/jsp/trainerlogin.jsp</file>
-            <file>file:/C:/Users/EDU-Stud/Documents/NetBeansProjects/Accentureproject/Accentureproject/src/java/com/Accenture/Controller/Learnercontroller.java</file>
+            <file>file:/C:/Users/EDU-Admin/Documents/NetBeansProjects/Accentureproject/web/WEB-INF/jsp/Questionnaire.jsp</file>
+            <file>file:/C:/Users/EDU-Admin/Documents/NetBeansProjects/Accentureproject/src/java/com/Accenture/Controller/Learnercontroller.java</file>
+            <file>file:/C:/Users/EDU-Admin/Documents/NetBeansProjects/Accentureproject/web/WEB-INF/applicationContext.xml</file>
         </group>
     </open-files>
 </project-private>
