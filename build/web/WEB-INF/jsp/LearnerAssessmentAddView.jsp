@@ -30,7 +30,7 @@
                         <div id="acct-password-row" class="span7">
                             
                             <fieldset>
-                                <input value="${msg}">
+                                <input type="text" name="msg" value="${msg}">
 
                                 <div class="control-group ">
                                     <label class="control-label">Learner ID:</label>

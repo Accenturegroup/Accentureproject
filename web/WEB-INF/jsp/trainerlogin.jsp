@@ -1,27 +1,6 @@
 
 <!DOCTYPE html>
 <%@page language="java" import="java.util.*"%>
-<%
-String msg=request.getParameter("msg");
-
-if(msg==null)msg="";
-
-Date now=new Date();
-String timestamp=now.toString();
-Cookie cookie=new Cookie("msg",msg);
-cookie.setMaxAge(365*24*60*60);
-response.addCookie(cookie);%>
-<%String cookieName="Error";
-Cookie cookies[]=request.getCookies();
-Cookie myCookie=null;
-if(cookies!=null){
-    for(int i=0;i<cookies.length;i++){
-        if(cookies[i].getName().equals(cookieName)){
-         myCookie=cookies[i];
-         break;  
-        }
-    }
-}%>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
@@ -359,6 +338,7 @@ if(cookies!=null){
              }
              function editassess(id){
               document.getElementById("show1").innerHTML="";
+              var msg=document.getElementById("email").value;
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -374,7 +354,7 @@ if(cookies!=null){
                document.getElementById("show").innerHTML=xmlhttp.responseText;
                 }
                  }
-                 xmlhttp.open("GET","editassess.html?id="+id,true);
+                 xmlhttp.open("GET","editassess.html?id="+id+"&msg="+msg,true);
                  xmlhttp.send();
              }
              
@@ -400,6 +380,7 @@ if(cookies!=null){
              }
              function registerform(){
               document.getElementById("show1").innerHTML="";
+               var msg=document.getElementById("email").value;
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -415,7 +396,7 @@ if(cookies!=null){
                document.getElementById("show").innerHTML=xmlhttp.responseText;
                 }
                  }
-                 xmlhttp.open("GET","markregister.html",true);
+                 xmlhttp.open("GET","markregister.html?it="+msg,true);
                  xmlhttp.send();
              }
 
@@ -468,6 +449,7 @@ if(cookies!=null){
              }
              function viewLearnerAssess(){
                document.getElementById("show1").innerHTML="";
+               var msg=document.getElementById("email").value;
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -483,11 +465,13 @@ if(cookies!=null){
                document.getElementById("show").innerHTML=xmlhttp.responseText;
                 }
                  }
-                 xmlhttp.open("GET","LearnerAssessmentView.html",true);
+                 xmlhttp.open("GET","LearnerAssessmentView.html?msg="+msg,true);
                  xmlhttp.send();
              }
              function editLearnerAssess(id){
             document.getElementById("show1").innerHTML="";
+            var msg=document.getElementById("email").value;
+            
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -503,7 +487,7 @@ if(cookies!=null){
                document.getElementById("show").innerHTML=xmlhttp.responseText;
                 }
                  }
-                 xmlhttp.open("GET","editLA.html?id="+id,true);
+                 xmlhttp.open("GET","editLA.html?id="+id+"&msg="+msg,true);
                  xmlhttp.send();
              }
               function findgroup(){
@@ -579,28 +563,7 @@ if(cookies!=null){
                  }
                  xmlhttp.open("GET","Students.html?search="+search,true);
                  xmlhttp.send();
-             }
-             
-            /* function saveFeedback(){
-              document.getElementById("show1").innerHTML="";
-                 if (window.XMLHttpRequest)
-                {// code for IE7+, Firefox, Chrome, Opera, Safari
-                 xmlhttp=new XMLHttpRequest(); 
-                }
-                else
-                 {// code for IE6, IE5
-                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-                 }
-                xmlhttp.onreadystatechange=function()
-                 {
-              if (xmlhttp.readyState===4 && xmlhttp.status===200)
-                 {
-               document.getElementById("show").innerHTML=xmlhttp.responseText;
-                }
-                 }
-                 xmlhttp.open("GET","saveFeedback.html",true);
-                 xmlhttp.send();
-             }*/ 
+             } 
              function saveFeedbacks(){
              
               var learnerid=document.getElementById("learnerid").value;
@@ -710,7 +673,7 @@ if(cookies!=null){
                             
                         </ul>
                     </div>
-                   Hello: ${msg}
+                   Welcome : ${msg}
                 </div>
             </div>
         </div>
@@ -814,10 +777,10 @@ if(cookies!=null){
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li>
-                                            <a href="#" onclick="viewLearnerAssess();">View Learner Assessments</a>
-                                        </li>
-                                      <li>
                                             <a href="#" onclick="addLearnerAssessment();">Add Learner Assessments</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" onclick="viewLearnerAssess();">View Learner Assessments</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -828,7 +791,7 @@ if(cookies!=null){
         </div>
 
     </section>
-                <input type="text" name="email" id="email" value="${msg}">
+                <input type="hidden" name="email" id="email" value="${msg}">
             
              <div id="show">
             </div>

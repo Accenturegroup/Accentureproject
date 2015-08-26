@@ -44,7 +44,7 @@
                 <td>${LAs.getMarks()}</td>
                 <td> ${LAs.getDateEntered()}</td>
                 <td><a href="#" onclick="editLearnerAssess(${LAs.getID()});">edit</a></td>
-                <td><a href="deleteLA.html?id=${LAs.getID()}">delete</a></td>
+                <td><a href="deleteLA.html?id=${LAs.getID()}&msg=${it}">delete</a></td>
                 </tr>
                 
             </c:forEach>

@@ -33,6 +33,7 @@
                 <div class="control-group ">
               
                     <div class="controls">
+                        <input type="text" name="msg" value="${it}">
                         <form:hidden class="input-block-level" name="assessID" path="assessID" value="${assessID}"/>
                     </div>
                 </div>

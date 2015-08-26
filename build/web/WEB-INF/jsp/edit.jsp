@@ -1,8 +1,9 @@
 <%-- 
-    Document   : edit
-    Created on : Jul 31, 2015, 1:03:56 AM
-    Author     : Nsizwaziphelele
+    Document   : editLA
+    Created on : Aug 6, 2015, 1:14:31 PM
+    Author     : Andile
 --%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -12,50 +13,41 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-             <script src="styles/js/jquery/jquery-1.8.2.min.js" type="text/javascript" ></script>
-            <link href="styles/css/customize-template.css" type="text/css" media="screen, projection" rel="stylesheet" />
+         <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-   <div class="container">
+<div class="container">
         <section id="my-account-security-form" class="page container">
-       <c:url var="edit" value="addnew.html"/>
-            <form:form class="form-signin" id="editform" modelAttribute="edit" method="post" action="update.html">
-                
+<c:url var="editLA" value=""/>
+            <form:form class="form-signin" id="editform" modelAttribute="editLA" method="post" action="updateLA.html">
                 <div class="container">
 
                     <div class="alert alert-block alert-info">
                         <p>
-                            Update  Group information.
+                            Update LA information.
                         </p>
                     </div>
-                    <legend><center>Update Group's Information</center></legend><br>
+                    <legend><center>Update LA's Information</center></legend><br>
                     <div class="row">
                         <div id="acct-password-row" class="span7">                            
                             <fieldset>                
                 <div class="control-group ">
-              
+                    <input type="text" name="msg" value="${msg}">
                     <div class="controls">
-                        <form:hidden class="span4" name="groupid" path="groupid" value="${groupid}"/>
+                        <form:hidden class="span4" name="ID" path="ID" value="${ID}"/>
+                        
                     </div>
                 </div>
-                <div class="control-group "><form:label path="gname">Name</form:label>
-                    <div class="controls"><form:input class="span4" name="gname" path="gname" value="${gname}"/>
+                <div class="control-group "><label>Learner ID</label>
+                    <div class="controls"><form:input class="span4" readonly="true" name="LearnerID" path="LearnerID" value="${LearnerID}"/>
                     </div>
                 </div>
-                <div class="control-group "><form:label path="duration">Duration</form:label>
-                    <div class="controls"><form:input class="span4" name="duration" path="duration" value="${duration}"/>
+                <div class="control-group "><label>Assessment ID</label>
+                    <div class="controls"><form:input class="span4"  readonly="true" name="AssessmentID" path="AssessmentID" value="${AssessmentID}"/>
                     </div>
                 </div>
-                <div class="control-group "><form:label path="start">Start</form:label>
-                    <div class="controls"><form:input class="span4" type="date" name="start" path="start" value="${start}"/>
-                    </div>
-                </div>
-                <div class="control-group "><form:label path="finish">Finish</form:label>
-                    <div class="controls"><form:input class="span4" type="date" name="finish" path="finish" value="${finish}"/>
-                    </div>
-                </div>
-                <div class="control-group "><form:label path="location">Location</form:label>
-                    <div class="controls"><form:input class="span4" name="location" path="location" value="${location}"/>
+                <div class="control-group "><label>Marks</label>
+                    <div class="controls"><form:input class="span4" name="Marks" path="Marks" value="${Marks}"/>
                     </div>
                 </div>
                     </fieldset>
