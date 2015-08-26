@@ -433,11 +433,13 @@ public class Learnercontroller {
        @RequestMapping("/editassess")
      public ModelAndView editassess(HttpServletRequest request,HttpServletResponse res){
          int id=Integer.parseInt(request.getParameter("id"));
+         String msg=request.getParameter("msg");
          List<grouppojo> view1=daog.getgroup();
          AssessmentPojo p=d.getById(id);
          ModelAndView model=new ModelAndView("editassess");
          model.addObject("editassess", p);
-          model.addObject("msg",view1);
+         model.addObject("msg",view1);
+         model.addObject("it", msg);
          return model;
      }
       @RequestMapping("/updateassess")
@@ -447,6 +449,7 @@ public class Learnercontroller {
          String date=request.getParameter("assessDate");
          String group = request.getParameter("groupName");
          String now = request.getParameter("date");
+         String msg=request.getParameter("msg");
          AssessmentPojo ap=new AssessmentPojo();
          ap.setassessID(id);
          ap.setassessName(name);
@@ -454,14 +457,15 @@ public class Learnercontroller {
          ap.setgroupName(group);
          ap.setdate(now);
          d.updateforceA(ap);
-         ModelAndView model=new ModelAndView("trainerlogin");
+         ModelAndView model=new ModelAndView("trainerlogin","msg",msg);
          return model;
      }               
       @RequestMapping("/markregister")
-    public ModelAndView view3(ModelAndView model) throws IOException{ 
+     public ModelAndView view3(HttpServletRequest request,ModelAndView model) throws IOException{ 
+      String msg=request.getParameter("it");
       List<learnerspojo> view=dao.getLearners();
       model.addObject("msg",view);
-//      model.setViewName("markregister");
+      model.addObject("it",msg);
       return model;
     }
 
@@ -471,6 +475,7 @@ public class Learnercontroller {
         String [] name=request.getParameterValues("name");
         String [] date=request.getParameterValues("date");
         String [] status=request.getParameterValues("status");
+        String msg=request.getParameter("msg");
 
         for (int i=0;i<name.length;i++){
          mpojos.setLname(name[i]);
@@ -480,7 +485,7 @@ public class Learnercontroller {
          
          mdao.saveMarkRegister(mpojos);
         }
-        return new ModelAndView("manu", "message", message);  
+        return new ModelAndView("trainerlogin", "msg", msg);  
     }
      
      @RequestMapping("/EditLearner")
@@ -694,9 +699,11 @@ public class Learnercontroller {
 
      //Noli View Learner Assessment
       @RequestMapping("/LearnerAssessmentView")
-    public ModelAndView LearnerAssessmentView(ModelAndView model) throws IOException{ 
+    public ModelAndView LearnerAssessmentView(HttpServletRequest request,ModelAndView model) throws IOException{ 
       List<LearnerAssessmentPojo> LearnerAssessmentView=ldao.getLearnerAssessment();
-     model.addObject("msg",LearnerAssessmentView);
+       String msg=request.getParameter("msg");
+      model.addObject("msg",LearnerAssessmentView);
+      model.addObject("it", msg);
       return model;
     }
   
@@ -725,6 +732,7 @@ public class Learnercontroller {
     @RequestMapping("/LearnerAssessmentAdd")
     public ModelAndView LearnerAssessmentAdd(HttpServletRequest request,HttpServletResponse res) { 
      String message="";
+     String msg=request.getParameter("msg");
      int lid=Integer.parseInt(request.getParameter("lid"));
      int aid=Integer.parseInt(request.getParameter("aid"));
      Double mark=Double.parseDouble(request.getParameter("mark"));
@@ -737,49 +745,40 @@ public class Learnercontroller {
      lap.setMarks(mark);
      lap.setDateEntered(today);
      ldao.saveLearnerAssessment(lap);
-      return new ModelAndView("manu","message",message);
+     return new ModelAndView("trainerlogin","msg",msg);
     }
     
     //Noli edit learner Assessment
     @RequestMapping("/editLA")
      public ModelAndView editLA(HttpServletRequest request,HttpServletResponse res){
          int id=Integer.parseInt(request.getParameter("id"));
+         String msg=request.getParameter("msg");
          LearnerAssessmentPojo lpojo=ldao.getById(id);
          
          ModelAndView model=new ModelAndView("editLA");
          model.addObject("editLA", lpojo);
+         model.addObject("msg", msg);
          return model;
      }
      @RequestMapping("/updateLA")
      public ModelAndView updateLA(HttpServletRequest request,HttpServletResponse res){
          int ID=Integer.parseInt(request.getParameter("ID"));
          Double Marks=Double.parseDouble(request.getParameter("Marks"));
-         
+         String msg=request.getParameter("msg");
             LearnerAssessmentPojo lpojo=ldao.getById(ID);
             lpojo.setMarks(Marks);
             ldao.updateforce(lpojo);
 
-         ModelAndView model=new ModelAndView("manu");
+         ModelAndView model=new ModelAndView("trainerlogin","msg",msg);
          return model;
      }
     @RequestMapping("/deleteLA")
      public ModelAndView deleteLA(HttpServletRequest request,HttpServletResponse res){
          int ID=Integer.parseInt(request.getParameter("id"));
-         
-//            Session session;
-//   
-//            SessionFactory sessionfactory= new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
-//            session=sessionfactory.openSession();
-//            session.beginTransaction();
-//            String hgl= "delete from LearnerAssessmentPojo where ID = :id";
-//            org.hibernate.Query query= session.createQuery(hgl);
-//            query.setParameter("id", ID);
-//            int count=query.executeUpdate();
+         String msg=request.getParameter("msg");
          lap.setID(ID);
          ldao.deleteLearnerAssessment(lap);
-
-         ModelAndView model=new ModelAndView("manu");
-//         model.addObject("view1", ppojo);
+         ModelAndView model=new ModelAndView("trainerlogin","msg",msg);
          return model;
      }
      
@@ -847,7 +846,7 @@ public class Learnercontroller {
        model.addObject("it",it);
       return model;
      }
-     @RequestMapping("/Questionnaire")  
+    @RequestMapping("/Questionnaire")  
     public ModelAndView survey(HttpServletRequest request) {  
         String msg=request.getParameter("email");
         return new ModelAndView("Questionnaire", "msg", msg);  
@@ -870,5 +869,12 @@ public class Learnercontroller {
         }
      return new ModelAndView("manu", "message", message);  
     }
-
+    @RequestMapping("/details")
+     public ModelAndView details(HttpServletRequest request,HttpServletResponse res){
+       String msg=request.getParameter("msg");
+        List<learnerspojo>list=dao.getByEmail(msg);
+        ModelAndView model=new ModelAndView("details");
+        model.addObject("details", list);
+        return model;
+     }
 }

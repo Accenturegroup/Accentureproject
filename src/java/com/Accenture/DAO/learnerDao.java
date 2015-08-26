@@ -65,11 +65,32 @@ public List<learnerspojo> getLearners(){
     return list;  
 }
  //method to return one employee of given email  
-public List<Object> getByEmail(String email){  
-   List<Object>list=new ArrayList<>();
-   String query="from learnerspojo  learners where email =?";
-   list=template.find(query,email);
-    return list;  
+public List<learnerspojo> getByEmail(String email){  
+   List<learnerspojo>list=new ArrayList<>();
+   Session session=null;
+   SessionFactory sessionfactory = new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
+   session = sessionfactory.openSession();
+   session.beginTransaction();
+   String HQL_QUERY="from learnerspojo  l where email ="+email;
+     org.hibernate.Query query = session.createQuery(HQL_QUERY);
+            for(Iterator it = query.iterate();it.hasNext();){
+                learnerspojo l = (learnerspojo) it.next();
+                
+                l.getEmail();
+                l.getGender();
+                l.getGroups();
+                l.getId();
+                l.getLID();
+                l.getLName();
+                l.getLSurname();
+                l.getNumber();
+                l.getPassword();
+                l.getRace();
+                l.getStatus();
+                l.getTitle();
+                list.add(l);
+            }
+          return list;
 }
 public String checklogin(String email,String password){
     String e="",p="",msg="";
@@ -97,8 +118,8 @@ return msg;
 public List<learnerspojo> search(int id)
 {
     List<learnerspojo> result=new ArrayList<learnerspojo>();
-     Session session=null;
-          SessionFactory sessionfactory = new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
+            Session session=null;
+            SessionFactory sessionfactory = new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
             session = sessionfactory.openSession();
             session.beginTransaction();
 			
