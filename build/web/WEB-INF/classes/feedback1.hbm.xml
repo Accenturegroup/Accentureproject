@@ -12,6 +12,10 @@
         <property name="Feedback">
             <column name="feedback"></column>
         </property>
+        
+        <property name="email">
+            <column name="email"></column>
+        </property>
   
 </class>
 </hibernate-mapping>

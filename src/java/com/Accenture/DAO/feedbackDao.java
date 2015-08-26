@@ -8,6 +8,7 @@ package com.Accenture.DAO;
 import com.Accenture.Model.feedbackpojo;
 import com.Accenture.Model.grouppojo;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -70,6 +71,46 @@ public List<feedbackpojo> getfeedback(){
     List<feedbackpojo> list=new ArrayList<feedbackpojo>();  
     list=template.loadAll(feedbackpojo.class);  
     return list;  
+}
+
+public List<feedbackpojo>findlocandgro(String email){
+    List<feedbackpojo>list=new ArrayList<>();
+    Session ses=null;
+    SessionFactory sf=new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
+    ses=sf.openSession();
+    ses.beginTransaction();
+    String HQL_QUERY="from feedbackpojo feedback where email =:email";
+    org.hibernate.Query query=ses.createQuery(HQL_QUERY);
+    query.setParameter("email",email);
+    for(Iterator it=query.iterate();it.hasNext();){
+             feedbackpojo b=(feedbackpojo) it.next();
+             b.getEmail();             
+             list.add(b);
+    }
+    return list;
+}
+
+public List<feedbackpojo> search0(String em)
+{
+    List<feedbackpojo> result=new ArrayList<feedbackpojo>();
+     Session session=null;
+          SessionFactory sessionfactory = new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
+            session = sessionfactory.openSession();
+            session.beginTransaction();
+			
+            String HQL_QUERY= "from feedbackpojo feedback where email='"+em+"'";
+            org.hibernate.Query query = session.createQuery(HQL_QUERY);
+         
+            for(Iterator it = query.iterate();it.hasNext();){
+                feedbackpojo f = (feedbackpojo) it.next();
+                
+                f.getFeedbackid();
+                f.getLid();
+                f.getFeedback();
+                f.getEmail();
+                result.add(f);
+            }
+          return result;  
 }
     
 }

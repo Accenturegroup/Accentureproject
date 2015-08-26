@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -16,7 +17,7 @@
     <body>
 <div class="container">
         <section id="my-account-security-form" class="page container">
-           <form id="userSecurityForm" class="form-horizontal" method="post">
+            <form class="form-signin" method="post" action="saveFeedback.html">
                 <div class="container">
 
                     <div class="alert alert-block alert-info">
@@ -34,19 +35,26 @@
                                 <div class="control-group ">
                                     <label class="control-label">Learner Name:</label>
                                     <div class="controls">
-                                        <select class="span4" name="learnerid" id="learnerid">
+                                        <select class="span4" name="learnerid" id="learner">
                                      <option></option>
                                      <c:forEach var="learner" items="${msg}">
                                      <option value="${learner.getLID()}">${learner.getLID()} ${learner.getLName()} ${learner.getLSurname()}</option>
            
                                    </c:forEach>
                                    </select>
+                                        
                                     </div>
                                 </div>
                                 <div class="control-group ">
+                                   
+                                   
+                                       <input type="hidden" class="span4" id="feedback" name="email" value="${email}"/>
+                                
+                               
+                                
                                     <label class="control-label">Feedback:</label>
                                     <div class="controls">
-                                        <textarea class="span4" rows="20" cols="100" id="feedback" name="feedback"></textarea>
+                                        <textarea class="span4" rows="13" cols="100" id="feedback" name="feedback" maxlength="255"></textarea>
                                     </div>
                                 </div>
                             </fieldset>
@@ -56,12 +64,13 @@
                             </fieldset>
                         </div>
                     </div>
-                    <a href="manu.html">GO TO HOME PAGE</A>
+                   
                     <footer id="submit-actions" class="form-actions">
-                        <input id="submit-button" type="button" class="btn btn-primary"  value="Save" onclick="saveFeedbacks();">
+                        <input id="submit-button" type="submit" class="btn btn-primary"  value="Save">
                         <input type="submit" class="btn" name="action" value="CANCEL">
                     </footer>
                 </div>
+                                         <a href="manu.html">GO TO HOME PAGE</A>
             </form>
         </section>
             </div>

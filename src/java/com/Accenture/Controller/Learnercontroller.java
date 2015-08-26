@@ -55,9 +55,9 @@ public class Learnercontroller {
     groupDao daog=(groupDao)r.getBean("g");
     trainerDao daoe= (trainerDao)r.getBean("e");
     locationDao daol=(locationDao)r.getBean("loc");
-      AssessmentDAO d=(AssessmentDAO)r.getBean("a");
-     learnerspojo pojos=new learnerspojo();
-     locationpojo pojol=new locationpojo();
+    AssessmentDAO d=(AssessmentDAO)r.getBean("a");
+    learnerspojo pojos=new learnerspojo();
+    locationpojo pojol=new locationpojo();
     grouppojo pojo=new grouppojo();
     QuestionnaireDAO vv= (QuestionnaireDAO) r.getBean("v");
     trainerpojo pojoe= new trainerpojo();
@@ -154,8 +154,7 @@ public class Learnercontroller {
 
          return model;
      }
-     
-     
+        
      
      @RequestMapping("/update")
      public ModelAndView update(HttpServletRequest request,HttpServletResponse res){
@@ -587,8 +586,8 @@ public class Learnercontroller {
      }   
      @RequestMapping("/giveFeedback")
      public ModelAndView giveFeedback(ModelAndView model,HttpServletRequest request){
-         List <learnerspojo> learner=dao.getLearners();
-      String email=request.getParameter("msg");
+       List <learnerspojo> learner=dao.getLearners();
+       String email=request.getParameter("msg");
        List<trainerpojo>result=daoe.findlocandgro(email);
        String g="",l="";
        List<learnerspojo>list=null;
@@ -611,14 +610,15 @@ public class Learnercontroller {
         
         int learnerid=Integer.parseInt(request.getParameter("learnerid"));
         String feedback=request.getParameter("feedback");
-        String msg=request.getParameter("msg");
+        String email=request.getParameter("email");
         
         fpojo.setLid(learnerid);
         fpojo.setFeedbackid(learnerid);
         fpojo.setFeedback(feedback);
+        fpojo.setEmail(email);
       
         fdao.savefeedback(fpojo);
-        return new ModelAndView("trainerlogin","msg",msg); 
+        return new ModelAndView("trainerlogin","msg",email); 
      }
      @RequestMapping("/updateFeedback")
      public ModelAndView updateFeedback(HttpServletRequest request,HttpServletResponse res){
@@ -639,23 +639,47 @@ public class Learnercontroller {
          int id=Integer.parseInt(request.getParameter("feedbackid"));
          int lid=Integer.parseInt(request.getParameter("lid"));
          String feedback=request.getParameter("feedback");
-     
+         String email=request.getParameter("email");
+         String msg=request.getParameter("msg");
          
          fpojo.setFeedbackid(id);
          fpojo.setLid(lid);
          fpojo.setFeedback(feedback);
-    
+         fpojo.setEmail(email);
          
          fdao.updateforceg(fpojo);
 
          return new ModelAndView("manu", "message", message); 
      } 
-    @RequestMapping("/viewFeedback")        
-    public ModelAndView viewFeedback(ModelAndView model) throws IOException{ 
+     @RequestMapping("/viewFeedback")        
+    public ModelAndView viewFeedback(HttpServletRequest request,ModelAndView model) throws IOException{ 
+         
+       String email=request.getParameter("msg");
+       List<feedbackpojo>result=fdao.findlocandgro(email);
+       String em="";
+       
+       List<feedbackpojo>list=null;
+       for(feedbackpojo e:result){
+         em=e.getEmail();
+         list=fdao.search0(em);
+        }
+        Iterator it=list.iterator();
+         
+         List <feedbackpojo> viewFeedback=fdao.getfeedback();
+         //feedbackpojo obj=new feedbackpojo();
+         //model.addObject("viewFeedback",obj);
+         model.addObject("viewFeedback", viewFeedback);
+         model.addObject("msg",it);
+         return model;
+    }
+    @RequestMapping("/accentureViewFeedback")        
+      public ModelAndView viewFeedback(ModelAndView model) throws IOException{ 
       List<feedbackpojo> viewFeedback=fdao.getfeedback();
-     model.addObject("msg",viewFeedback);
+      model.addObject("msg",viewFeedback);
       return model;
     }
+    
+    
     @RequestMapping("/deleteFeedback")
       public ModelAndView deleteFeedback(HttpServletRequest request,HttpServletResponse res){
          int id=Integer.parseInt(request.getParameter("id"));

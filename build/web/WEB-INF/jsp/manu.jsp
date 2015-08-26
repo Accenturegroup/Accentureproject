@@ -522,7 +522,7 @@
                document.getElementById("show").innerHTML=xmlhttp.responseText;
                 }
                  }
-                 xmlhttp.open("GET","viewFeedback.html",true);
+                 xmlhttp.open("GET","accentureViewFeedback.html",true);
                  xmlhttp.send();
              }
              

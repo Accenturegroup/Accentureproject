@@ -40,6 +40,7 @@
                             <tr><td>${feedback.getFeedbackid()}</td>
                             <td>${feedback.getLid()}</td>
                             <td>${feedback.getFeedback()}</td>
+                            <td>${feedback.getEmail()}</td>
                             <td><a href="#" onclick="updateFeedback(${feedback.getFeedbackid()});">edit</a></td>
                             <td><a href="deleteFeedback.html?id=${feedback.getFeedbackid()}">delete</a></td></tr>
                             </c:forEach>

@@ -40,7 +40,7 @@
                     </div>
                 </div>
                 <div class="control-group "><label>Feedback</label>
-                    <div class="controls"><form:textarea rows="20" cols="100" class="span4" name="feedback" path="feedback" value="${feedback}"/>
+                    <div class="controls"><form:textarea rows="15" cols="100" maxlength="255" class="span4" name="feedback" path="feedback" value="${feedback}"/>
                     </div>
                 </div>
                     </fieldset>
