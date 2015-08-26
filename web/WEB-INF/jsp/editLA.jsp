@@ -32,9 +32,10 @@
                         <div id="acct-password-row" class="span7">                            
                             <fieldset>                
                 <div class="control-group ">
-              
+                    <input type="text" name="msg" value="${msg}">
                     <div class="controls">
                         <form:hidden class="span4" name="ID" path="ID" value="${ID}"/>
+                        
                     </div>
                 </div>
                 <div class="control-group "><label>Learner ID</label>

@@ -40,10 +40,11 @@
                                 <td><h4>Present/Absent</h4></td>
                                 </tr> 
                             </thead>
+                            <input type="hidden" name="msg" value="${it}">
                             <tbody>                            
-                                <c:forEach var="learner" items="${msg}">
+                            <c:forEach var="learner" items="${msg}">
                           <tr>               
-                         <td><label>${learner.getLName()}</label><input type="hidden" name="name"  value="${learner.getLName()}"></td>
+                         <td><label>${learner.getLName()}</label><input type="hidden" name="name"  value="${learner.getLID()}"></td>
                        <td><label><%=dateFormat.format(date)%><input type="hidden" name="date"  value="<%=dateFormat.format(date)%>"></td>
                         <td><select name="status" id="status">
                         <option>Present</option>

@@ -12,8 +12,9 @@
     <script src="styles/js/jquery/jquery-1.8.2.min.js" type="text/javascript" ></script>
     <link href="styles/css/customize-template.css" type="text/css" media="screen, projection" rel="stylesheet" />
         <script>
-                function addgroup(){
-               
+              function details()
+                 {
+               var email=document.getElementById("email").value;
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -29,362 +30,7 @@
                document.getElementById("show").innerHTML=xmlhttp.responseText;
                 }
                  }
-                 xmlhttp.open("GET","add.html",true);
-                 xmlhttp.send();
-             } 
-             function viewgroup(){
-               
-                 if (window.XMLHttpRequest)
-                {// code for IE7+, Firefox, Chrome, Opera, Safari
-                 xmlhttp=new XMLHttpRequest(); 
-                }
-                else
-                 {// code for IE6, IE5
-                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-                 }
-                xmlhttp.onreadystatechange=function()
-                 {
-              if (xmlhttp.readyState===4 && xmlhttp.status===200)
-                 {
-               document.getElementById("show").innerHTML=xmlhttp.responseText;
-                }
-                 }
-                 xmlhttp.open("GET","view1.html",true);
-                 xmlhttp.send();
-             }
-             
-             function viewtrainer(){
-               
-                 if (window.XMLHttpRequest)
-                {// code for IE7+, Firefox, Chrome, Opera, Safari
-                 xmlhttp=new XMLHttpRequest(); 
-                }
-                else
-                 {// code for IE6, IE5
-                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-                 }
-                xmlhttp.onreadystatechange=function()
-                 {
-              if (xmlhttp.readyState===4 && xmlhttp.status===200)
-                 {
-               document.getElementById("show").innerHTML=xmlhttp.responseText;
-                }
-                 }
-                 xmlhttp.open("GET","view2.html",true);
-                 xmlhttp.send();
-             }
-             
-            function editpage(id){
-              
-                 if (window.XMLHttpRequest)
-                {// code for IE7+, Firefox, Chrome, Opera, Safari
-                 xmlhttp=new XMLHttpRequest(); 
-                }
-                else
-                 {// code for IE6, IE5
-                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-                 }
-                xmlhttp.onreadystatechange=function()
-                 {
-              if (xmlhttp.readyState===4 && xmlhttp.status===200)
-                 {
-               document.getElementById("show").innerHTML=xmlhttp.responseText;
-                }
-                 }
-                 xmlhttp.open("GET","edit.html?id="+id,true);
-                 xmlhttp.send();
-             }
-             function searchgroup(){
-               
-                 if (window.XMLHttpRequest)
-                {// code for IE7+, Firefox, Chrome, Opera, Safari
-                 xmlhttp=new XMLHttpRequest(); 
-                }
-                else
-                 {// code for IE6, IE5
-                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-                 }
-                xmlhttp.onreadystatechange=function()
-                 {
-              if (xmlhttp.readyState===4 && xmlhttp.status===200)
-                 {
-               document.getElementById("show").innerHTML=xmlhttp.responseText;
-                }
-                 }
-                 xmlhttp.open("GET","search.html",true);
-                 xmlhttp.send();
-             }
-             function search(){
-               
-               var name=document.getElementById("name").value;
-               alert(name);
-                 if (window.XMLHttpRequest)
-                {// code for IE7+, Firefox, Chrome, Opera, Safari
-                 xmlhttp=new XMLHttpRequest(); 
-                }
-                else
-                 {// code for IE6, IE5
-                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-                 }
-                xmlhttp.onreadystatechange=function()
-                 {
-              if (xmlhttp.readyState===4 && xmlhttp.status===200)
-                 {
-               document.getElementById("show").innerHTML=xmlhttp.responseText;
-                }
-                 }
-                 xmlhttp.open("GET","search1.html?name="+name,true);
-                 xmlhttp.send();
-             } 
-             
-             
-             function searchgroup(){
-               
-                 if (window.XMLHttpRequest)
-                {// code for IE7+, Firefox, Chrome, Opera, Safari
-                 xmlhttp=new XMLHttpRequest(); 
-                }
-                else
-                 {// code for IE6, IE5
-                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-                 }
-                xmlhttp.onreadystatechange=function()
-                 {
-              if (xmlhttp.readyState===4 && xmlhttp.status===200)
-                 {
-               document.getElementById("show").innerHTML=xmlhttp.responseText;
-                }
-                 }
-                 xmlhttp.open("GET","search.html",true);
-                 xmlhttp.send();
-             }
-             function search(){
-               
-               var name=document.getElementById("name").value;
-               alert(name);
-                 if (window.XMLHttpRequest)
-                {// code for IE7+, Firefox, Chrome, Opera, Safari
-                 xmlhttp=new XMLHttpRequest(); 
-                }
-                else
-                 {// code for IE6, IE5
-                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-                 }
-                xmlhttp.onreadystatechange=function()
-                 {
-              if (xmlhttp.readyState===4 && xmlhttp.status===200)
-                 {
-               document.getElementById("show").innerHTML=xmlhttp.responseText;
-                }
-                 }
-                 xmlhttp.open("GET","search1.html?name="+name,true);
-                 xmlhttp.send();
-             } 
-             
-             
-              function searchTrainer(){
-               
-                 if (window.XMLHttpRequest)
-                {// code for IE7+, Firefox, Chrome, Opera, Safari
-                 xmlhttp=new XMLHttpRequest(); 
-                }
-                else
-                 {// code for IE6, IE5
-                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-                 }
-                xmlhttp.onreadystatechange=function()
-                 {
-              if (xmlhttp.readyState===4 && xmlhttp.status===200)
-                 {
-               document.getElementById("show").innerHTML=xmlhttp.responseText;
-                }
-                 }
-                 xmlhttp.open("GET","searchTrainer.html",true);
-                 xmlhttp.send();
-             }
-             
-             
-              function tsearchResults(){
-               
-               var name=document.getElementById("name").value;
-               alert(name);
-                 if (window.XMLHttpRequest)
-                {// code for IE7+, Firefox, Chrome, Opera, Safari
-                 xmlhttp=new XMLHttpRequest(); 
-                }
-                else
-                 {// code for IE6, IE5
-                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-                 }
-                xmlhttp.onreadystatechange=function()
-                 {
-              if (xmlhttp.readyState===4 && xmlhttp.status===200)
-                 {
-               document.getElementById("show").innerHTML=xmlhttp.responseText;
-                }
-                 }
-                 xmlhttp.open("GET","tsearchResults.html?name="+name,true);
-                 xmlhttp.send();
-             }
-             
-            function addlearner(){
-                 if (window.XMLHttpRequest)
-                {// code for IE7+, Firefox, Chrome, Opera, Safari
-                 xmlhttp=new XMLHttpRequest(); 
-                }
-                else
-                 {// code for IE6, IE5
-                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-                 }
-                xmlhttp.onreadystatechange=function()
-                 {
-              if (xmlhttp.readyState===4 && xmlhttp.status===200)
-                 {
-               document.getElementById("show").innerHTML=xmlhttp.responseText;
-                }
-                 }
-                 xmlhttp.open("GET","addlearner.html",true);
-                 xmlhttp.send();
-             }
-             
-              function addtrainer(){
-                 if (window.XMLHttpRequest)
-                {// code for IE7+, Firefox, Chrome, Opera, Safari
-                 xmlhttp=new XMLHttpRequest(); 
-                }
-                else
-                 {// code for IE6, IE5
-                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-                 }
-                xmlhttp.onreadystatechange=function()
-                 {
-              if (xmlhttp.readyState===4 && xmlhttp.status===200)
-                 {
-               document.getElementById("show").innerHTML=xmlhttp.responseText;
-                }
-                 }
-                 xmlhttp.open("GET","addtrainer.html",true);
-                 xmlhttp.send();
-             }
-              function addassessment(){
-          if (window.XMLHttpRequest)
-                {// code for IE7+, Firefox, Chrome, Opera, Safari
-                 xmlhttp=new XMLHttpRequest(); 
-                }
-                else
-                 {// code for IE6, IE5
-                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-                 }
-                xmlhttp.onreadystatechange=function()
-                 {
-              if (xmlhttp.readyState===4 && xmlhttp.status===200)
-                 {
-               document.getElementById("show").innerHTML=xmlhttp.responseText;
-                }
-                 }
-                 xmlhttp.open("GET","Assessment.html",true);
-                 xmlhttp.send();
-             }
-             function viewassessment(){
-               
-                 if (window.XMLHttpRequest)
-                {// code for IE7+, Firefox, Chrome, Opera, Safari
-                 xmlhttp=new XMLHttpRequest(); 
-                }
-                else
-                 {// code for IE6, IE5
-                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-                 }
-                xmlhttp.onreadystatechange=function()
-                 {
-              if (xmlhttp.readyState===4 && xmlhttp.status===200)
-                 {
-               document.getElementById("show").innerHTML=xmlhttp.responseText;
-                }
-                 }
-                 xmlhttp.open("GET","ViewAssess.html",true);
-                 xmlhttp.send();
-             }
-             function editassess(id){
-              
-                 if (window.XMLHttpRequest)
-                {// code for IE7+, Firefox, Chrome, Opera, Safari
-                 xmlhttp=new XMLHttpRequest(); 
-                }
-                else
-                 {// code for IE6, IE5
-                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-                 }
-                xmlhttp.onreadystatechange=function()
-                 {
-              if (xmlhttp.readyState===4 && xmlhttp.status===200)
-                 {
-               document.getElementById("show").innerHTML=xmlhttp.responseText;
-                }
-                 }
-                 xmlhttp.open("GET","editassess.html?id="+id,true);
-                 xmlhttp.send();
-             }
-             
-              function edittrainer(id){
-              
-                 if (window.XMLHttpRequest)
-                {// code for IE7+, Firefox, Chrome, Opera, Safari
-                 xmlhttp=new XMLHttpRequest(); 
-                }
-                else
-                 {// code for IE6, IE5
-                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-                 }
-                xmlhttp.onreadystatechange=function()
-                 {
-              if (xmlhttp.readyState===4 && xmlhttp.status===200)
-                 {
-               document.getElementById("show").innerHTML=xmlhttp.responseText;
-                }
-                 }
-                 xmlhttp.open("GET","edittrainers.html?id="+id,true);
-                 xmlhttp.send();
-             }
-                         function registerform(){
-              
-                 if (window.XMLHttpRequest)
-                {// code for IE7+, Firefox, Chrome, Opera, Safari
-                 xmlhttp=new XMLHttpRequest(); 
-                }
-                else
-                 {// code for IE6, IE5
-                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-                 }
-                xmlhttp.onreadystatechange=function()
-                 {
-              if (xmlhttp.readyState===4 && xmlhttp.status===200)
-                 {
-               document.getElementById("show").innerHTML=xmlhttp.responseText;
-                }
-                 }
-                 xmlhttp.open("GET","markregister.html",true);
-                 xmlhttp.send();
-             }
-
-             function drop(){
-                 
-                 if (window.XMLHttpRequest)
-                {// code for IE7+, Firefox, Chrome, Opera, Safari
-                 xmlhttp=new XMLHttpRequest(); 
-                }
-                else
-                 {// code for IE6, IE5
-                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-                 }
-                xmlhttp.onreadystatechange=function()
-                 {
-              if (xmlhttp.readyState===4 && xmlhttp.status===200)
-                 {
-               document.getElementById("show").innerHTML=xmlhttp.responseText;
-                }
-                 }
-                 xmlhttp.open("GET","drop.html",true);
+                 xmlhttp.open("GET","details.html?msg="+email,true);
                  xmlhttp.send();
              }
              function display()
@@ -645,15 +291,17 @@ for(var i = 0; i < rad.length; i++){
         <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
+                    
                     <button class="btn btn-navbar" data-toggle="collapse" data-target="#app-nav-top-bar">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
-                    </button>                   
+                    </button>   
+                     
                     <div id="app-nav-top-bar" class="nav-collapse">
 
                         <div class="nav pull-right">
-                         
+                        
                         </div>
                         <ul class="nav pull-right">
                             <li>
@@ -662,6 +310,7 @@ for(var i = 0; i < rad.length; i++){
                             
                         </ul>
                     </div>
+                   Welcome : ${msg}
                 </div>
             </div>
         </div>
@@ -696,11 +345,13 @@ for(var i = 0; i < rad.length; i++){
                                         <b class="caret hidden-phone"></b>
                                     </a>
                                     <ul class="dropdown-menu">
-                                           <li>
+                                          <li>
+                                          <a href="#" onclick="details()">View Your Details</a>
+                                          </li>
+                                          <li>
                                           <a href="#" onclick="display()">Questionnaire</a>
-                                           </li>
-
-                                        </ul>
+                                          </li>
+                                    </ul>
                                 </li>
                         </ul>
                     </div>
