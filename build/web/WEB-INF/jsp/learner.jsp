@@ -126,10 +126,31 @@
         {
      div = document.getElementById('message');
     div.style.display = "block";
+    button = document.getElementById('finish');
+    button.style.display = "block";
     div = document.getElementById('questions10');
     div.style.display = "none";
+    button = document.getElementById('next');
+    button.style.display = "none";
+          view=1;
         }
    }
+      function end()
+    {
+             div = document.getElementById('show1');
+             div.style.display = "block";
+             div = document.getElementById('g');
+             div.style.display = "none";
+             footer = document.getElementById('submit-actions');
+             footer.style.display = "none";
+             legend = document.getElementById('l');
+             legend.style.display = "none";
+             div = document.getElementById('message');
+             div.style.display = "none";
+             button = document.getElementById('finish');
+             button.style.display = "none"; 
+    }
+
  var ins=1;
 function insert(){
 
