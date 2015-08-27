@@ -15,7 +15,7 @@
         <div id="body-container">
             <div>
         <section id="my-account-security-form" class="page container">
-            <form id="userSecurityForm" class="form-horizontal" action="addtrainers.html" method="post">
+            <form id="userSecurityForm" class="form-horizontal" action="addsme.html" method="post">
                 <div class="container">
 
                     <div class="alert alert-block alert-info">
@@ -26,7 +26,8 @@
                     <legend><center>SME's Information</center></legend><br>
                     <div class="row">
                         <div id="acct-password-row" class="span7">                            
-                            <fieldset>                                
+                            <fieldset>
+                                <input type="text" value="${it}">
                                 <div class="control-group ">
                                     <label class="control-label">Company Name :<span class="required">*</span></label>
                                     <div class="controls">

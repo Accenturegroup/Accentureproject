@@ -273,8 +273,8 @@ public class Learnercontroller {
      
     @RequestMapping("/addtrainer")
     public ModelAndView addtrainer(ModelAndView model){
-          List<grouppojo> view1=daog.getgroup();
-     model.addObject("msg",view1);
+        List<grouppojo> view1=daog.getgroup();
+        model.addObject("msg",view1);
         trainerpojo obj=new trainerpojo();
         model.addObject("addtrainer", obj);
         model.setViewName("addtrainer");
@@ -882,6 +882,15 @@ public class Learnercontroller {
         List<learnerspojo>list=dao.getByEmail(msg);
         ModelAndView model=new ModelAndView("details");
         model.addObject("details", list);
+        return model;
+     }
+     @RequestMapping("/smeform")
+     public ModelAndView smeform(HttpServletRequest request,HttpServletResponse res){
+       String msg=request.getParameter("msg");
+        ModelAndView model=new ModelAndView("addsme");
+         List<grouppojo> view1=daog.getgroup();
+        model.addObject("msg",view1);
+        model.addObject("it", msg);
         return model;
      }
 }

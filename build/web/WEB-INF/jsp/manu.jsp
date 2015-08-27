@@ -612,7 +612,26 @@
                  xmlhttp.open("GET","findLearners.html?group="+group+"&&location="+location,true);
                  xmlhttp.send();
              }
-             
+             function addsme(){
+                 var msg=document.getElementById("msg").value;                 
+                 if (window.XMLHttpRequest)
+                {
+                 xmlhttp=new XMLHttpRequest(); 
+                }
+                else
+                 {
+                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                 }
+                xmlhttp.onreadystatechange=function()
+                 {
+              if (xmlhttp.readyState===4 && xmlhttp.status===200)
+                 {
+               document.getElementById("show").innerHTML=xmlhttp.responseText;
+                }
+                 }
+                 xmlhttp.open("GET","smeform.html?msg="+msg,true);
+                 xmlhttp.send();
+             }
         </script>
 
 </head>
@@ -672,15 +691,9 @@
                                         <b class="caret hidden-phone"></b>
                                     </a>
                                     <ul class="dropdown-menu">
-                                         <!--<li>
-                                           <a href="#" onclick="addlearner();">Add learner</a>
-                                        </li>-->
                                         <li>
                                         <a href="#" onclick="viewlearner();">View learner</a>
                                         </li>
-                                        <!-- <li>
-                                        <a href="#" onclick="registerform();">Mark Register</a>
-                                        </li>-->
                                         <li>
                                         <a href="#" onclick="student();">Search Learner</a>
                                         </li>
@@ -703,9 +716,19 @@
                                         <li>
                                             <a href="#" onclick="viewgroup();">View Group's</a>
                                         </li>
-                                        <!--<li>
-                                            <a href="#" onclick="findgroup();">Find Group</a>
-                                        </li>-->
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> SME
+                                     <b class="caret hidden-phone"></b>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                     <!-- <li>
+                                   <a href="#" onclick="addassessment();">Add Assessment's</a>
+                                    </li>-->
+                                        <li>
+                                            <a href="#" onclick="addsme();">Add SME</a>
+                                        </li>
                                     </ul>
                                 </li>
                             <li class="dropdown">
@@ -713,9 +736,6 @@
                                         <b class="caret hidden-phone"></b>
                                     </a>
                                     <ul class="dropdown-menu">
-                                         <!--<li>
-                                            <a href="#" onclick="addtrainer();">Add Trainer's</a>
-                                        </li>-->
                                         <li>
                                             <a href="#" onclick="viewtrainer();">View Trainer's</a>
                                         </li>
@@ -729,16 +749,11 @@
                                      <b class="caret hidden-phone"></b>
                                     </a>
                                     <ul class="dropdown-menu">
-                                     <!-- <li>
-                                   <a href="#" onclick="addassessment();">Add Assessment's</a>
-                                    </li>-->
                                         <li>
                                             <a href="#" onclick="viewassessment();">View Assessment</a>
                                         </li>
                                     </ul>
                                 </li>
-
-                                    
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Learner Assessments
                                         <b class="caret hidden-phone"></b>
@@ -747,9 +762,6 @@
                                         <li>
                                             <a href="#" onclick="viewLearnerAssess();">View Learner Assessments</a>
                                         </li>
-                                       <!-- <li>
-                                            <a href="#" onclick="addLearnerAssessment();">Add Learner Assessments</a>
-                                        </li>-->
                                     </ul>
                                 </li>
                         </ul>
