@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.Accenture.Model.sme" table="sme">
+      <id name="Smeid" column="smeid" type="integer">
+          <generator class="native"></generator>
+      </id>
+      <property name="Companyname">
+          <column name="companyname"></column>
+      </property>
+      <property name="Companyaddress">
+          <column name="companyaddress"></column>
+      </property>
+      <property name="Companycontact">
+          <column name="companycontact"></column>
+      </property>
+      <property name="Companyemail">
+          <column name="companyemail"></column>
+      </property>
+      <property name="Companypassword">
+          <column name="companypassword"></column>
+      </property>
+      <property name="Companylocation">
+          <column name="companylocation"></column>
+      </property>
+      <property name="Companygroupid">
+          <column name="companygroupid"></column>
+      </property>
+  </class>
+</hibernate-mapping>
