@@ -42,6 +42,7 @@
                  <value>location.hbm.xml</value>
                  <value>questionnaire.hbm.xml</value>
                  <value>question.hbm.xml</value>
+                 <value>sme.hbm.xml</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -88,6 +89,8 @@
     <bean class="com.Accenture.DAO.questionsDAO" id="q">
         <property name="template" ref="template"/>
     </bean>
-
+    <bean class="com.Accenture.DAO.smeDAO" id="s">
+        <property name="template" ref="template"/>
+    </bean>
 </beans>
 
