@@ -16,7 +16,7 @@ public class sme {
     private String companyemail;
     private String companycontact;
     private String companypassword;
-    private String companylocation;
+    private int companylocation;
     private int companygroupid;
 
     /**
@@ -106,14 +106,14 @@ public class sme {
     /**
      * @return the companylocation
      */
-    public String getCompanylocation() {
+    public int getCompanylocation() {
         return companylocation;
     }
 
     /**
      * @param companylocation the companylocation to set
      */
-    public void setCompanylocation(String companylocation) {
+    public void setCompanylocation(int companylocation) {
         this.companylocation = companylocation;
     }
 

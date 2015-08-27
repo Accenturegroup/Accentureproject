@@ -117,5 +117,4 @@ public List<sme>findlocandgro(String email){
     }
     return list;
 }
-
 }
