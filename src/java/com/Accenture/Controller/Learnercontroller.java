@@ -14,6 +14,7 @@ import com.Accenture.DAO.learnerDao;
 import com.Accenture.DAO.locationDao;
 import com.Accenture.DAO.markregisterDao;
 import com.Accenture.DAO.questionsDAO;
+import com.Accenture.DAO.smeDAO;
 import com.Accenture.DAO.trainerDao;
 import com.Accenture.Model.Answerspojo;
 import com.Accenture.Model.AssessmentPojo;
@@ -24,6 +25,7 @@ import com.Accenture.Model.learnerspojo;
 import com.Accenture.Model.locationpojo;
 import com.Accenture.Model.markregister;
 import com.Accenture.Model.questionspojo;
+import com.Accenture.Model.sme;
 import com.Accenture.Model.trainerpojo;
 import java.io.IOException;
 import java.text.ParseException;
@@ -65,6 +67,7 @@ public class Learnercontroller {
     trainerpojo pojoe= new trainerpojo();
     markregisterDao mdao=(markregisterDao)r.getBean("m");
     questionsDAO qd=(questionsDAO)r.getBean("q");
+    smeDAO sme=(smeDAO)r.getBean("s");
 
 
     markregister mpojos=new markregister();
@@ -887,11 +890,37 @@ public class Learnercontroller {
      @RequestMapping("/smeform")
      public ModelAndView smeform(HttpServletRequest request,HttpServletResponse res){
        String msg=request.getParameter("msg");
-        ModelAndView model=new ModelAndView("addsme");
-         List<grouppojo> view1=daog.getgroup();
-        model.addObject("msg",view1);
+        List<grouppojo> view1=daog.getgroup();
+         List<locationpojo> view2=daol.getLocations();
+        ModelAndView model=new ModelAndView("addsme");        
+        model.addObject("msg",view1);        
+        model.addObject("msg2",view2);
         model.addObject("it", msg);
         return model;
      }
+     @RequestMapping("/addsme")
+    public ModelAndView SMEAdd(HttpServletRequest request,HttpServletResponse res) { 
+        String msg=request.getParameter("msg");
+     String name=request.getParameter("Name");
+     String adress=request.getParameter("Adress");
+     String email=request.getParameter("Email");
+     String contact=request.getParameter("Contact");
+     String password=request.getParameter("password");
+     int locid=Integer.parseInt(request.getParameter("location"));
+     int gid=Integer.parseInt(request.getParameter("group"));
+     
+     sme sm = new sme();
+     sm.setCompanyname(name);
+     sm.setCompanyaddress(adress);
+     sm.setCompanyemail(email);
+     sm.setCompanycontact(contact);
+     sm.setCompanypassword(password);
+     sm.setCompanylocation(locid);
+     sm.setCompanygroupid(gid);
+     sme.savesme(sm);
+
+   return new ModelAndView("manu", "msg", msg);  
+    }
+    
      
 }

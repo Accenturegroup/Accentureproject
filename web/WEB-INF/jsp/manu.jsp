@@ -613,7 +613,7 @@
                  xmlhttp.send();
              }
              function addsme(){
-                 var msg=document.getElementById("msg").value;                 
+                 var msg=document.getElementById("email").value;                 
                  if (window.XMLHttpRequest)
                 {
                  xmlhttp=new XMLHttpRequest(); 
@@ -628,7 +628,7 @@
                  {
                document.getElementById("show").innerHTML=xmlhttp.responseText;
                 }
-                 }
+                 };
                  xmlhttp.open("GET","smeform.html?msg="+msg,true);
                  xmlhttp.send();
              }
