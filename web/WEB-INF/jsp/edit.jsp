@@ -36,6 +36,7 @@
               
                     <div class="controls">
                         <form:hidden class="span4" name="groupid" path="groupid" value="${groupid}"/>
+                        <input type="text" name="msg" value="${it}">
                     </div>
                 </div>
                 <div class="control-group "><form:label path="gname">Name</form:label>

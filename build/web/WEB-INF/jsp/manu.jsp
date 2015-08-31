@@ -63,6 +63,7 @@
              }
              function viewgroup(){
                document.getElementById("show1").innerHTML="";
+               var msg=document.getElementById("email").value;
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -78,33 +79,12 @@
                document.getElementById("show").innerHTML=xmlhttp.responseText;
                 }
                  }
-                 xmlhttp.open("GET","view1.html",true);
+                 xmlhttp.open("GET","view1.html?msg="+msg,true);
                  xmlhttp.send();
              }
-             
-             function viewtrainer(){
-               document.getElementById("show1").innerHTML="";
-                 if (window.XMLHttpRequest)
-                {// code for IE7+, Firefox, Chrome, Opera, Safari
-                 xmlhttp=new XMLHttpRequest(); 
-                }
-                else
-                 {// code for IE6, IE5
-                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-                 }
-                xmlhttp.onreadystatechange=function()
-                 {
-              if (xmlhttp.readyState===4 && xmlhttp.status===200)
-                 {
-               document.getElementById("show").innerHTML=xmlhttp.responseText;
-                }
-                 }
-                 xmlhttp.open("GET","view2.html",true);
-                 xmlhttp.send();
-             }
-             
             function editpage(id){
               document.getElementById("show1").innerHTML="";
+              var msg=document.getElementById("email").value;
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -120,7 +100,7 @@
                document.getElementById("show").innerHTML=xmlhttp.responseText;
                 }
                  }
-                 xmlhttp.open("GET","edit.html?id="+id,true);
+                 xmlhttp.open("GET","edit.html?id="+id+"&msg="+msg,true);
                  xmlhttp.send();
              }
 
@@ -632,6 +612,26 @@
                  xmlhttp.open("GET","smeform.html?msg="+msg,true);
                  xmlhttp.send();
              }
+             function acc(){
+                 var msg=document.getElementById("email").value;                 
+                 if (window.XMLHttpRequest)
+                {
+                 xmlhttp=new XMLHttpRequest(); 
+                }
+                else
+                 {
+                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                 }
+                xmlhttp.onreadystatechange=function()
+                 {
+              if (xmlhttp.readyState===4 && xmlhttp.status===200)
+                 {
+               document.getElementById("show").innerHTML=xmlhttp.responseText;
+                }
+                 };
+                 xmlhttp.open("GET","AccntureViewTrainer.html",true);
+                 xmlhttp.send();
+             }
         </script>
 
 </head>
@@ -646,8 +646,7 @@
                     </button>                   
                     <div id="app-nav-top-bar" class="nav-collapse">
 
-                        <div class="nav pull-right">
-                         ${msg}
+                        <div class="nav pull-right">                        
 
                         </div>
                         <ul class="nav pull-right">
@@ -657,6 +656,7 @@
                             
                         </ul>
                     </div>
+                    ${msg}
                 </div>
             </div>
         </div>
@@ -692,13 +692,7 @@
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li>
-                                        <a href="#" onclick="viewlearner();">View learner</a>
-                                        </li>
-                                        <li>
-                                        <a href="#" onclick="student();">Search Learner</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" onclick="giveFeedback()">Give Feedback About Learners</a>
+                                        <a href="#" onclick="student();">View Learner's</a>
                                         </li>
                                            <li>
                                             <a href="#" onclick="viewFeedback()">View Learners Feedback</a>
@@ -737,11 +731,9 @@
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li>
-                                            <a href="#" onclick="viewtrainer();">View Trainer's</a>
+                                            <a href="#" onclick="acc();">View Trainer's </a>
                                         </li>
-                                        <li>
-                                            <a href="#" onclick="searchgroup();">Search Group</a>
-                                        </li>
+
                                     </ul>
                                 </li>
                                 <li class="dropdown">
@@ -771,7 +763,7 @@
         </div>
 
     </section>
-             <input type="text" name="email" id="email" value="${msg}">
+             <input type="hidden" name="email" id="email" value="${msg}">
              <div id="show">
                  
             </div>

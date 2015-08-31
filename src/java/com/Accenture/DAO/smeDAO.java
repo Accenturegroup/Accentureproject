@@ -112,9 +112,8 @@ public List<sme>findlocandgro(String email){
     query.setParameter("email",email);
     for(Iterator it=query.iterate();it.hasNext();){
              sme b=(sme) it.next();
-          
              list.add(b);
     }
     return list;
-}
+    }
 }

@@ -3,10 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/EDU-Admin/Documents/NetBeansProjects/Accentureproject/web/WEB-INF/jsp/learner.jsp</file>
-            <file>file:/C:/Users/EDU-Admin/Documents/NetBeansProjects/Accentureproject/web/WEB-INF/jsp/addsme.jsp</file>
-            <file>file:/C:/Users/EDU-Admin/Documents/NetBeansProjects/Accentureproject/web/WEB-INF/jsp/Questionnaire.jsp</file>
-            <file>file:/C:/Users/EDU-Admin/Documents/NetBeansProjects/Accentureproject/src/java/com/Accenture/Controller/Learnercontroller.java</file>
+            <file>file:/C:/Users/EDU-Stud/Documents/NetBeansProjects/Accentureproject/Accentureproject/web/WEB-INF/jsp/view1.jsp</file>
+            <file>file:/C:/Users/EDU-Stud/Documents/NetBeansProjects/Accentureproject/Accentureproject/src/java/com/Accenture/DAO/smeDAO.java</file>
+            <file>file:/C:/Users/EDU-Stud/Documents/NetBeansProjects/Accentureproject/Accentureproject/web/WEB-INF/jsp/edit.jsp</file>
+            <file>file:/C:/Users/EDU-Stud/Documents/NetBeansProjects/Accentureproject/Accentureproject/src/java/sme.hbm.xml</file>
+            <file>file:/C:/Users/EDU-Stud/Documents/NetBeansProjects/Accentureproject/Accentureproject/web/WEB-INF/jsp/manu.jsp</file>
+            <file>file:/C:/Users/EDU-Stud/Documents/NetBeansProjects/Accentureproject/Accentureproject/src/java/com/Accenture/DAO/trainerDao.java</file>
+            <file>file:/C:/Users/EDU-Stud/Documents/NetBeansProjects/Accentureproject/Accentureproject/web/WEB-INF/jsp/addsme.jsp</file>
+            <file>file:/C:/Users/EDU-Stud/Documents/NetBeansProjects/Accentureproject/Accentureproject/src/java/com/Accenture/Controller/Learnercontroller.java</file>
         </group>
     </open-files>
 </project-private>

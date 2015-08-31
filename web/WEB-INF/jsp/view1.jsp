@@ -64,7 +64,7 @@
                                 <td>${group.getFinish()}</td>
                                 <td>${group.getLocation()}</td>           
                                 <td><a href="#" onclick="editpage(${group.getGroupid()});">edit</a></td>            
-                                <td><a href="delete.html?id=${group.getGroupid()}">delete</a></td></tr>
+                                <td><a href="delete.html?id=${group.getGroupid()}&msg=${it}">delete</a></td></tr>
                                  </c:forEach>
                             
                             </tbody>
@@ -76,5 +76,6 @@
         </div>
     </div></section>
             </div>
+    
     </body>
 </html>

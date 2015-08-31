@@ -94,18 +94,25 @@ public class Learnercontroller {
       return model;
     }
     @RequestMapping("/view1")
-    public ModelAndView view1(ModelAndView model) throws IOException{ 
+    public ModelAndView view1(HttpServletRequest request,ModelAndView model) throws IOException{ 
       List<grouppojo> view1=daog.getgroup();
+      String msg=request.getParameter("msg");
      model.addObject("msg",view1);
+     model.addObject("it",msg);
       return model;
     }
     
     @RequestMapping("/view2")
     public ModelAndView view2(ModelAndView model) throws IOException{ 
       List<trainerpojo> view2=daoe.getTrainers();
-     model.addObject("msg",view2);
-     
-      return model;
+     model.addObject("msg",view2);   
+     return model;
+    }
+        @RequestMapping("/AccntureViewTrainer")  
+    public ModelAndView acc(ModelAndView model) {    
+      List<trainerpojo> vi=daoe.getTrainers();
+     model.addObject("msg",vi);
+     return model; 
     }
     @RequestMapping("/add")
     public ModelAndView groupform(ModelAndView model){
@@ -145,19 +152,21 @@ public class Learnercontroller {
      @RequestMapping("/edit")
      public ModelAndView edit(HttpServletRequest request,HttpServletResponse res){
          int id=Integer.parseInt(request.getParameter("id"));
+         String msg=request.getParameter("msg");
          grouppojo ppojo=daog.getById(id);
          ModelAndView model=new ModelAndView("edit");
          model.addObject("edit", ppojo);
+         model.addObject("it",msg);
          return model;
      } 
      @RequestMapping("/delete")
      public ModelAndView delete(HttpServletRequest request,HttpServletResponse res){
          int id=Integer.parseInt(request.getParameter("id"));
-         
+         String msg=request.getParameter("msg");
          pojo.setGroupid(id);
          daog.deleteforceg(pojo);
 
-         ModelAndView model=new ModelAndView("manu");
+         ModelAndView model=new ModelAndView("manu","msg",msg);
 
          return model;
      }
@@ -173,6 +182,7 @@ public class Learnercontroller {
         String finish=request.getParameter("finish");
         String location=request.getParameter("location");
         String tid=request.getParameter("tid");
+        String msg=request.getParameter("msg");
         pojo.setGroupid(id);
         pojo.setGname(name);
         pojo.setDuration(duration);
@@ -180,7 +190,7 @@ public class Learnercontroller {
         pojo.setStart(start);
         pojo.setLocation(location);
         daog.updateforceg(pojo);
-        return new ModelAndView("manu", "message", message); 
+        return new ModelAndView("manu", "msg", msg); 
      }
     @RequestMapping("/search")
     public ModelAndView search(ModelAndView model){
