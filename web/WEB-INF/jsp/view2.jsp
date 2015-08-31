@@ -37,8 +37,7 @@
                                 <th>Qualification</th>
                                 <th>Group</th>
                                 <th>Location</th>
-                                <th>Edit</th>
-                                
+                                <th>Edit</th>                                
                                 </tr>
                             </thead>
                             <tbody>
@@ -54,14 +53,14 @@
                                 <td>${trainer.getLocation()}</td>
                                 <td><a href="#" onclick="edittrainer(${trainer.getTId()});">edit</a></td>            
                                 <!--<td><a href="deletetrainer.html?id=${trainer.getTId()}">delete</a></td></tr>-->
-                                 </c:forEach>
-                            
+                                 </c:forEach>                            
                             </tbody>
                         </table>
                     </div>
               </div>
            </form:form>
         </div>
-    </div></section>
+    </div>
+        </section>
     </body>
 </html>
