@@ -921,7 +921,7 @@ public class Learnercontroller {
     public ModelAndView SMEAdd(HttpServletRequest request,HttpServletResponse res) { 
         String msg=request.getParameter("msg");
      String name=request.getParameter("Name");
-     String adress=request.getParameter("Adress");
+     String adress=request.getParameter("Address");
      String email=request.getParameter("Email");
      String contact=request.getParameter("Contact");
      String password=request.getParameter("password");
