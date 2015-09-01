@@ -684,29 +684,18 @@ public class Learnercontroller {
      } 
      @RequestMapping("/viewFeedback")        
     public ModelAndView viewFeedback(HttpServletRequest request,ModelAndView model) throws IOException{ 
-         
-       String email=request.getParameter("msg");
-       List<feedbackpojo>result=fdao.findlocandgro(email);
-       String em="";
-       
-       List<feedbackpojo>list=null;
-       for(feedbackpojo e:result){
-         em=e.getEmail();
-         list=fdao.search0(em);
-        }
-        Iterator it=list.iterator();
-         
-         List <feedbackpojo> viewFeedback=fdao.getfeedback();
-         //feedbackpojo obj=new feedbackpojo();
-         //model.addObject("viewFeedback",obj);
-         model.addObject("viewFeedback", viewFeedback);
-         model.addObject("msg",it);
-         return model;
-    }
-    @RequestMapping("/accentureViewFeedback")        
-      public ModelAndView viewFeedback(ModelAndView model) throws IOException{ 
       List<feedbackpojo> viewFeedback=fdao.getfeedback();
+      String msg=request.getParameter("msg");
       model.addObject("msg",viewFeedback);
+      model.addObject("it",msg);
+      return model;
+    }
+    @RequestMapping("/aViewFeedback")        
+      public ModelAndView viewFeedback(ModelAndView model,HttpServletRequest request) throws IOException{ 
+      List<feedbackpojo> aViewFeedback=fdao.getfeedback();
+      String msg=request.getParameter("msg");
+      model.addObject("msg",aViewFeedback);
+      model.addObject("it",msg);
       return model;
     }
     
