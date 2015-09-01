@@ -46,10 +46,12 @@
                           <tr>               
                          <td><label>${learner.getLName()}</label><input type="hidden" name="name"  value="${learner.getLID()}"></td>
                        <td><label><%=dateFormat.format(date)%><input type="hidden" name="date"  value="<%=dateFormat.format(date)%>"></td>
+
                         <td><select name="status" id="status">
                         <option>Present</option>
                         <option>Absent</option>
                          </select></td>
+                         <td><input type="hidden" name="s"  value="${it}"></td>
                            </tr>    
                             </c:forEach>                           
                             </tbody>

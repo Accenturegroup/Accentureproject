@@ -21,7 +21,7 @@
                        <form:form>
                     <div id="Person-1" class="box">
                         <div class="box-header">
-                            <i class="icon-group  icon-large"></i>
+                            <i class="icon-folder-open"></i>
                             <h5>Groups</h5>
                             
                         </div>

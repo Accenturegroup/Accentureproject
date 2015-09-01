@@ -16,7 +16,7 @@
        <div align="center">
    <form:form>
        
-    <table class="table table-bordered">
+    <table class="table table-striped">
         <th>Title</th>
         <th>Name</th>
         <th>Surname</th>
@@ -42,10 +42,8 @@
                 <td>${learner.getRace()}</td>
                 <td>${learner.getNumber()}</td>
                 <td>${learner.getGender()}</td>
-                <td>${learner.getStatus()}</td>
-           
-                <td><a href="#" onclick="editpage(${group.getGroupid()});">edit</a></td>
-            
+                <td>${learner.getStatus()}</td>           
+                <td><a href="#" onclick="editpage(${group.getGroupid()});">edit</a></td>            
                 <td><a href="delete.html?id=${group.getGroupid()}">delete</a></td></tr>
         </c:forEach>
 

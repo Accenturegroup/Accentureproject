@@ -3,14 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/EDU-Stud/Documents/NetBeansProjects/Accentureproject/Accentureproject/web/WEB-INF/jsp/view1.jsp</file>
-            <file>file:/C:/Users/EDU-Stud/Documents/NetBeansProjects/Accentureproject/Accentureproject/src/java/com/Accenture/DAO/smeDAO.java</file>
-            <file>file:/C:/Users/EDU-Stud/Documents/NetBeansProjects/Accentureproject/Accentureproject/web/WEB-INF/jsp/edit.jsp</file>
-            <file>file:/C:/Users/EDU-Stud/Documents/NetBeansProjects/Accentureproject/Accentureproject/src/java/sme.hbm.xml</file>
-            <file>file:/C:/Users/EDU-Stud/Documents/NetBeansProjects/Accentureproject/Accentureproject/web/WEB-INF/jsp/manu.jsp</file>
-            <file>file:/C:/Users/EDU-Stud/Documents/NetBeansProjects/Accentureproject/Accentureproject/src/java/com/Accenture/DAO/trainerDao.java</file>
-            <file>file:/C:/Users/EDU-Stud/Documents/NetBeansProjects/Accentureproject/Accentureproject/web/WEB-INF/jsp/addsme.jsp</file>
-            <file>file:/C:/Users/EDU-Stud/Documents/NetBeansProjects/Accentureproject/Accentureproject/src/java/com/Accenture/Controller/Learnercontroller.java</file>
+            <file>file:/C:/Users/EDU-Stud/Documents/NetBeansProjects/Accentureproject/Accentureproject/web/WEB-INF/jsp/add.jsp</file>
+            <file>file:/C:/Users/EDU-Stud/Documents/NetBeansProjects/Accentureproject/Accentureproject/web/newjsp.jsp</file>
+            <file>file:/C:/Users/EDU-Stud/Documents/NetBeansProjects/Accentureproject/Accentureproject/web/styles/css/customize-template.css</file>
+            <file>file:/C:/Users/EDU-Stud/Documents/NetBeansProjects/Accentureproject/Accentureproject/web/WEB-INF/jsp/lsearchResults.jsp</file>
+            <file>file:/C:/Users/EDU-Stud/Documents/NetBeansProjects/Accentureproject/Accentureproject/web/WEB-INF/jsp/LearnerAssessmentView.jsp</file>
         </group>
     </open-files>
 </project-private>

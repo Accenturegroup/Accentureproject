@@ -480,8 +480,16 @@ public class Learnercontroller {
       @RequestMapping("/markregister")
      public ModelAndView view3(HttpServletRequest request,ModelAndView model) throws IOException{ 
       String msg=request.getParameter("it");
-      List<learnerspojo> view=dao.getLearners();
-      model.addObject("msg",view);
+      List<trainerpojo>result=daoe.findlocandgro(msg);
+       String g="",l="";
+       List<learnerspojo>list=null;
+       for(trainerpojo e:result){
+         l=e.getLocation();
+         g=e.getGroup();
+         list=dao.search0(g,l);
+     }
+        Iterator it=list.iterator();
+      model.addObject("msg",it);
       model.addObject("it",msg);
       return model;
     }
@@ -492,13 +500,14 @@ public class Learnercontroller {
         String [] name=request.getParameterValues("name");
         String [] date=request.getParameterValues("date");
         String [] status=request.getParameterValues("status");
-        String msg=request.getParameter("msg");
+        String [] s=request.getParameterValues("s");
+        String  msg=request.getParameter("msg");
 
         for (int i=0;i<name.length;i++){
          mpojos.setLname(name[i]);
          mpojos.setDate(date[i]);
          mpojos.setStatus(status[i]);
-         mpojos.setFname("dfasd");
+         mpojos.setFname(s[i]);
          
          mdao.saveMarkRegister(mpojos);
         }
