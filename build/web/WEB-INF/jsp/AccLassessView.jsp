@@ -1,9 +1,8 @@
 <%-- 
-    Document   : LearnerAssessmentView
-    Created on : Jul 31, 2015, 11:12:17 AM
-    Author     : Andile
+    Document   : AccLassessView
+    Created on : 01 Sep 2015, 11:25:29 AM
+    Author     : EDU-Admin
 --%>
-
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -23,7 +22,6 @@
                         <div class="box-header">
                             <i class="icon-folder-open"></i>
                             <h5>learner Assessments</h5>
-                            
                         </div>
                         <div class="box-content box-table">
                         <table class="table table-hover tablesorter">
@@ -43,19 +41,17 @@
                 <td>${LAs.getAssessmentID()}</td>
                 <td>${LAs.getMarks()}</td>
                 <td> ${LAs.getDateEntered()}</td>
-                <td><a href="#" onclick="editLearnerAssess(${LAs.getID()});">edit</a></td>
-                <td><a href="deleteLA.html?id=${LAs.getID()}&msg=${it}">delete</a></td>
-                </tr>
+               </tr>
                 
             </c:forEach>
                 </tbody>
         </table>
             </div>
-                    </div>
-                           </form:form>
+                     </form:form>
                 </div>
                  </div>
             </div>
+                </div>
         </section>
             
     </body>

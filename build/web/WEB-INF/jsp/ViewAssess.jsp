@@ -31,7 +31,7 @@
                                 <th>Assessment Name:</th>
                                 <th>Assessment Date</th>
                                 <th>Group Name</th>
-                                <th>Today's Date</th>
+                                <th>Date Captured</th>
                                 <th>Edit</th>
                                 <th>Delete</th>
                                 </tr>

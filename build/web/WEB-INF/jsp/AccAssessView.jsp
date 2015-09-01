@@ -1,9 +1,8 @@
 <%-- 
-    Document   : ViewAssess
-    Created on : 31 Jul 2015, 1:21:02 PM
+    Document   : AccAssessView
+    Created on : 01 Sep 2015, 11:09:05 AM
     Author     : EDU-Admin
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -20,7 +19,7 @@
                        <form:form>
                     <div id="Person-1" class="box">
                         <div class="box-header">
-                            <i class="icon-group  icon-large"></i>
+                            <i class="icon-folder-open"></i>
                             <h5>All Assessments</h5>
                             
                         </div>
@@ -32,8 +31,7 @@
                                 <th>Assessment Date</th>
                                 <th>Group Name</th>
                                 <th>Date Captured</th>
-                                <th>Edit</th>
-                                <th>Delete</th>
+                              
                                 </tr>
                             </thead>
                             <tbody>
@@ -44,8 +42,7 @@
                             <td>${assess.getassessDate()}</td>
                             <td>${assess.getgroupName()}</td>
                             <td>${assess.getdate()}</td>
-                            <td><a href="#" onclick="editassess(${assess.getassessID()});">edit</a></td>
-                            <td><a href="deleteAsse.html?id=${assess.getassessID()}&msg=${msg}">delete</a></td>
+                     
              </tr>
         
         </c:forEach>

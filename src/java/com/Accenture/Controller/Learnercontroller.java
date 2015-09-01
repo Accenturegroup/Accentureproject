@@ -940,6 +940,23 @@ public class Learnercontroller {
 
    return new ModelAndView("manu", "msg", msg);  
     }
-    
-     
+    @RequestMapping("/AccAssessView")
+    public ModelAndView accviewass(ModelAndView model) throws IOException{ 
+     List<AssessmentPojo> view=d.getAssessments();     
+     model.addObject("it",view);
+     return model;
+    }
+      @RequestMapping("/AccLassessView")
+    public ModelAndView accLearnerAssessmentAddView(ModelAndView model,HttpServletRequest request) throws IOException{ 
+     LearnerAssessmentPojo pojo=new LearnerAssessmentPojo();
+     String msg=request.getParameter("msg");
+      List<AssessmentPojo> AssessmentView=d.getAssessments();
+      List<learnerspojo> view=dao.getLearners();
+      
+     model.addObject("AccLassessView",pojo);
+     model.addObject("learner",view);
+     model.addObject("Assessment",AssessmentView);
+     model.addObject("msg",msg);
+      return model;
+    }
 }

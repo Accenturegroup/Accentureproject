@@ -632,6 +632,44 @@
                  xmlhttp.open("GET","AccntureViewTrainer.html",true);
                  xmlhttp.send();
              }
+             function AccAssessView(){
+                if (window.XMLHttpRequest)
+                {
+                 xmlhttp=new XMLHttpRequest(); 
+                }
+                else
+                 {
+                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                 }
+                xmlhttp.onreadystatechange=function()
+                 {
+              if (xmlhttp.readyState===4 && xmlhttp.status===200)
+                 {
+               document.getElementById("show").innerHTML=xmlhttp.responseText;
+                }
+                 };
+                 xmlhttp.open("GET","AccAssessView.html",true);
+                 xmlhttp.send();
+             }
+            function AccLassessView(){
+               if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                 xmlhttp=new XMLHttpRequest(); 
+                }
+                else
+                 {// code for IE6, IE5
+                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                 }
+                xmlhttp.onreadystatechange=function()
+                 {
+              if (xmlhttp.readyState===4 && xmlhttp.status===200)
+                 {
+               document.getElementById("show").innerHTML=xmlhttp.responseText;
+                }
+                 };
+                 xmlhttp.open("GET","AccLassessView.html",true);
+                 xmlhttp.send();
+             }
         </script>
 
 </head>
@@ -742,7 +780,7 @@
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li>
-                                            <a href="#" onclick="viewassessment();">View Assessment</a>
+                                            <a href="#" onclick="AccAssessView();">View Assessment</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -752,7 +790,7 @@
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li>
-                                            <a href="#" onclick="viewLearnerAssess();">View Learner Assessments</a>
+                                            <a href="#" onclick="AccLassessView();">View Learner Assessments</a>
                                         </li>
                                     </ul>
                                 </li>

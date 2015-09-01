@@ -22,7 +22,7 @@
                     <div id="Person-1" class="box">
                         <div class="box-header">
                             <i class="icon-folder-open"></i>
-                            <h5>Groups</h5>
+                            <h5>learner Assessments</h5>
                             
                         </div>
                         <div class="box-content box-table">
