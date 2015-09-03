@@ -120,14 +120,14 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="control-group ">
+                               <div class="control-group ">
                                     <label class="control-label">Location<span class="required">*</span></label>
                                     <div class="controls">
                                         <select class="span4" name="location" id="location">
                                         <option></option>
-                                        <option>Johannesburg</option>
-                                        <option>Cape Town</option>
-                                        <option>Durban</option>
+                                        <c:forEach var="location" items="${msg2}">
+                                       <option value="${location.getLocation()}">${location.getLocation()}</option>
+                                       </c:forEach>
                                         </select>
                                     </div>
                                 </div>

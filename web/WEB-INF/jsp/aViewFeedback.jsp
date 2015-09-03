@@ -13,7 +13,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-    <center><h1>Feedback List</h1></center>
         <section class="page container">
             <div class="row">
                  <div class="span12">        
@@ -22,7 +21,7 @@
                     <div id="Person-1" class="box">
                         <div class="box-header">
                             <i class="icon-group  icon-large"></i>
-                            <h5>Groups</h5>
+                            <h5>Feedback</h5>
                             
                         </div>
                         <div class="box-content box-table">
@@ -32,7 +31,6 @@
                                 <th>Feedback ID</th>
                                 <th>Learner ID</th>
                                 <th>Feedback</th>
-                                <th>Edit</th>
                                
                                 </tr>
                             </thead>

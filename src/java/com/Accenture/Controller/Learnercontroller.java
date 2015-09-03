@@ -117,7 +117,9 @@ public class Learnercontroller {
     @RequestMapping("/add")
     public ModelAndView groupform(ModelAndView model){
         grouppojo obj=new grouppojo();
+        List<locationpojo>v=daol.getLocations();
         model.addObject("add", obj);
+        model.addObject("msg2", v);
         model.setViewName("add");
         return model;
     }
@@ -244,9 +246,11 @@ public class Learnercontroller {
     @RequestMapping("/addlearner")
     public ModelAndView addlearners(ModelAndView model){
         learnerspojo obj=new learnerspojo();
-              List<grouppojo> view1=daog.getgroup();
+        List<grouppojo> view1=daog.getgroup();
+        List<locationpojo>v=daol.getLocations();
         model.addObject("msg",view1);
         model.addObject("addlearner", obj);
+        model.addObject("msg2", v);
         model.setViewName("addlearner");
         return model;
     }
@@ -287,9 +291,11 @@ public class Learnercontroller {
     @RequestMapping("/addtrainer")
     public ModelAndView addtrainer(ModelAndView model){
         List<grouppojo> view1=daog.getgroup();
+        List<locationpojo>v=daol.getLocations();
         model.addObject("msg",view1);
         trainerpojo obj=new trainerpojo();
         model.addObject("addtrainer", obj);
+        model.addObject("msg2", v);
         model.setViewName("addtrainer");
         return model;
     }

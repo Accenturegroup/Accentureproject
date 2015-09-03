@@ -770,6 +770,9 @@
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li>
+                                            <a href="#" onclick="addtrainer();">Add Trainer's</a>
+                                        </li>
+                                        <li>
                                             <a href="#" onclick="acc();">View Trainer's </a>
                                         </li>
 

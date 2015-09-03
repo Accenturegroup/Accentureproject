@@ -28,7 +28,7 @@
                     <div class="row">
                         <div id="acct-password-row" class="span7">                            
                             <fieldset>
-                                <input type="text" value="${it}" name="smg">
+                                <input type="hidden" value="${it}" name="smg">
                                 <div class="control-group ">
                                     <label class="control-label">Company Name :<span class="required">*</span></label>
                                     <div class="controls">
