@@ -5,6 +5,7 @@
  */
 package com.Accenture.DAO;
 
+import com.Accenture.Model.markregister;
 import com.Accenture.Model.trainerpojo;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -118,6 +119,23 @@ public List<trainerpojo>findlocandgro(String email){
     }
     return list;
 }
-
+public List<markregister>findattendance(String email){
+    List<markregister>list=new ArrayList<>();
+    Session ses=null;
+    SessionFactory sf=new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
+    ses=sf.openSession();
+    ses.beginTransaction();
+    String HQL_QUERY="from markregister markregister where fname =:email";
+    org.hibernate.Query query=ses.createQuery(HQL_QUERY);
+    query.setParameter("email",email);
+    for(Iterator it=query.iterate();it.hasNext();){
+             markregister b=(markregister) it.next();
+             b.getLname();
+             b.getStatus();
+             b.getDate();
+             list.add(b);
+    }
+    return list;
+}
 
 }

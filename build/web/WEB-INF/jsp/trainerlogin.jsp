@@ -399,6 +399,28 @@
                  xmlhttp.open("GET","markregister.html?it="+msg,true);
                  xmlhttp.send();
              }
+                       
+              function viewregisterform(){
+              document.getElementById("show1").innerHTML="";
+               var msg=document.getElementById("email").value;
+                 if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                 xmlhttp=new XMLHttpRequest(); 
+                }
+                else
+                 {// code for IE6, IE5
+                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                 }
+                xmlhttp.onreadystatechange=function()
+                 {
+              if (xmlhttp.readyState===4 && xmlhttp.status===200)
+                 {
+               document.getElementById("show").innerHTML=xmlhttp.responseText;
+                }
+                 }
+                 xmlhttp.open("GET","viewregisterform.html?it="+msg,true);
+                 xmlhttp.send();
+             }
 
              function addmeth(){
                  document.getElementById("show1").innerHTML="";
@@ -716,6 +738,9 @@
                                         </li>
                                         <li>
                                         <a href="#" onclick="registerform();">Mark Register</a>
+                                        </li>
+                                        <li>
+                                        <a href="#" onclick="viewregisterform();">View Attendance</a>
                                         </li>
                                         <li>
                                         <a href="#" onclick="student();">Search Learner</a>

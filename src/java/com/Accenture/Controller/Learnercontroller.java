@@ -493,6 +493,16 @@ public class Learnercontroller {
       model.addObject("it",msg);
       return model;
     }
+     @RequestMapping("/viewregisterform")
+     public ModelAndView viewregisterform(HttpServletRequest request,ModelAndView model) throws IOException{ 
+      String msg=request.getParameter("it");
+      List<markregister>result=daoe.findattendance(msg);
+     
+      Iterator it=result.iterator();
+      model.setViewName("viewregister");
+      model.addObject("msg",it);
+      return model;
+    }
 
     @RequestMapping("/register")
      public ModelAndView markregister1(HttpServletRequest request,HttpServletResponse res) {  
@@ -711,8 +721,6 @@ public class Learnercontroller {
 
          return model;
      }
-
-     //Noli View Learner Assessment
       @RequestMapping("/LearnerAssessmentView")
     public ModelAndView LearnerAssessmentView(HttpServletRequest request,ModelAndView model) throws IOException{ 
       List<LearnerAssessmentPojo> LearnerAssessmentView=ldao.getLearnerAssessment();
@@ -721,26 +729,28 @@ public class Learnercontroller {
       model.addObject("it", msg);
       return model;
     }
-  
-    
-    //Noli Add Learner Assessment
-//    
-      LearnerAssessmentDAO ldao=(LearnerAssessmentDAO)r.getBean("las");
+    LearnerAssessmentDAO ldao=(LearnerAssessmentDAO)r.getBean("las");
     LearnerAssessmentPojo lap=new LearnerAssessmentPojo();
-
-    
-    //Noli Add Learner Assessment
     @RequestMapping("/LearnerAssessmentAddView")
     public ModelAndView LearnerAssessmentAddView(ModelAndView model,HttpServletRequest request) throws IOException{ 
      LearnerAssessmentPojo pojo=new LearnerAssessmentPojo();
-     String msg=request.getParameter("msg");
+     String email=request.getParameter("msg");
+     List<trainerpojo>result=daoe.findlocandgro(email);
+       String g="",l="";
+       List<learnerspojo>list=null;
+       for(trainerpojo e:result){
+         l=e.getLocation();
+         g=e.getGroup();
+         list=dao.search0(g,l);
+     }
+        Iterator it=list.iterator();
       List<AssessmentPojo> AssessmentView=d.getAssessments();
       List<learnerspojo> view=dao.getLearners();
       
      model.addObject("LearnerAssessmentAddView",pojo);
-     model.addObject("learner",view);
+     model.addObject("learner",it);
      model.addObject("Assessment",AssessmentView);
-     model.addObject("msg",msg);
+     model.addObject("msg",email);
       return model;
     }
     
