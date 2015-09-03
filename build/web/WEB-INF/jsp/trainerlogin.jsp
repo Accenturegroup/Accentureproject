@@ -546,26 +546,6 @@
                  xmlhttp.open("GET","findGroups.html?search="+search,true);
                  xmlhttp.send();
              }
-             function student(){
-           document.getElementById("show1").innerHTML="";
-                 if (window.XMLHttpRequest)
-                {// code for IE7+, Firefox, Chrome, Opera, Safari
-                 xmlhttp=new XMLHttpRequest(); 
-                }
-                else
-                 {// code for IE6, IE5
-                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-                 }
-                xmlhttp.onreadystatechange=function()
-                 {
-              if (xmlhttp.readyState===4 && xmlhttp.status===200)
-                 {
-               document.getElementById("show").innerHTML=xmlhttp.responseText;
-                }
-                 }
-                 xmlhttp.open("GET","Student.html",true);
-                 xmlhttp.send();
-             }
                function Students(search){
           
                  if (window.XMLHttpRequest)
@@ -612,6 +592,7 @@
              }
              function viewFeedback(){
                 document.getElementById("show1").innerHTML="";
+                var msg=document.getElementById("email").value;
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -627,12 +608,13 @@
                document.getElementById("show").innerHTML=xmlhttp.responseText;
                 }
                  }
-                 xmlhttp.open("GET","viewFeedback.html",true);
+                 xmlhttp.open("GET","viewFeedback.html?msg="+msg,true);
                  xmlhttp.send();
              }
              
         function updateFeedback(id){
                document.getElementById("show1").innerHTML="";
+               var msg=document.getElementById("email").value;
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -648,7 +630,7 @@
                document.getElementById("show").innerHTML=xmlhttp.responseText;
                 }
                  }
-                 xmlhttp.open("GET","updateFeedback.html?id="+id,true);
+                 xmlhttp.open("GET","updateFeedback.html?id="+id+"&msg="+msg,true);
                  xmlhttp.send();
              }
               function giveFeedback(){
@@ -743,9 +725,6 @@
                                         <a href="#" onclick="viewregisterform();">View Attendance</a>
                                         </li>
                                         <li>
-                                        <a href="#" onclick="student();">Search Learner</a>
-                                        </li>
-                                        <li>
                                             <a href="#" onclick="giveFeedback()">Give Feedback About Learners</a>
                                         </li>
                                            <li>
@@ -753,21 +732,6 @@
                                         </li>
                                         </ul>
                                 </li>
-                             <!--<li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Group's
-                                        <b class="caret hidden-phone"></b>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a href="#" onclick="addgroup();">Add Group's</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" onclick="viewgroup();">View Group's</a>
-                                        </li><li>
-                                            <a href="#" onclick="findgroup();">Find Group</a>
-                                        </li>
-                                    </ul>
-                                </li><-->
                             <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Trainer's
                                         <b class="caret hidden-phone"></b>

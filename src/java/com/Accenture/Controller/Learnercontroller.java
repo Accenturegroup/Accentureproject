@@ -664,11 +664,13 @@ public class Learnercontroller {
      @RequestMapping("/updateFeedback")
      public ModelAndView updateFeedback(HttpServletRequest request,HttpServletResponse res){
         int fid=Integer.parseInt(request.getParameter("id"));
+        String email=request.getParameter("msg");
         List<learnerspojo> view1=dao.getLearners();
         feedbackpojo fpojo=fdao.getById(fid);
         ModelAndView model=new ModelAndView("updateFeedback");
         model.addObject("updateFeedback",fpojo);
         model.addObject("msg",view1);
+        model.addObject("it",email);
         return model;
      }
      
@@ -690,7 +692,7 @@ public class Learnercontroller {
          
          fdao.updateforceg(fpojo);
 
-         return new ModelAndView("manu", "message", message); 
+         return new ModelAndView("trainerlogin", "msg", msg); 
      } 
      @RequestMapping("/viewFeedback")        
     public ModelAndView viewFeedback(HttpServletRequest request,ModelAndView model) throws IOException{ 
@@ -713,11 +715,11 @@ public class Learnercontroller {
     @RequestMapping("/deleteFeedback")
       public ModelAndView deleteFeedback(HttpServletRequest request,HttpServletResponse res){
          int id=Integer.parseInt(request.getParameter("id"));
-         
+          String msg=request.getParameter("ms");
          fpojo.setFeedbackid(id);
          fdao.deleteforceg(fpojo);
 
-         ModelAndView model=new ModelAndView("manu");
+         ModelAndView model=new ModelAndView("trainerlogin","msg",msg);
 
          return model;
      }
