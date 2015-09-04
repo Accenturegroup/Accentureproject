@@ -140,6 +140,7 @@
              }
              function viewlearner(){
                  document.getElementById("show1").innerHTML="";
+                var msg=document.getElementById("email").value;
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -155,7 +156,7 @@
                document.getElementById("show").innerHTML=xmlhttp.responseText;
                 }
                  }
-                 xmlhttp.open("GET","learnerList.html",true);
+                 xmlhttp.open("GET","learnerList.html?msg="+msg,true);
                  xmlhttp.send();
              }
              function editlearner(id){
@@ -746,7 +747,7 @@
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li>
-                                        <a href="#" onclick="student();">View Learner's</a>
+                                        <a href="#" onclick="viewlearner();">View learner</a>
                                         </li>
                                            <li>
                                             <a href="#" onclick="viewFeedback()">View Learners Feedback</a>
@@ -774,9 +775,6 @@
                                      <!-- <li>
                                    <a href="#" onclick="addassessment();">Add Assessment's</a>
                                     </li>-->
-                                        <li>
-                                            <a href="#" onclick="addsme();">Add SME</a>
-                                        </li>
                                     </ul>
                                 </li>
                             <li class="dropdown">

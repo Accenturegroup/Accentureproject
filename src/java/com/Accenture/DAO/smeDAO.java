@@ -107,11 +107,18 @@ public List<sme>findlocandgro(String email){
     SessionFactory sf=new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
     ses=sf.openSession();
     ses.beginTransaction();
-    String HQL_QUERY="from sme sme where email =:email";
+    String HQL_QUERY="from sme sme where companyemail =:email";
     org.hibernate.Query query=ses.createQuery(HQL_QUERY);
     query.setParameter("email",email);
     for(Iterator it=query.iterate();it.hasNext();){
              sme b=(sme) it.next();
+             b.getCompanyaddress();
+             b.getCompanycontact();
+             b.getCompanyemail();
+             b.getCompanygroupid();
+             b.getCompanyname();
+             b.getCompanypassword();
+             b.getCompanylocation();
              list.add(b);
     }
     return list;

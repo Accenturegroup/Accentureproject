@@ -28,7 +28,7 @@
                     <div class="row">
                         <div id="acct-password-row" class="span7">                            
                             <fieldset>
-                                <input type="hidden" value="${it}" name="smg">
+                                <input type="hidden" value="${it}" name="g">
                                 <div class="control-group ">
                                     <label class="control-label">Company Name :<span class="required">*</span></label>
                                     <div class="controls">
@@ -67,7 +67,7 @@
                                         <select class="span4" name="group" id="group">
                                         <option></option>
                                        <c:forEach var="group" items="${msg}">
-                                       <option value="${group.getGroupid()}">${group.getGname()}</option>
+                                       <option value="${group.getGname()}">${group.getGname()}</option>
                                        </c:forEach>
                                         </select>
                                     </div>
@@ -78,7 +78,7 @@
                                         <select class="span4" name="location" id="location">
                                         <option></option>
                                         <c:forEach var="location" items="${msg2}">
-                                       <option value="${location.getLocationid()}">${location.getLocation()}</option>
+                                       <option value="${location.getLocation()}">${location.getLocation()}</option>
                                        </c:forEach>
                                         </select>
                                     </div>

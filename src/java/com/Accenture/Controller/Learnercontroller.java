@@ -937,14 +937,14 @@ public class Learnercontroller {
      }
      @RequestMapping("/addsme")
     public ModelAndView SMEAdd(HttpServletRequest request,HttpServletResponse res) { 
-        String msg=request.getParameter("msg");
+     String msg=request.getParameter("g");
      String name=request.getParameter("Name");
      String adress=request.getParameter("Address");
      String email=request.getParameter("Email");
      String contact=request.getParameter("Contact");
      String password=request.getParameter("password");
-     int locid=Integer.parseInt(request.getParameter("location"));
-     int gid=Integer.parseInt(request.getParameter("group"));
+     String locid= (request.getParameter("location"));
+     String gid=(request.getParameter("group"));
      
      sme sm = new sme();
      sm.setCompanyname(name);
