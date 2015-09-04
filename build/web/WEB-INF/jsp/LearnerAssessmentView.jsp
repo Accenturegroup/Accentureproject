@@ -17,7 +17,7 @@
         <section class="page container">
             <div class="row">
                  <div class="span12">        
-                <div align="center">
+               
                        <form:form>
                     <div id="Person-1" class="box">
                         <div class="box-header">
@@ -53,7 +53,7 @@
             </div>
                     </div>
                            </form:form>
-                </div>
+             
                  </div>
             </div>
         </section>

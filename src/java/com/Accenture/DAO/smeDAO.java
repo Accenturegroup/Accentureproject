@@ -85,15 +85,15 @@ public String checklogin(String email,String password){
     SessionFactory sf=new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
     ses=sf.openSession();
     ses.beginTransaction();
-    String HQL_QUERY="from sme sme where email =:email and password =:password";
+    String HQL_QUERY="from sme sme where companyemail  =:email and companypassword =:password";
     org.hibernate.Query query=ses.createQuery(HQL_QUERY);
     query.setParameter("email",email);
     query.setParameter("password",password);
 
     for(Iterator it=query.iterate();it.hasNext();){
-             trainerpojo b=(trainerpojo) it.next();
-             e=b.getEmail();
-             p=b.getPassword();
+             sme b=(sme) it.next();
+             e=b.getCompanyemail();
+             p=b.getCompanypassword();
     }
     if(e.equals(email)&&p.equals(password)){
         msg="yes";

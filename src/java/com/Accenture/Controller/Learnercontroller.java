@@ -396,8 +396,11 @@ public class Learnercontroller {
 
        String msg=daoe.checklogin(email, password);
        String msg1=dao.checklogin(email, password);
+       String smes=sme.checklogin(email, password);
        if(msg.equals("yes")){
            model=new ModelAndView("trainerlogin","msg",email);
+       }else if(smes.equals("yes")){
+           model=new ModelAndView("smelogin","msg",email);
        }else if(msg1.equals("yes")){
            model=new ModelAndView("learner","msg",email);
        }else if(email.equals("Accenture@gmail.com")&&password.equals("accenture@2")){
@@ -737,6 +740,13 @@ public class Learnercontroller {
       model.addObject("it", msg);
       return model;
     }
+    
+    @RequestMapping("/LearnerAssessmentView1")
+    public ModelAndView LearnerAssessmentView1(ModelAndView model) throws IOException{ 
+      List<LearnerAssessmentPojo> LearnerAssessmentView=ldao.getLearnerAssessment();      
+     return new ModelAndView("AccLassessView","msg",LearnerAssessmentView);
+    }
+    
     LearnerAssessmentDAO ldao=(LearnerAssessmentDAO)r.getBean("las");
     LearnerAssessmentPojo lap=new LearnerAssessmentPojo();
     @RequestMapping("/LearnerAssessmentAddView")
@@ -761,6 +771,7 @@ public class Learnercontroller {
      model.addObject("msg",email);
       return model;
     }
+    
     
     @RequestMapping("/LearnerAssessmentAdd")
     public ModelAndView LearnerAssessmentAdd(HttpServletRequest request,HttpServletResponse res) { 
@@ -965,5 +976,24 @@ public class Learnercontroller {
      model.addObject("Assessment",AssessmentView);
      model.addObject("msg",msg);
       return model;
+    }
+    @RequestMapping("/viewdetails")
+    public ModelAndView viewdetails(ModelAndView model,HttpServletRequest request) throws IOException{ 
+     String msg=request.getParameter("msg");
+     List<learnerspojo>list=dao.getlearnerdetails(msg);
+     return new ModelAndView("learnerinfor","it",list);
+    }
+    @RequestMapping("/viewlearnersmarks")
+    public ModelAndView viewlearnersmarks(ModelAndView model,HttpServletRequest request) throws IOException{ 
+     String msg=request.getParameter("msg");
+     List<learnerspojo>list=dao.getlearnerdetails(msg);
+       int id=0;
+       List<LearnerAssessmentPojo>list1=null;
+       for(learnerspojo e:list){
+         id=e.getLID();
+         list1=dao.marks(id);
+     }
+     Iterator it=list1.iterator();
+     return new ModelAndView("viewlearnersmarks","it",it);
     }
 }

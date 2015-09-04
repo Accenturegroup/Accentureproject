@@ -7,7 +7,9 @@ package com.Accenture.DAO;
 
 import com.Accenture.Model.AssessmentPojo;
 import com.Accenture.Model.LearnerAssessmentPojo;
+import com.Accenture.Model.learnerspojo;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -76,4 +78,5 @@ list = template.find(query, idnumber);
 
 return list;
 }
+
 }

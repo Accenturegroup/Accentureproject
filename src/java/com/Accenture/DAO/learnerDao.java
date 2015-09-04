@@ -5,6 +5,7 @@
  */
 package com.Accenture.DAO;
 
+import com.Accenture.Model.LearnerAssessmentPojo;
 import com.Accenture.Model.learnerspojo;
 import com.Accenture.Model.trainerpojo;
 import java.util.ArrayList;
@@ -63,8 +64,7 @@ public List<learnerspojo> getLearners(){
     List<learnerspojo> list=new ArrayList<learnerspojo>();  
     list=template.loadAll(learnerspojo.class);  
     return list;  
-}
- //method to return one employee of given email  
+}  
 public List<learnerspojo> getByEmail(String email){  
    List<learnerspojo>list=new ArrayList<>();
    Session session=null;
@@ -74,8 +74,7 @@ public List<learnerspojo> getByEmail(String email){
    String HQL_QUERY="from learnerspojo  l where email ="+email;
      org.hibernate.Query query = session.createQuery(HQL_QUERY);
             for(Iterator it = query.iterate();it.hasNext();){
-                learnerspojo l = (learnerspojo) it.next();
-                
+                learnerspojo l = (learnerspojo) it.next();                
                 l.getEmail();
                 l.getGender();
                 l.getGroups();
@@ -102,7 +101,6 @@ public String checklogin(String email,String password){
     org.hibernate.Query query=ses.createQuery(HQL_QUERY);
     query.setParameter("email",email);
     query.setParameter("password",password);
-
     for(Iterator it=query.iterate();it.hasNext();){
              learnerspojo b=(learnerspojo) it.next();
              e=b.getEmail();
@@ -110,12 +108,65 @@ public String checklogin(String email,String password){
     }
     if(e.equals(email)&&p.equals(password)){
         msg="yes";
-    }
-    
+    }    
 return msg;
 }
 
-public List<learnerspojo> search(int id)
+public List<learnerspojo> search(int id){
+    List<learnerspojo> result=new ArrayList<learnerspojo>();
+            Session session=null;
+            SessionFactory sessionfactory = new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
+            session = sessionfactory.openSession();
+            session.beginTransaction();			
+            String HQL_QUERY= "from learnerspojo  l where lid="+id;
+            org.hibernate.Query query = session.createQuery(HQL_QUERY);         
+            for(Iterator it = query.iterate();it.hasNext();){
+                learnerspojo l = (learnerspojo) it.next();                
+                l.getEmail();
+                l.getGender();
+                l.getGroups();
+                l.getId();
+                l.getLID();
+                l.getLName();
+                l.getLSurname();
+                l.getNumber();
+                l.getPassword();
+                l.getRace();
+                l.getStatus();
+                l.getTitle();
+                result.add(l);
+            }
+          return result;  
+}
+
+public List<learnerspojo> search0(String group,String loc)
+{
+    List<learnerspojo> result=new ArrayList<learnerspojo>();
+     Session session=null;
+          SessionFactory sessionfactory = new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
+            session = sessionfactory.openSession();
+            session.beginTransaction();			
+            String HQL_QUERY= "from learnerspojo l where groups='"+group+"' AND location='"+loc+"'";
+            org.hibernate.Query query = session.createQuery(HQL_QUERY);         
+            for(Iterator it = query.iterate();it.hasNext();){
+                learnerspojo l = (learnerspojo) it.next();                
+                l.getEmail();
+                l.getGender();
+                l.getGroups();
+                l.getId();
+                l.getLID();
+                l.getLName();
+                l.getLSurname();
+                l.getNumber();
+                l.getPassword();
+                l.getRace();
+                l.getStatus();
+                l.getTitle();
+                result.add(l);
+            }
+          return result;  
+}
+public List<learnerspojo> getlearnerdetails(String email)
 {
     List<learnerspojo> result=new ArrayList<learnerspojo>();
             Session session=null;
@@ -123,7 +174,7 @@ public List<learnerspojo> search(int id)
             session = sessionfactory.openSession();
             session.beginTransaction();
 			
-            String HQL_QUERY= "from learnerspojo  l where lid="+id;
+            String HQL_QUERY= "from learnerspojo  l where email ='"+email+"'";
             org.hibernate.Query query = session.createQuery(HQL_QUERY);
          
             for(Iterator it = query.iterate();it.hasNext();){
@@ -145,34 +196,21 @@ public List<learnerspojo> search(int id)
             }
           return result;  
 }
-
-
-public List<learnerspojo> search0(String group,String loc)
-{
-    List<learnerspojo> result=new ArrayList<learnerspojo>();
-     Session session=null;
-          SessionFactory sessionfactory = new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
+   public List<LearnerAssessmentPojo>marks(int id){
+    List<LearnerAssessmentPojo> result=new ArrayList<>();
+            Session session=null;
+            SessionFactory sessionfactory = new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
             session = sessionfactory.openSession();
-            session.beginTransaction();
-			
-            String HQL_QUERY= "from learnerspojo l where groups='"+group+"' AND location='"+loc+"'";
-            org.hibernate.Query query = session.createQuery(HQL_QUERY);
-         
+            session.beginTransaction();			
+            String HQL_QUERY= "from LearnerAssessmentPojo  lassessment where learnerID="+id;
+            org.hibernate.Query query = session.createQuery(HQL_QUERY);         
             for(Iterator it = query.iterate();it.hasNext();){
-                learnerspojo l = (learnerspojo) it.next();
-                
-                l.getEmail();
-                l.getGender();
-                l.getGroups();
-                l.getId();
-                l.getLID();
-                l.getLName();
-                l.getLSurname();
-                l.getNumber();
-                l.getPassword();
-                l.getRace();
-                l.getStatus();
-                l.getTitle();
+                LearnerAssessmentPojo l = (LearnerAssessmentPojo) it.next();                
+                 l.getAssessmentID();
+                 l.getDateEntered();
+                 l.getID();
+                 l.getLearnerID();
+                 l.getMarks();
                 result.add(l);
             }
           return result;  

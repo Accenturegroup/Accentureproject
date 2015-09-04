@@ -16,5 +16,6 @@
     <mapping resource="location.hbm.xml"/>
     <mapping resource="questionnaire.hbm.xml"/>
     <mapping resource="question.hbm.xml"/>
+    <mapping resource="sme.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

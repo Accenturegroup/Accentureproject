@@ -12,6 +12,48 @@
     <script src="styles/js/jquery/jquery-1.8.2.min.js" type="text/javascript" ></script>
     <link href="styles/css/customize-template.css" type="text/css" media="screen, projection" rel="stylesheet" />
         <script>
+            function viewlearnersmarks()
+                 {
+               var email=document.getElementById("email").value;
+                 if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                 xmlhttp=new XMLHttpRequest(); 
+                }
+                else
+                 {// code for IE6, IE5
+                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                 }
+                xmlhttp.onreadystatechange=function()
+                 {
+              if (xmlhttp.readyState===4 && xmlhttp.status===200)
+                 {
+               document.getElementById("show").innerHTML=xmlhttp.responseText;
+                }
+                 }
+                 xmlhttp.open("GET","viewlearnersmarks.html?msg="+email,true);
+                 xmlhttp.send();
+             }
+               function viewdetails()
+                 {
+               var email=document.getElementById("email").value;
+                 if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                 xmlhttp=new XMLHttpRequest(); 
+                }
+                else
+                 {// code for IE6, IE5
+                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                 }
+                xmlhttp.onreadystatechange=function()
+                 {
+              if (xmlhttp.readyState===4 && xmlhttp.status===200)
+                 {
+               document.getElementById("show").innerHTML=xmlhttp.responseText;
+                }
+                 }
+                 xmlhttp.open("GET","viewdetails.html?msg="+email,true);
+                 xmlhttp.send();
+             }
               function details()
                  {
                var email=document.getElementById("email").value;
@@ -367,8 +409,18 @@ for(var i = 0; i < rad.length; i++){
                                     </a>
                                     <ul class="dropdown-menu">
                                           <li>
-                                          <a href="#" onclick="details()">View Your Details</a>
+                                          <a href="#" onclick="viewdetails()">View Your Details</a>
                                           </li>
+                                          <li>
+                                          <a href="#" onclick="viewlearnersmarks()">view marks</a>
+                                          </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">survey
+                                        <b class="caret hidden-phone"></b>
+                                    </a>
+                                    <ul class="dropdown-menu">
                                           <li>
                                           <a href="#" onclick="display()">Questionnaire</a>
                                           </li>

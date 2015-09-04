@@ -365,7 +365,7 @@
                document.getElementById("show").innerHTML=xmlhttp.responseText;
                 }
                  }
-                 xmlhttp.open("GET","LearnerAssessmentView.html",true);
+                 xmlhttp.open("GET","LearnerAssessmentView1.html",true);
                  xmlhttp.send();
              }
              function editLearnerAssess(id){
@@ -594,6 +594,7 @@
                  xmlhttp.send();
              }
              function addsme(){
+                  document.getElementById("show1").innerHTML="";
                  var msg=document.getElementById("email").value;                 
                  if (window.XMLHttpRequest)
                 {
@@ -770,9 +771,6 @@
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li>
-                                            <a href="#" onclick="addtrainer();">Add Trainer's</a>
-                                        </li>
-                                        <li>
                                             <a href="#" onclick="acc();">View Trainer's </a>
                                         </li>
 
@@ -806,9 +804,91 @@
 
     </section>
              <input type="hidden" name="email" id="email" value="${msg}">
-             <div id="show">
-                 
+                 <div id="show">
+<div id="body-container">
+            <div id="body-content">
+    <section class="page container">
+        <div class="row">            
+            <div class="span16">
+                <div class="row">
+                    <div class="span8">                      
+<script type="text/javascript">
+    google.load('visualization', '1', {'packages': ['corechart']});
+    google.setOnLoadCallback(drawVisualization);
+    
+    function drawVisualization() {
+        visualization_data = new google.visualization.DataTable();
+        
+        visualization_data.addColumn('string', 'Task');
+        
+        visualization_data.addColumn('number', 'Hours per Day');
+        
+        
+        visualization_data.addRow(['Present',${60}]);
+        
+        visualization_data.addRow(['Absent', 40]);
+        
+        /*visualization_data.addRow(['Commute', 30]);
+        
+        visualization_data.addRow(['Watch TV', 2]);
+        
+        visualization_data.addRow(['Sleep', 2]);*/
+        
+      
+        visualization = new google.visualization.LineChart(document.getElementById('piechart'));
+        visualization.draw(visualization_data, {title: 'Attendance States', height: 260}); 
+    }
+</script>
+        <div class="box">
+            <div class="box-header">
+                <i class="icon-bar-chart"></i>
+                    <h5>Charts</h5>
+                        </div>
+                            <div class="box-content">
+                                <div id="piechart"></div>
+                            </div>
+                        </div>
+                    </div>
+                <div class="row">
+            <div class="span8">
+<script type="text/javascript">
+    google.load('visualization', '1', {'packages': ['corechart']});
+    google.setOnLoadCallback(drawVisualization);
+    
+    function drawVisualization() {
+        visualization_data = new google.visualization.DataTable();
+        
+        visualization_data.addColumn('string', 'Task');
+        
+        visualization_data.addColumn('number', 'Hours per Day');
+        
+        
+        visualization_data.addRow(['Work', 11]);
+        
+        visualization_data.addRow(['Eat', 2]);
+        
+        visualization_data.addRow(['Commute', 2]);
+        
+        visualization_data.addRow(['Watch TV', 2]);
+        
+        visualization_data.addRow(['Sleep', 7]);
+        
+        visualization = new google.visualization.ColumnChart(document.getElementById('barchart'));
+        visualization.draw(visualization_data, {title: 'My Daily Activities', height: 300}); 
+    }
+</script>
+                        <div class="blockoff-left">
+                            <div id="barchart"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+    </section>
+            </div>
+        </div>
+            </div>
+
             <div id="show1">
             </div>
            </div>
