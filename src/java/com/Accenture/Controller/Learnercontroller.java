@@ -289,13 +289,15 @@ public class Learnercontroller {
     }
      
     @RequestMapping("/addtrainer")
-    public ModelAndView addtrainer(ModelAndView model){
+    public ModelAndView addtrainer(HttpServletRequest request,ModelAndView model){
         List<grouppojo> view1=daog.getgroup();
         List<locationpojo>v=daol.getLocations();
+        String email=request.getParameter("msg");
         model.addObject("msg",view1);
         trainerpojo obj=new trainerpojo();
         model.addObject("addtrainer", obj);
         model.addObject("msg2", v);
+        model.addObject("it", email);
         model.setViewName("addtrainer");
         return model;
     }
@@ -313,6 +315,7 @@ public class Learnercontroller {
       String email=request.getParameter("email");
       String number=request.getParameter("number");
       String location = request.getParameter("location");
+      String msg = request.getParameter("msg");
       pojoe.setName(name);
       pojoe.setSurname(surname);
       pojoe.setIdNumber(id);
@@ -324,7 +327,7 @@ public class Learnercontroller {
       pojoe.setContact(number);
       pojoe.setLocation(location);
       daoe.saveTrainer(pojoe);
-      return new ModelAndView("manu", "message", message);  
+      return new ModelAndView("smelogin", "msg", msg);  
     }
      
      @RequestMapping("/deletetrainer")

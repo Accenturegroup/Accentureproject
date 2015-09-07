@@ -29,7 +29,8 @@
                     <legend><center>Trainer's Information</center></legend><br>
                     <div class="row">
                         <div id="acct-password-row" class="span7">                            
-                            <fieldset>                                
+                            <fieldset>
+                                <input type="hidden" name="msg" value="${it}">
                                 <div class="control-group ">
                                     <label class="control-label">Name:<span class="required">*</span></label>
                                     <div class="controls">

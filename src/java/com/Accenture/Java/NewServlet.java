@@ -62,26 +62,17 @@ public class NewServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try (PrintWriter out = response.getWriter()) {
-            ApplicationContext r = new ClassPathXmlApplicationContext("../../WEB-INF/applicationContext.xml");            
-            learnerspojo obj = new learnerspojo();
-            learnerDao dao = (learnerDao) r.getBean("d");            
-            
-            obj.setNumber("sds");
-            obj.setEmail("sdsd");
-            obj.setGender("ds");
-            obj.setGroups("sdsd");
-            obj.setId("wdew");
-            obj.setLName("Nsizwa");
-            obj.setLSurname("df");
-            obj.setPassword("asda");
-            obj.setRace("ds");
-            obj.setTitle("sds");
-            obj.setStatus("sd");
-            dao.saveLearner(obj);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+        String p1=request.getParameter("p1");
+        String p2=request.getParameter("p2");
+         if(p1 != p2)
+         {
+             out.println("<label id='lblshow'>Password dont Match</label>");
+         }
+         else
+         {
+              out.println("<label id='lblshow'>Password Matched</label>");
+         }
         }
-        
     }
 
     /**

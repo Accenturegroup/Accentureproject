@@ -201,6 +201,7 @@
              }
               function addtrainer(){
                   document.getElementById("show1").innerHTML="";
+                  var msg=document.getElementById("email").value;
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -216,7 +217,7 @@
                document.getElementById("show").innerHTML=xmlhttp.responseText;
                 }
                  }
-                 xmlhttp.open("GET","addtrainer.html",true);
+                 xmlhttp.open("GET","addtrainer.html?msg="+msg,true);
                  xmlhttp.send();
              }
               function addassessment(){

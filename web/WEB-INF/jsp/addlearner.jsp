@@ -152,10 +152,11 @@
                                     <div class="control-group ">
                                     <label class="control-label">Confirm Password</label>
                                     <div class="controls">
-                                        <input id="cpassword" name="cpassword" class="span4" type="password" value="" autocomplete="false">
-
+                                        <input id="cpassword" name="cpassword" class="span4" type="password" value="" onblur="validate();" autocomplete="false">
+                                        <label id="lblshow"></label>
                                     </div>
                                 </div>
+                                
                             </fieldset>
                         </div>
                     </div>
