@@ -691,7 +691,7 @@
                         </div>
                         <ul class="nav pull-right">
                             <li>
-                                <a href="logout.html">Logout</a>
+                                <a href="logout.html"><li class="icon-signout  icon-large" ></li>Logout</a>
                             </li>
                             
                         </ul>

@@ -11,6 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        
     </head>
     <body>
 
@@ -18,7 +19,7 @@
                 <div id="body-container">
             <div>
         <section id="my-account-security-form" class="page container">
-            <form id="userSecurityForm" class="form-horizontal" action="addtrainers.html" method="post">
+            <form id="userSecurityForm" class="form-horizontal" action="addtrainers.html" method="post" onsubmit="return check();">
                 <div class="container">
 
                     <div class="alert alert-block alert-info">
@@ -121,14 +122,14 @@
                                 <div class="control-group ">
                                     <label class="control-label">Confirm Password</label>
                                     <div class="controls">
-                                        <input id="cpassword" name="cpassword" class="span4" type="password" value="" autocomplete="false">
+                                        <input id="cpass" name="cpass" class="span4" type="password" value="" autocomplete="false">
                                     </div>
                                 </div>
                             </fieldset>
                         </div>
                     </div>
                     <footer id="submit-actions" class="form-actions">
-                        <input id="submit-button" type="submit" class="btn btn-primary"  value="Save">
+                        <input id="submit-button" type="submit" class="btn btn-primary" value="Save">
                         <input type="submit" class="btn" name="action" value="CANCEL">
                     </footer>
                 </div>

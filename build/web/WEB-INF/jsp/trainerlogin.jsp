@@ -56,6 +56,7 @@
              
              function viewtrainer(){
                document.getElementById("show1").innerHTML="";
+               var msg=document.getElementById("email").value;
                  if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -71,7 +72,7 @@
                document.getElementById("show").innerHTML=xmlhttp.responseText;
                 }
                  }
-                 xmlhttp.open("GET","view2.html",true);
+                 xmlhttp.open("GET","trainerview.html?msg="+msg,true);
                  xmlhttp.send();
              }
              
@@ -693,7 +694,7 @@
                     <div id="app-nav-top-bar" class="nav-collapse">
                         <ul class="nav pull-right">
                             <li>
-                                <a href="logout.html">Logout</a>
+                                <a href="logout.html"><li class="icon-signout  icon-large" ></li>Logout</a>
                             </li>
                             
                         </ul>

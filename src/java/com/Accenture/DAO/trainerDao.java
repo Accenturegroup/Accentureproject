@@ -5,6 +5,7 @@
  */
 package com.Accenture.DAO;
 
+import com.Accenture.Model.learnerspojo;
 import com.Accenture.Model.markregister;
 import com.Accenture.Model.trainerpojo;
 import java.util.ArrayList;
@@ -115,6 +116,11 @@ public List<trainerpojo>findlocandgro(String email){
              b.getGroup();
              b.getLocation();
              b.getEmail();
+             b.getGender();
+             b.getName();
+             b.getIdNumber();
+             b.getSurname();
+             b.getContact();             
              list.add(b);
     }
     return list;
@@ -136,6 +142,29 @@ public List<markregister>findattendance(String email){
              list.add(b);
     }
     return list;
+}
+public List<trainerpojo> search0(String group,String loc)
+{
+    List<trainerpojo> result=new ArrayList< >();
+     Session session=null;
+          SessionFactory sessionfactory = new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
+            session = sessionfactory.openSession();
+            session.beginTransaction();			
+            String HQL_QUERY= "from trainerpojo trainerpojo where groupID='"+group+"' AND location='"+loc+"'";
+            org.hibernate.Query query = session.createQuery(HQL_QUERY);         
+            for(Iterator it = query.iterate();it.hasNext();){
+                trainerpojo l = (trainerpojo) it.next();                
+                l.getEmail();
+                l.getContact();
+                l.getGender();
+                l.getIdNumber();
+                l.getLocation();
+                l.getName();
+                l.getQualification();
+                l.getSurname();
+                result.add(l);
+            }
+          return result;  
 }
 
 }

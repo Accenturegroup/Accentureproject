@@ -102,13 +102,30 @@ public class Learnercontroller {
       return model;
     }
     
-    @RequestMapping("/view2")
-    public ModelAndView view2(ModelAndView model) throws IOException{ 
-      List<trainerpojo> view2=daoe.getTrainers();
-     model.addObject("msg",view2);   
+    @RequestMapping("/smeviewtrainer")
+    public ModelAndView smeviewtrainer(HttpServletRequest request,ModelAndView model) throws IOException{ 
+     String em=request.getParameter("msg");
+     List<sme> smes=sme.findlocandgro(em);
+     String g="",l="";
+       List<trainerpojo>list=null;
+       for(sme e:smes){
+         l=e.getCompanylocation();
+         g=e.getCompanygroupid();
+         list=daoe.search0(g,l);
+     }
+        Iterator it=list.iterator();
+     model.addObject("msg",it);   
      return model;
     }
-        @RequestMapping("/AccntureViewTrainer")  
+    @RequestMapping("/trainerview")
+    public ModelAndView trainerview(HttpServletRequest request,ModelAndView model) throws IOException{ 
+    String email=request.getParameter("msg");
+      List<trainerpojo> f=daoe.findlocandgro(email);
+      Iterator it=f.iterator();
+     model.addObject("it",it);   
+     return model;
+    }
+    @RequestMapping("/AccntureViewTrainer")  
     public ModelAndView acc(ModelAndView model) {    
       List<trainerpojo> vi=daoe.getTrainers();
      model.addObject("msg",vi);
@@ -636,7 +653,23 @@ public class Learnercontroller {
          model.addObject("learnerList",learnerList);
          model.addObject("msg",it);
          return model;
-     }   
+     }
+     @RequestMapping("/learnerList1")
+     public ModelAndView getLearners1(HttpServletRequest request,ModelAndView model)
+     {
+       String email=request.getParameter("msg");
+       List<sme>result=sme.findlocandgro(email);
+       String g="",l="";
+       List<learnerspojo>list=null;
+       for(sme e:result){
+         l=e.getCompanylocation();
+         g=e.getCompanygroupid();
+         list=dao.search0(g,l);
+     }
+        Iterator it=list.iterator();
+         model.addObject("it",it);
+         return model;
+     } 
      @RequestMapping("/giveFeedback")
      public ModelAndView giveFeedback(ModelAndView model,HttpServletRequest request){
        List <learnerspojo> learner=dao.getLearners();
@@ -985,6 +1018,12 @@ public class Learnercontroller {
      String msg=request.getParameter("msg");
      List<learnerspojo>list=dao.getlearnerdetails(msg);
      return new ModelAndView("learnerinfor","it",list);
+    }
+    @RequestMapping("/ViewSmeDetails")
+    public ModelAndView ViewSmeDetails(ModelAndView model,HttpServletRequest request) throws IOException{ 
+     String msg=request.getParameter("msg");
+     List<sme>list=sme.findlocandgro(msg);
+     return new ModelAndView("ViewSmeDetails","msg",list);
     }
     @RequestMapping("/viewlearnersmarks")
     public ModelAndView viewlearnersmarks(ModelAndView model,HttpServletRequest request) throws IOException{ 

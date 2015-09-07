@@ -156,7 +156,7 @@
                document.getElementById("show").innerHTML=xmlhttp.responseText;
                 }
                  }
-                 xmlhttp.open("GET","learnerList.html?msg="+msg,true);
+                 xmlhttp.open("GET","learnerList1.html?msg="+msg,true);
                  xmlhttp.send();
              }
              function editlearner(id){
@@ -220,8 +220,9 @@
                  xmlhttp.open("GET","addtrainer.html?msg="+msg,true);
                  xmlhttp.send();
              }
-              function addassessment(){
+              function ViewSmeDetails(){
                   document.getElementById("show1").innerHTML="";
+                  var msg=document.getElementById("email").value;
           if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 
@@ -237,7 +238,7 @@
                document.getElementById("show").innerHTML=xmlhttp.responseText;
                 }
                  }
-                 xmlhttp.open("GET","Assessment.html",true);
+                 xmlhttp.open("GET","ViewSmeDetails.html?msg="+msg,true);
                  xmlhttp.send();
              }
              function viewassessment(){
@@ -647,7 +648,7 @@
                document.getElementById("show").innerHTML=xmlhttp.responseText;
                 }
                  };
-                 xmlhttp.open("GET","AccntureViewTrainer.html",true);
+                 xmlhttp.open("GET","smeviewtrainer.html?msg="+msg,true);
                  xmlhttp.send();
              }
              function AccAssessView(){
@@ -707,7 +708,7 @@
                         </div>
                         <ul class="nav pull-right">
                             <li>
-                                <a href="logout.html">Logout</a>
+                                <a href="logout.html"><li class="icon-signout  icon-large" ></li>Logout</a>
                             </li>
                             
                         </ul>
@@ -755,7 +756,7 @@
                                         </li>
                                         </ul>
                                 </li>
-                             <li class="dropdown">
+                            <!-- <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Group's
                                         <b class="caret hidden-phone"></b>
                                     </a>
@@ -767,15 +768,15 @@
                                             <a href="#" onclick="viewgroup();">View Group's</a>
                                         </li>
                                     </ul>
-                                </li>
+                                </li>-->
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"> SME
                                      <b class="caret hidden-phone"></b>
                                     </a>
                                     <ul class="dropdown-menu">
-                                     <!-- <li>
-                                   <a href="#" onclick="addassessment();">Add Assessment's</a>
-                                    </li>-->
+                                     <li>
+                                   <a href="#" onclick="ViewSmeDetails();">View Sme Details</a>
+                                    </li>
                                     </ul>
                                 </li>
                             <li class="dropdown">
