@@ -780,6 +780,9 @@
                                            <li>
                                             <a href="#" onclick="viewFeedback()">View Learners Feedback</a>
                                         </li>
+                                        <li>
+                                            <a href="#" onclick="findRegs()">Count For Charts</a>
+                                        </li>
                                         </ul>
                                 </li>
                              <li class="dropdown">
@@ -848,6 +851,19 @@
     </section>
              <input type="hidden" name="email" id="email" value="${msg}">
                  <div id="show">
+                     
+                                                 <p>Date Picker & Select Boxes</p>
+                            <div id="datepicker" class="input-prepend date">
+                                <span class="add-on"><i class="icon-th"></i></span>
+                                <input class="span2" type="text" value="02-16-2015">
+                            </div>
+                                                 <div id="show">
+            <form action="CountForCharts.html" method="POST" >
+            <input type="text" id="datepicker" name="date">
+            <input type="submit" value="search">
+            </form>
+        </div>
+                     
 <div id="body-container">
             <div id="body-content">
     <section class="page container">
@@ -867,18 +883,20 @@
         visualization_data.addColumn('number', 'Hours per Day');
         
         
-        visualization_data.addRow(['Present',${60}]);
+        visualization_data.addRow(['Present',${it}]);
         
-        visualization_data.addRow(['Absent', 40]);
+        visualization_data.addRow(['Absent', ${it0}]);
         
         /*visualization_data.addRow(['Commute', 30]);
         
         visualization_data.addRow(['Watch TV', 2]);
         
         visualization_data.addRow(['Sleep', 2]);*/
-        
-      
-        visualization = new google.visualization.LineChart(document.getElementById('piechart'));
+         visualization1 = new google.visualization.BarChart(document.getElementById('barchart'));
+        visualization1.draw(visualization_data, {title: 'Attendance States', height: 260});
+       visualization0 = new google.visualization.PieChart(document.getElementById('piechart'));
+        visualization0.draw(visualization_data, {title: 'Attendance States', height: 260}); 
+        visualization = new google.visualization.LineChart(document.getElementById('linechart'));
         visualization.draw(visualization_data, {title: 'Attendance States', height: 260}); 
     }
 </script>
@@ -894,34 +912,17 @@
                     </div>
                 <div class="row">
             <div class="span8">
-<script type="text/javascript">
-    google.load('visualization', '1', {'packages': ['corechart']});
-    google.setOnLoadCallback(drawVisualization);
-    
-    function drawVisualization() {
-        visualization_data = new google.visualization.DataTable();
-        
-        visualization_data.addColumn('string', 'Task');
-        
-        visualization_data.addColumn('number', 'Hours per Day');
-        
-        
-        visualization_data.addRow(['Work', 11]);
-        
-        visualization_data.addRow(['Eat', 2]);
-        
-        visualization_data.addRow(['Commute', 2]);
-        
-        visualization_data.addRow(['Watch TV', 2]);
-        
-        visualization_data.addRow(['Sleep', 7]);
-        
-        visualization = new google.visualization.ColumnChart(document.getElementById('barchart'));
-        visualization.draw(visualization_data, {title: 'My Daily Activities', height: 300}); 
-    }
-</script>
+
                         <div class="blockoff-left">
                             <div id="barchart"></div>
+                        </div>
+                    </div>
+                </div>
+         <div class="row">
+            <div class="span8">
+
+                        <div class="blockoff-left">
+                            <div id="linechart"></div>
                         </div>
                     </div>
                 </div>
