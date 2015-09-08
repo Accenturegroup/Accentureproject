@@ -126,8 +126,8 @@
                 </a>
         </div>
     </nav>
-                        </div>
-                    </div>
+    </div>
+    </div>
                 
                 
         <section class="nav nav-page">
@@ -146,8 +146,8 @@
                             <li class="active">
                                 <a href="#"><i class="icon-home"></i>Home</a>
                             </li>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li><a href="#"><i class="icon-cog"></i>About Us</a></li>
+                            <li><a href="#"><i class="icon-phone"></i>Contact</a></li>
                         </ul>
                     </div>
                 </div>

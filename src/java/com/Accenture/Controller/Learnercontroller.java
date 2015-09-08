@@ -140,34 +140,34 @@ public class Learnercontroller {
         model.setViewName("add");
         return model;
     }
-    @RequestMapping("/addnew")
-     public ModelAndView addnew(HttpServletRequest request,HttpServletResponse res) {  
-        String message = "";
-        String name=request.getParameter("name");
-        String duration=request.getParameter("duration");
-        String start=request.getParameter("start");
-        String finish=request.getParameter("finish");
-        String location=request.getParameter("location");
-        String msg=request.getParameter("msg");
-        pojo.setGname(name);
-        pojo.setDuration(duration);
-        pojo.setFinish(finish);
-        pojo.setStart(start);
-        pojo.setLocation(location);
-        daog.savegroup(pojo);
-        return new ModelAndView("manu","msg", msg);  
-    }
-//        @RequestMapping("/addnew")
-//     public String addnew(String name,String duration,String start,String finish,String location) {  
-//        String message = "successfully";
-//        pojo.setGname(name.toUpperCase());
+//    @RequestMapping("/addnew")
+//     public ModelAndView addnew(HttpServletRequest request,HttpServletResponse res) {  
+//        String message = "";
+//        String name=request.getParameter("name");
+//        String duration=request.getParameter("duration");
+//        String start=request.getParameter("start");
+//        String finish=request.getParameter("finish");
+//        String location=request.getParameter("location");
+//        String msg=request.getParameter("msg");
+//        pojo.setGname(name);
 //        pojo.setDuration(duration);
 //        pojo.setFinish(finish);
 //        pojo.setStart(start);
 //        pojo.setLocation(location);
 //        daog.savegroup(pojo);
-//        return message;
+//        return new ModelAndView("manu","msg", msg);  
 //    }
+        @RequestMapping("/addnew")
+     public String addnew(String name,String duration,String start,String finish,String location) {  
+        String message = "successfully";
+        pojo.setGname(name.toUpperCase());
+        pojo.setDuration(duration);
+        pojo.setFinish(finish);
+        pojo.setStart(start);
+        pojo.setLocation(location);
+        daog.savegroup(pojo);
+        return message;
+    }
      @RequestMapping("/edit")
      public ModelAndView edit(HttpServletRequest request,HttpServletResponse res){
          int id=Integer.parseInt(request.getParameter("id"));

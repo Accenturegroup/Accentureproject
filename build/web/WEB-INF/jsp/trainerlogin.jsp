@@ -273,6 +273,7 @@
              }
               function addassessment(){
                   document.getElementById("show1").innerHTML="";
+                
                 if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                  xmlhttp=new XMLHttpRequest(); 

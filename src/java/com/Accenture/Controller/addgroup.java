@@ -70,20 +70,22 @@ public class addgroup extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        String dd="erg";
         String name=request.getParameter("name");
         String duration=request.getParameter("duration");
         String start=request.getParameter("start");
         String finish=request.getParameter("finish");
         String location=request.getParameter("location");
         String tid=request.getParameter("tid");
+        String msg1=request.getParameter("msg");
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
              Learnercontroller obj=new Learnercontroller();
              
-//        String msg=obj.addnew(name, duration, start, finish, location);
-//         out.println("<label id=show2>"+msg+"</label>");
-//         out.println("EEEEEEEEEEEEEEEEEEEEE");
+        String msg=obj.addnew(name, duration, start, finish, location);
+         out.println("<label id=show2>"+msg+"</label>");
+         response.sendRedirect("manu.jsp?msg="+msg1+"&f="+dd);
+         
         }
     }
 

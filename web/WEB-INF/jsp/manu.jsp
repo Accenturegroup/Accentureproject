@@ -33,15 +33,14 @@
                  xmlhttp.send();
              }
              function addmeth(){
-                   document.getElementById("show1").innerHTML="";
-
+               document.getElementById("show1").innerHTML="";
+                //document.getElementById("show").innerHTML="";
                 var name=document.getElementById("name").value;
                 var duration=document.getElementById("duration").value;
                 var start=document.getElementById("start").value;
                 var finish=document.getElementById("finish").value;
                 var location=document.getElementById("location").value;
                 var msg=document.getElementById("email").value;
-                alert("dfasdf");
                 
                 if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -58,7 +57,7 @@
                document.getElementById("show").innerHTML=xmlhttp.responseText;
                 }
                  }
-                 xmlhttp.open("GET","addnew.html?name="+name+"&&duration="+duration+"&&start="+start+"&&finish="+finish+"&&location="+location+"&&msg="+msg,true);
+                 xmlhttp.open("post","addgroup?name="+name+"&&duration="+duration+"&&start="+start+"&&finish="+finish+"&&location="+location+"&&msg="+msg,true);
                  xmlhttp.send();
              }
              function viewgroup(){
@@ -739,7 +738,7 @@
                             
                         </ul>
                     </div>
-                    ${msg}
+                   Welcome : ${msg}
                 </div>
             </div>
         </div>
@@ -803,9 +802,6 @@
                                      <b class="caret hidden-phone"></b>
                                     </a>
                                     <ul class="dropdown-menu">
-                                     <!-- <li>
-                                   <a href="#" onclick="addassessment();">Add Assessment's</a>
-                                    </li>-->
                                         <li>
                                             <a href="#" onclick="addsme();">Add SME</a>
                                         </li>
@@ -816,7 +812,7 @@
                                         <b class="caret hidden-phone"></b>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li>
+                                        <li>                                            
                                             <a href="#" onclick="acc();">View Trainer's </a>
                                         </li>
 
@@ -850,19 +846,17 @@
 
     </section>
              <input type="hidden" name="email" id="email" value="${msg}">
-                 <div id="show">
-                     
-                                                 <p>Date Picker & Select Boxes</p>
-                            <div id="datepicker" class="input-prepend date">
-                                <span class="add-on"><i class="icon-th"></i></span>
-                                <input class="span2" type="text" value="02-16-2015">
-                            </div>
-                                                 <div id="show">
+                 <div id="show">                     
+                     <p>Date Picker & Select Boxes</p>
+                     <div id="datepicker" class="input-prepend date">
+                        <span class="add-on"><i class="icon-th"></i></span>
+                        <input class="span2" type="text" value="02-16-2015">
+                     </div>                                                                                      
+                                                               
             <form action="CountForCharts.html" method="POST" >
             <input type="text" id="datepicker" name="date">
             <input type="submit" value="search">
             </form>
-        </div>
                      
 <div id="body-container">
             <div id="body-content">
@@ -934,6 +928,7 @@
             </div>
 
             <div id="show1">
+
             </div>
            </div>
         </div>

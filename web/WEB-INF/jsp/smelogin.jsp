@@ -713,7 +713,7 @@
                             
                         </ul>
                     </div>
-                    ${msg}
+                   Welcome : ${msg}
                 </div>
             </div>
         </div>
